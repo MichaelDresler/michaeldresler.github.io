@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useRef, SVGProps, ReactNode } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import path from "path";
 import { motion } from "framer-motion";
 
 type NavLink = {
