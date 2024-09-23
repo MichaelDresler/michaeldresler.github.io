@@ -3,25 +3,43 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --surface: 18, 18, 18;
+
+  --text-primary: rgba(255,255,255,0.87);
+  --text-secondary: rgba(255,255,255,0.6);
+
+  
+
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: 18, 18, 18;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: rgb(var(--surface));
   font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components{
+  .content-box{
+    @apply max-w-[1840px] mx-auto px-4 md:px-8 lg:px-16
+  }
+
+  .paragraph{
+    @apply text-text-secondary text-base md:text-lg font-light text-pretty
+  }
+
+  .link{
+    @apply text-text-secondary text-base font-normal hover:text-text-primary duration-300
   }
 }

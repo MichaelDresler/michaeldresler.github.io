@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import path from "path";
+import { cubicBezier } from "framer-motion";
+import { geistMono } from "../fonts";
 
 type NavLink = {
   name: string,
@@ -13,6 +14,7 @@ type NavLink = {
 
 
 export default function NavBar() {
+  const easing = cubicBezier(.5,0,.3,1)
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
@@ -38,10 +40,10 @@ export default function NavBar() {
 
 
   const navlinks:NavLink [] = [
-    {name:"home", url: "/"},
-    {name:"about", url: "/about"},
-    {name:"IAT355", url: "/IAT355"},
-    {name:"styleguide", url: "/styleguide"},
+    {name:"Home", url: "/"},
+    {name:"About", url: "/about"},
+    {name:"Iat 355", url: "/IAT355"},
+    {name:"Styleguide", url: "/styleguide"},
 
   ]
 
@@ -79,17 +81,17 @@ export default function NavBar() {
   console.log(activeHover)
 
   return (
-    <div className="fixed w-full left-0 top-0 text-sm px-6 sm:px-12  z-[1000]">
+    <div className="fixed w-full left-0 top-0 text-sm px-4 lg:px-24  z-[1000]">
       {/* used for progressive blur behind navbar */}
-      <div className="w-screen h-full absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]" ></div>
+      {/* <div className="w-screen h-full absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]" ></div> */}
 
       <div
       ref={navRef}
         className={` ${
-          isOpen ? " h-[23rem]" : "h-[3.5rem]"
-        } rounded-[4px]  mx-auto  bg-white/10  border border-white/5 transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row   px-8 max-w-[40rem] z-[1000]`}
+          isOpen ? " h-screen" : "h-[3.5rem]"
+        } rounded-[4px]  mx-auto bg-surface transition-all duration-500 py-10 backdrop-blur-lg  overflow-hidden flex flex-col sm:flex-row px-12  z-[1000] max-w-[1840px]`}
       >
-        <ul className={` flex w-full sm:w-auto items-center py-4 `}>
+        <ul className={` flex w-full sm:w-auto items-center py-4 text-text-primary `}>
           {/* surge logo */}
           <li className="flex items-center ">
             <Link href="/">
@@ -134,18 +136,19 @@ export default function NavBar() {
 
         {/* content box for nav links */}
         <div className="flex sm:ml-auto justify-center ">
-          <ul className="flex flex-col justify-center sm:flex-row gap-6 md:gap-8 font-GeistMono mt-8 sm:mt-0 items-center uppercase">
+          <ul className="flex flex-col justify-center sm:flex-row gap-6 md:gap-8 mt-8 sm:mt-0 items-center ">
             {navlinks.map((link , index)=>(
               <li onMouseEnter={()=>mouseEnterLink(link.url)} onMouseLeave={mouseLeaveLink}  className="group relative flex gap-12" key={index}>
-                <Link className={` text-sm ${pathname === link.url? "text-text-brand-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
-                <span className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] md:inset-[-8px] ${pathname === link.url && "  -z-10"}`}
+                <Link className={` link ${geistMono.className} uppercase ${pathname === link.url? "text-text-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
+                <span className={`  absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] sm:inset-[-8px] ${pathname === link.url && "  -z-10"}`}
                  >
                   {link.url === activeHover && (
                       <motion.div  
                       layoutId="active"
                       transition={{
-                      stiffness: 380,
-                      damping : 30
+                        ease:easing,
+                        duration:0.6
+                      
                      }} className={` w-full h-full `}>
                       <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
                       <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-white"></div>
