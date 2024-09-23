@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import path from "path";
 
 type NavLink = {
   name: string,
@@ -14,7 +15,7 @@ type NavLink = {
 export default function NavBar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isHovered, setActiveHover] = useState<string>(pathname);
+  const [activeHover, setActiveHover] = useState<string>(pathname);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLDivElement>(null)
 
@@ -67,6 +68,7 @@ export default function NavBar() {
     // Add event listener to handle window resize
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousedown", handleClick)
+    setActiveHover(pathname)
     // Cleanup event listener on component unmount
 
     return () => {
@@ -74,7 +76,7 @@ export default function NavBar() {
       document.removeEventListener("mousedown", handleClick)
     };
   },[pathname]); 
-  console.log(isHovered)
+  console.log(activeHover)
 
   return (
     <div className="fixed w-full left-0 top-0 text-sm px-6 sm:px-12  z-[1000]">
@@ -138,7 +140,7 @@ export default function NavBar() {
                 <Link className={` text-sm ${pathname === link.url? "text-text-brand-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
                 <span className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] md:inset-[-8px] ${pathname === link.url && "  -z-10"}`}
                  >
-                  {link.url === isHovered && (
+                  {link.url === activeHover && (
                       <motion.div  
                       layoutId="active"
                       transition={{
