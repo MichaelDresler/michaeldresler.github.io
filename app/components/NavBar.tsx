@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import path from "path";
+import { cubicBezier } from "framer-motion";
 
 type NavLink = {
   name: string,
@@ -13,26 +13,13 @@ type NavLink = {
 
 
 export default function NavBar() {
+  const easing = cubicBezier(.60,0,.40,1.1)
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLDivElement>(null)
 
-  const mouseEnterLink = (url:string) => {
-    // Clear any previous timeout when hovering
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setActiveHover(url);
-  };
-
-  const mouseLeaveLink = () => {
-    // Set a delay before resetting hover state
-    timeoutRef.current = setTimeout(() => {
-      setActiveHover(pathname);
-    }, 500);
-  };
 
 
 
@@ -87,13 +74,13 @@ export default function NavBar() {
       ref={navRef}
         className={` ${
           isOpen ? " h-[23rem]" : "h-[3.5rem]"
-        } rounded-[4px]  mx-auto  bg-white/10  border border-white/5 transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row   px-8 max-w-[40rem] z-[1000]`}
+        } rounded-[32px]  mx-auto  bg-white/10  border border-white/5 transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row   px-8 max-w-[40rem] z-[1000]`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-4 `}>
           {/* surge logo */}
           <li className="flex items-center ">
             <Link href="/">
-             <div className="w-6 h-6 rounded-full bg-white"></div>
+             MD
             </Link>
           </li>
           {/* hamburger and x buttons for nav toggle */}
@@ -136,21 +123,23 @@ export default function NavBar() {
         <div className="flex sm:ml-auto justify-center ">
           <ul className="flex flex-col justify-center sm:flex-row gap-6 md:gap-8 font-GeistMono mt-8 sm:mt-0 items-center uppercase">
             {navlinks.map((link , index)=>(
-              <li onMouseEnter={()=>mouseEnterLink(link.url)} onMouseLeave={mouseLeaveLink}  className="group relative flex gap-12" key={index}>
+              <li  onMouseDown={()=>setActiveHover(link.url)}  className="group relative flex gap-12" key={index}>
                 <Link className={` text-sm ${pathname === link.url? "text-text-brand-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
-                <span className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] md:inset-[-8px] ${pathname === link.url && "  -z-10"}`}
+                <span className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] md:inset-[-10px] ${pathname === link.url && "  -z-10"}`}
                  >
                   {link.url === activeHover && (
                       <motion.div  
                       layoutId="active"
                       transition={{
-                      stiffness: 380,
-                      damping : 30
-                     }} className={` w-full h-full `}>
-                      <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
+                      ease:easing,
+                      duration:0.5
+ 
+                     }} className={` w-full h-full bg-white/10 rounded-[16px] `}>
+
+                      {/* <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
                       <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-white"></div>
                       <div className="absolute w-2 h-2 bottom-0 left-0  border-b border-l border-white"></div>
-                      <div className="absolute w-2 h-2 bottom-0 right-0  border-b border-r border-white"></div>
+                      <div className="absolute w-2 h-2 bottom-0 right-0  border-b border-r border-white"></div> */}
                       </motion.div>
 
                   )} 
