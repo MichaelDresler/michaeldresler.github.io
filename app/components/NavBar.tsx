@@ -27,7 +27,7 @@ export default function NavBar() {
   const navlinks:NavLink [] = [
     {name:"home", url: "/"},
     {name:"about", url: "/about"},
-    {name:"IAT355", url: "/IAT355"},
+    {name:"IAT355", url: "/iat355"},
     {name:"styleguide", url: "/styleguide"},
 
   ]
@@ -73,18 +73,18 @@ export default function NavBar() {
       <div
       ref={navRef}
         className={` ${
-          isOpen ? " h-[23rem]" : "h-[3.5rem]"
-        } rounded-[32px]  mx-auto  bg-white/10  border border-white/5 transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row   px-8 max-w-[40rem] z-[1000]`}
+          isOpen ? "rounded-[16px] h-[23rem]" : " rounded-[32px] h-[3.5rem]"
+        }   mx-auto bg-[#2d2d2d] bg-opacity-[75%]  border border-white/5 transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row   px-8 max-w-[40rem] z-[1000]`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-4 `}>
           {/* surge logo */}
-          <li className="flex items-center ">
+          <li className="flex items-center link ">
             <Link href="/">
              MD
             </Link>
           </li>
           {/* hamburger and x buttons for nav toggle */}
-          <li className="flex items-center ml-auto">
+          <li className="flex items-center ml-auto text-text-primary">
             <button className="sm:hidden relative ml-auto " onClick={toggleMenu}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -124,8 +124,8 @@ export default function NavBar() {
           <ul className="flex flex-col justify-center sm:flex-row gap-6 md:gap-8 font-GeistMono mt-8 sm:mt-0 items-center uppercase">
             {navlinks.map((link , index)=>(
               <li  onMouseDown={()=>setActiveHover(link.url)}  className="group relative flex gap-12" key={index}>
-                <Link className={` text-sm ${pathname === link.url? "text-text-brand-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
-                <span className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] md:inset-[-10px] ${pathname === link.url && "  -z-10"}`}
+                <Link className={` text-sm link ${pathname === link.url? "text-text-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
+                <span className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] md:inset-y-[-9px] md:inset-x-[-20px] ${pathname === link.url && "  -z-10"}`}
                  >
                   {link.url === activeHover && (
                       <motion.div  
@@ -134,7 +134,7 @@ export default function NavBar() {
                       ease:easing,
                       duration:0.5
  
-                     }} className={` w-full h-full bg-white/10 rounded-[16px] `}>
+                     }} className={` w-full h-full bg-white/10 rounded-[20px]  `}>
 
                       {/* <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
                       <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-white"></div>
