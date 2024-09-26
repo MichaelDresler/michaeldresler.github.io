@@ -17,7 +17,6 @@ export default function NavBar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLDivElement>(null)
 
 
