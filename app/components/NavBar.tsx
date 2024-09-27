@@ -11,7 +11,6 @@ type NavLink = {
   
 }
 
-
 export default function NavBar() {
   const easing = cubicBezier(.60,0,.40,1.1)
   const pathname = usePathname();
@@ -20,17 +19,13 @@ export default function NavBar() {
   const navRef = useRef<HTMLDivElement>(null)
 
 
-
-
-
   const navlinks:NavLink [] = [
     {name:"home", url: "/"},
     {name:"about", url: "/about"},
     {name:"IAT355", url: "/iat355"},
-    {name:"styleguide", url: "/styleguide"},
+    // {name:"styleguide", url: "/styleguide"},
 
   ]
-
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
