@@ -23,6 +23,7 @@ export default function NavBar() {
     {name:"home", url: "/"},
     {name:"about", url: "/about"},
     {name:"IAT355", url: "/iat355"},
+    {name:"Resume", url: "/files/resume.pdf"},
     // {name:"styleguide", url: "/styleguide"},
 
   ]
