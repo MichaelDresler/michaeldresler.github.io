@@ -13,7 +13,9 @@ type NavLink = {
 
 export default function NavBar() {
   const easing = cubicBezier(.60,0,.40,1.1)
-  const pathname = usePathname();
+  const pathname = '/'+ usePathname().split('/')[1];;
+  console.log(pathname)
+  
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
   const navRef = useRef<HTMLDivElement>(null)

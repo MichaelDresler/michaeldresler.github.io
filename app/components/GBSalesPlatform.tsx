@@ -1,10 +1,10 @@
-import * as config from "./configTemplate";
 import { createClassFromSpec } from "react-vega";
+import * as config from "./configTemplate";
 
 export default createClassFromSpec({
   spec: {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-    width: 900,
+    width: 1100,
     height: 500,
     padding: 5,
     background: "transparent",
@@ -28,9 +28,9 @@ export default createClassFromSpec({
         },
         encoding: {
           x: {
-            field: "Genre",
+            field: "Platform",
             type: "nominal",
-            title: "Video Game Genre",
+            title: "Video Game Platform",
             axis: {
               labelAngle: 0, // Set the x-axis labels to horizontal
             },
@@ -56,7 +56,7 @@ export default createClassFromSpec({
         },
         encoding: {
           x: {
-            field: "Genre",
+            field: "Platform",
             type: "nominal",
             sort: {
               field: "Global_Sales",
