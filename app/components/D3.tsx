@@ -24,12 +24,12 @@ const D3Component = () => {
     useEffect(() => {
         d3.select("#chart").select("svg").remove();
         // set the dimensions and margins of the graph
-        var margin = { top: 30, right: 30, bottom: 70, left: 60},
+        const margin = { top: 30, right: 30, bottom: 70, left: 60},
             width = 460 - margin.left - margin.right,
             height = 400 - margin.top - margin.bottom;
 
         // append the svg object to the body of the page
-        var svg = d3.select("#chart")
+        const svg = d3.select("#chart")
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -59,10 +59,10 @@ const D3Component = () => {
             }).then(function(data: Data[]) {
                 // X axis
                 console.log(data)
-                var maxGlobalSales = d3.max(data.map(d => d.Global_Sales).filter((value): value is number => value !== undefined));
+                const maxGlobalSales = d3.max(data.map(d => d.Global_Sales).filter((value): value is number => value !== undefined));
                 const yDomainMax = maxGlobalSales !== undefined ? maxGlobalSales : 0;
 
-                var x = d3.scaleBand()
+                const x = d3.scaleBand()
                     .range([ 0, width ])
                     .domain(data.map(function(d:Data) { return d.Genre; }))
                     .padding(0.2);
@@ -74,7 +74,7 @@ const D3Component = () => {
                     .style("text-anchor", "end")
 
                 // Add Y axis
-                var y = d3.scaleLinear()
+                const y = d3.scaleLinear()
                     .domain([0, yDomainMax]) // Set domain based on data
                     .range([ height, 0]);
                 svg.append("g")
