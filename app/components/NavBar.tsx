@@ -12,10 +12,11 @@ type NavLink = {
   
 }
 
-
 export default function NavBar() {
   const easing = cubicBezier(.2,0,.25,1)
-  const pathname = usePathname();
+  const pathname = '/'+ usePathname().split('/')[1];;
+  console.log(pathname)
+  
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -38,15 +39,14 @@ export default function NavBar() {
 
 
 
-
   const navlinks:NavLink [] = [
-    {name:"Home", url: "/"},
-    {name:"About", url: "/about"},
-    {name:"Iat 355", url: "/IAT355"},
-    {name:"Styleguide", url: "/styleguide"},
+    {name:"home", url: "/"},
+    {name:"about", url: "/about"},
+    {name:"IAT355", url: "/iat355"},
+    {name:"Resume", url: "/files/resume.pdf"},
+    // {name:"styleguide", url: "/styleguide"},
 
   ]
-
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -93,13 +93,13 @@ export default function NavBar() {
       >
         <ul className={` flex w-full sm:w-auto items-center py-4 text-text-primary `}>
           {/* surge logo */}
-          <li className="flex items-center ">
+          <li className="flex items-center link ">
             <Link href="/">
              <div className={` link ${geistMono.className} uppercase text-white/60`}>Michael Dresler</div>
             </Link>
           </li>
           {/* hamburger and x buttons for nav toggle */}
-          <li className="flex items-center ml-auto">
+          <li className="flex items-center ml-auto text-text-primary">
             <button className="sm:hidden relative ml-auto " onClick={toggleMenu}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ export default function NavBar() {
                       <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
                       <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-white"></div>
                       <div className="absolute w-2 h-2 bottom-0 left-0  border-b border-l border-white"></div>
-                      <div className="absolute w-2 h-2 bottom-0 right-0  border-b border-r border-white"></div>
+                      <div className="absolute w-2 h-2 bottom-0 right-0  border-b border-r border-white"></div> 
                       </motion.div>
 
                   )} 

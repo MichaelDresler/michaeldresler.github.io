@@ -1,27 +1,7 @@
-"use client"
-import { useState, useEffect } from "react";
+
 
 export default function Home() {
-  const [usaTimeNow, setUsaTimeNow] = useState('');
-
-  useEffect(() => {
-    const updateUsaTime = () => {
-      const d = new Date();
-      const localTime = d.getTime();
-      const localOffset = d.getTimezoneOffset() * 60000;
-      const utc = localTime + localOffset;
-      const offset = -7; // UTC offset for USA Pacific Time Zone
-      const vancouver = utc + 3600000 * offset;
-      setUsaTimeNow(new Date(vancouver).toLocaleTimeString());
-    };
-
-    // Update time immediately and then every second
-    updateUsaTime();
-    const intervalId = setInterval(updateUsaTime, 1000);
-
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(intervalId);
-  }, []);
+ 
 
   return (
     <div>
