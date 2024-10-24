@@ -70,7 +70,7 @@ export default function NavBar() {
     // Add event listener to handle window resize
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousedown", handleClick)
-    setActiveHover(pathname)
+    setActiveHover(pathname);
     // Cleanup event listener on component unmount
 
     return () => {
@@ -89,7 +89,7 @@ export default function NavBar() {
       ref={navRef}
         className={` ${
           isOpen ? " h-screen" : "h-[3.5rem]"
-        }  mx-auto transition-all duration-500   overflow-hidden flex flex-col sm:flex-row  z-[1000] md:pr-6`}
+        }  mx-auto max-w-[1700px] transition-all duration-500 flex flex-col sm:flex-row  z-[1000]`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-4 text-text-primary `}>
           {/* surge logo */}
@@ -145,11 +145,12 @@ export default function NavBar() {
                   {link.url === activeHover && (
                       <motion.div  
                       layoutId="active"
+                      style={{ originY: "0px"}}
                       transition={{
                         ease:easing,
                         duration:0.5
                       
-                     }} className={` w-full h-full relative  `}>
+                     }} className={` w-full h-full  `}>
                       <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
                       <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-white"></div>
                       <div className="absolute w-2 h-2 bottom-0 left-0  border-b border-l border-white"></div>
