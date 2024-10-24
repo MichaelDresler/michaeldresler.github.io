@@ -89,7 +89,7 @@ export default function NavBar() {
       ref={navRef}
         className={` ${
           isOpen ? " h-screen" : "h-[3.5rem]"
-        }  mx-auto max-w-[1700px] transition-all duration-500 flex flex-col sm:flex-row  z-[1000]`}
+        }  mx-auto max-w-[1700px] transition-all duration-500 flex flex-col sm:flex-row overflow-y-hidden  z-[1000]`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-4 text-text-primary `}>
           {/* surge logo */}
