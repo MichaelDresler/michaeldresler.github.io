@@ -14,7 +14,7 @@ type NavLink = {
 
 
 export default function NavBar() {
-  const easing = cubicBezier(.5,0,.3,1)
+  const easing = cubicBezier(.2,0,.25,1)
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
@@ -81,7 +81,7 @@ export default function NavBar() {
   console.log(activeHover)
 
   return (
-    <div className="fixed w-full left-0 top-0 text-sm px-4 lg:px-24  z-[1000]">
+    <div className="fixed w-full left-0 top-0 text-sm px-4 bg-surface/50 lg:px-20 backdrop-blur-lg  py-1  z-[1000]">
       {/* used for progressive blur behind navbar */}
       {/* <div className="w-screen h-full absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]" ></div> */}
 
@@ -89,13 +89,13 @@ export default function NavBar() {
       ref={navRef}
         className={` ${
           isOpen ? " h-screen" : "h-[3.5rem]"
-        } rounded-[4px]  mx-auto bg-surface transition-all duration-500 py-10 backdrop-blur-lg  overflow-hidden flex flex-col sm:flex-row px-12  z-[1000] max-w-[1840px]`}
+        }  mx-auto transition-all duration-500   overflow-hidden flex flex-col sm:flex-row  z-[1000] md:pr-6`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-4 text-text-primary `}>
           {/* surge logo */}
           <li className="flex items-center ">
             <Link href="/">
-             <div className="w-6 h-6 rounded-full bg-white"></div>
+             <div className={` link ${geistMono.className} uppercase text-white/60`}>Michael Dresler</div>
             </Link>
           </li>
           {/* hamburger and x buttons for nav toggle */}
@@ -135,21 +135,21 @@ export default function NavBar() {
         </ul>
 
         {/* content box for nav links */}
-        <div className="flex sm:ml-auto justify-center ">
-          <ul className="flex flex-col justify-center sm:flex-row gap-6 md:gap-8 mt-8 sm:mt-0 items-center ">
+        <div className="flex sm:ml-auto justify-center  ">
+          <ul className="flex flex-col justify-center sm:flex-row gap-6 md:gap-12 mt-8 sm:mt-0 items-center ">
             {navlinks.map((link , index)=>(
-              <li onMouseEnter={()=>mouseEnterLink(link.url)} onMouseLeave={mouseLeaveLink}  className="group relative flex gap-12" key={index}>
+              <li onMouseEnter={()=>mouseEnterLink(link.url)} onMouseLeave={mouseLeaveLink}  className="group relative flex gap-12 " key={index}>
                 <Link className={` link ${geistMono.className} uppercase ${pathname === link.url? "text-text-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
-                <span className={`  absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] sm:inset-[-8px] ${pathname === link.url && "  -z-10"}`}
+                <span className={` absolute pointer-events-none inset-x-[-16px] inset-y-[-8px]  ${pathname === link.url && "  -z-10"}`}
                  >
                   {link.url === activeHover && (
                       <motion.div  
                       layoutId="active"
                       transition={{
                         ease:easing,
-                        duration:0.6
+                        duration:0.5
                       
-                     }} className={` w-full h-full `}>
+                     }} className={` w-full h-full relative  `}>
                       <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
                       <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-white"></div>
                       <div className="absolute w-2 h-2 bottom-0 left-0  border-b border-l border-white"></div>

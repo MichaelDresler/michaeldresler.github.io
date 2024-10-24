@@ -42,4 +42,7 @@ body {
   .link{
     @apply text-text-secondary text-base font-normal hover:text-text-primary duration-300
   }
+  .salt{
+    font-feature-settings: "ss03","ss02" ,"ss08"; 
+  }
 }
