@@ -7,7 +7,7 @@ export default function About() {
 
     return (
       <div>
-        <main className="grid grid-cols-1 md:grid-cols-2 md:gap-24 mt-24  ">
+        <main className="grid grid-cols-1 md:grid-cols-2 md:gap-24  ">
 
           <div className="flex flex-col justify-end   ">
             <h1 className="text-text-primary text-[2.5rem] md:text-[4rem] xl:text-[7rem] font-medium tracking-tighter">About</h1>
