@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         surface: "rgba(var(--surface), <alpha-value>)",
-        foreground: "var(--forexground)",
+        foreground: "rgba(var(--foreground), <alpha-value>)",
       },
       textColor:{
         "text-primary": "var(--text-primary)",

@@ -81,7 +81,7 @@ export default function NavBar() {
   console.log(activeHover)
 
   return (
-    <div className="fixed w-full left-0 top-0 text-sm px-4 bg-surface/50 lg:px-20 backdrop-blur-lg  py-1  z-[1000]">
+    <div className="fixed w-full left-0 top-0 text-sm px-4 border bg-surface/50 lg:px-20 backdrop-blur-lg  py-1  z-[1000]">
       {/* used for progressive blur behind navbar */}
       {/* <div className="w-screen h-full absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]" ></div> */}
 
@@ -95,7 +95,7 @@ export default function NavBar() {
           {/* surge logo */}
           <li className="flex items-center link ">
             <Link href="/">
-             <div className={` link ${geistMono.className} uppercase text-white/60`}>Michael Dresler</div>
+             <div className={` link ${geistMono.className} uppercase text-text-secondary`}>Michael Dresler</div>
             </Link>
           </li>
           {/* hamburger and x buttons for nav toggle */}
@@ -139,7 +139,7 @@ export default function NavBar() {
           <ul className="flex flex-col justify-center sm:flex-row gap-6 md:gap-12 mt-8 sm:mt-0 items-center ">
             {navlinks.map((link , index)=>(
               <li onMouseEnter={()=>mouseEnterLink(link.url)} onMouseLeave={mouseLeaveLink}  className="group relative flex gap-12 " key={index}>
-                <Link className={` link ${geistMono.className} uppercase ${pathname === link.url? "text-text-primary": "text-white/60"}`} href={link.url}>{link.name}</Link>
+                <Link className={` link ${geistMono.className} uppercase ${pathname === link.url? "text-text-primary": "text-text-secondary"}`} href={link.url}>{link.name}</Link>
                 <span className={` absolute pointer-events-none inset-x-[-16px] inset-y-[-8px]  ${pathname === link.url && "  -z-10"}`}
                  >
                   {link.url === activeHover && (
@@ -151,10 +151,10 @@ export default function NavBar() {
                         duration:0.5
                       
                      }} className={` w-full h-full  `}>
-                      <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-white"></div>
-                      <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-white"></div>
-                      <div className="absolute w-2 h-2 bottom-0 left-0  border-b border-l border-white"></div>
-                      <div className="absolute w-2 h-2 bottom-0 right-0  border-b border-r border-white"></div> 
+                      <div className="absolute w-2 h-2 top-0 left-0  border-t border-l border-foreground "></div>
+                      <div className="absolute w-2 h-2 top-0 right-0  border-t border-r border-foreground "></div>
+                      <div className="absolute w-2 h-2 bottom-0 left-0  border-b border-l border-foreground "></div>
+                      <div className="absolute w-2 h-2 bottom-0 right-0  border-b border-r border-foreground "></div> 
                       </motion.div>
 
                   )} 

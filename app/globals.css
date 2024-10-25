@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --surface: 18, 18, 18;
-
+  /* --surface: 18, 18, 18;
   --text-primary: rgba(255,255,255,0.87);
   --text-secondary: rgba(255,255,255,0.6);
+  --foreground: rgba(255, 255, 255, 1); */
 
-  
+  --surface: 255, 255, 255;
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --foreground :  0, 0, 0;
 
 }
 
@@ -21,6 +24,7 @@
 
 body {
   background: rgb(var(--surface));
+
   font-family: Arial, Helvetica, sans-serif;
 }
 
