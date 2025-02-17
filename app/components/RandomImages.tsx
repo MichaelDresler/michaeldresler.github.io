@@ -1,5 +1,5 @@
 "use client"
-import { useState, } from "react";
+import { useEffect, useState, } from "react";
 import { animate, motion, useMotionValue } from "framer-motion";
 import React from "react";
 
@@ -31,43 +31,89 @@ const images: string[] = [
 const RandomImages = () => {
   const [selectedImage, setSelectedImage] = useState<string>(images[0]);
   const [imageIndex, setImageIndex] = useState<number>(0);
-  const dragX = useMotionValue(0)
+  const xValue = useMotionValue(0)
+  const yValue = useMotionValue(0)
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Listen for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   
-  
+
   const dragEnd = () => {
-    const xValue = dragX.get();
+    const axisValue = isLargeScreen ? yValue.get() : xValue.get();  // Use yValue for large screens
     const imageWidth = 60;  // The width of each image
-    const imagesDragged = Math.round(xValue / imageWidth);  // Calculate how many images were dragged
-
-    if(Math.abs(imagesDragged) >= images.length ){
-      setSelectedImage(images[images.length-1])
-      setImageIndex(images.length-1)
+    const imagesDragged = Math.round(axisValue / imageWidth);  // Calculate how many images were dragged
+    
+    // Ensure the dragged value is within bounds
+    if (Math.abs(imagesDragged) >= images.length) {
+      setSelectedImage(images[images.length - 1]);
+      setImageIndex(images.length - 1);
+    } else {
+      setSelectedImage(images[Math.abs(imagesDragged)]);
+      setImageIndex(Math.abs(imagesDragged));
     }
-    else{
-      setSelectedImage(images[Math.abs(imagesDragged)])
-      setImageIndex(Math.abs(imagesDragged))
-    }
 
-  
-
-    console.log(imagesDragged)
+    // console.log(yValue.get())
   };
 
   const changeOnClick = (index:number)=>{
     setImageIndex(index)
     setSelectedImage(images[index])
-    animate(dragX, -index * 60, { type: "spring", stiffness: 300, damping: 30 });
+    animate(isLargeScreen? yValue : xValue, -index * 60, { type: "spring", stiffness: 300, damping: 30 });
 
   }
 
 
+  const handleWheel = (event: React.WheelEvent) => {
+    if (!isLargeScreen) return;
+  
+    const scrollingDown = event.deltaY > 0;
+  
+    setImageIndex((prevIndex) => {
+      let newIndex = prevIndex;
+  
+      if (scrollingDown && prevIndex < images.length - 1) {
+        newIndex = prevIndex + 1;
+      } else if (!scrollingDown && prevIndex > 0) {
+        newIndex = prevIndex - 1;
+      }
+  
+      // Set the selected image based on the updated index
+      setSelectedImage(images[newIndex]);
+      
+      // Animate the scroll position to the new index
+      animate(yValue, -newIndex * 60, { type: "spring", stiffness: 300, damping: 30 });
+  
+      return newIndex; // return the updated index
+    });
+  
+    console.log(scrollingDown); // Optional: for debugging
+  };
+  
+
+
   return (
-    <div className="relative w-screen  h-screen overflow-hidden bg-amber-50 box-content">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-3/4 overflow-hidden">
+    <div onWheel={handleWheel}  className="relative w-screen  h-dvh overflow-hidden bg-amber-50 box-content">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-full overflow-hidden">
+
       <img
           src={selectedImage}
           alt="reando"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  object-contain"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 md:h-[95%] -translate-y-1/2  object-contain"
         />
       </div>
     
@@ -78,11 +124,15 @@ const RandomImages = () => {
 
       {/* items */}
       <motion.div
-      drag="x"
-      dragConstraints = {{
-        left:-(images.length-1) *60,  // Allow dragging out to the left
-        right: 0,  // Allow dragging out to the right (for the initial position)
+     
+      drag={isLargeScreen ? "y" : "x"}
+      dragConstraints={{
+        left: isLargeScreen ? 0 : -(images.length - 1) * 60,  // If large screen, set left to 0
+        right: isLargeScreen ? 0 : 0,  // If large screen, set right to 0
+        top: isLargeScreen ? -(images.length - 1) * 60 : 0,  // If large screen, set top to 0
+        bottom: isLargeScreen ? 0: 0,  // If large screen, adjust bottom
       }}
+      
 
       dragTransition={{
         power: 0,
@@ -91,7 +141,8 @@ const RandomImages = () => {
       }}
 
       style={{
-        x:dragX
+        x:xValue,
+        y:yValue
       }}
 
       onDrag={dragEnd}
@@ -103,6 +154,7 @@ const RandomImages = () => {
           alt={`alt`}
           className={`w-[60px]  md:w-full md:h-[60px] cursor-pointer p-[4px] object-cover transition duration-300 ${index === imageIndex? "opacity-40": "opacity-100"}`}
           onClick={()=> changeOnClick(index)}
+          
         />
       ))}
 
