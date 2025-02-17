@@ -31,9 +31,11 @@ const images: string[] = [
 const RandomImages = () => {
   const [selectedImage, setSelectedImage] = useState<string>(images[0]);
   const [imageIndex, setImageIndex] = useState<number>(0);
+  const [scrollAccumulator, setScrollAccumulator] = useState(0);
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
   const xValue = useMotionValue(0)
   const yValue = useMotionValue(0)
-  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,12 +45,20 @@ const RandomImages = () => {
     // Initial check
     handleResize();
 
+    const preventScroll = (e:any) => {
+      e.preventDefault();
+    };
+  
+    window.addEventListener("wheel", preventScroll, { passive: false });
+
     // Listen for window resize
     window.addEventListener("resize", handleResize);
 
     // Clean up the listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("scroll", preventScroll);
     };
   }, []);
   
@@ -81,33 +91,42 @@ const RandomImages = () => {
   const handleWheel = (event: React.WheelEvent) => {
     if (!isLargeScreen) return;
   
-    const scrollingDown = event.deltaY > 0;
+    // Accumulate the scroll distance
+    setScrollAccumulator((prevAccumulator) => {
+      const newAccumulator = prevAccumulator + event.deltaY;
   
-    setImageIndex((prevIndex) => {
-      let newIndex = prevIndex;
+      // If the accumulated scroll exceeds the threshold, update the image index
+      if (Math.abs(newAccumulator) >= 225) {  // Adjust this value as needed
+        const direction = newAccumulator > 0 ? 1 : -1;
+        const newIndex = Math.max(0, Math.min(images.length - 1, imageIndex + direction));
   
-      if (scrollingDown && prevIndex < images.length - 1) {
-        newIndex = prevIndex + 1;
-      } else if (!scrollingDown && prevIndex > 0) {
-        newIndex = prevIndex - 1;
+        // Update the index and selected image
+        setImageIndex(newIndex);
+        setSelectedImage(images[newIndex]);
+  
+        // Animate the scroll position to the new index
+        animate(yValue, -newIndex * 60, {
+          type: "spring",
+          stiffness: 300,
+          damping: 30,
+        });
+  
+        // Reset the accumulator after the image change
+        return 0;
       }
   
-      // Set the selected image based on the updated index
-      setSelectedImage(images[newIndex]);
-      
-      // Animate the scroll position to the new index
-      animate(yValue, -newIndex * 60, { type: "spring", stiffness: 300, damping: 30 });
-  
-      return newIndex; // return the updated index
+      // Return the accumulated value (keep accumulating)
+      return newAccumulator;
     });
   
-    console.log(scrollingDown); // Optional: for debugging
+    // Optional: log the accumulated value (for debugging)
+    console.log(scrollAccumulator);
   };
   
 
 
   return (
-    <div onWheel={handleWheel}  className="relative w-screen  h-dvh overflow-hidden bg-amber-50 box-content">
+    <div onWheel={handleWheel}   className="relative w-screen overflow-y-hidden h-dvh overflow-hidden bg-amber-50 box-content">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-full overflow-hidden">
 
       <img
