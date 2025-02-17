@@ -1,7 +1,7 @@
 import Image from "next/image";
 import portait from "@/public/image.png"
 import Link from "next/link";
-import { geistMono, svgIcons } from "../fonts";
+import { geistMono, svgIcons } from "../../fonts";
 export default function About() {
 
 

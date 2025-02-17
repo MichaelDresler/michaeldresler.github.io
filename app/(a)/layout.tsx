@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import NavBar from "./components/NavBar";
-import { geistSans } from "./fonts";
+import "../globals.css";
+import NavBar from "../components/NavBar";
+import { geistSans } from "../fonts";
 
 
 
