@@ -1,5 +1,4 @@
-import Image from "next/image";
-import mike from "@/public/som.png"
+
 
 type ProjectHeroProps = {
   title: string;

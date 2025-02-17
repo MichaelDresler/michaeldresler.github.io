@@ -1,9 +1,8 @@
 "use client"
 import { useState, } from "react";
-import Image from "next/image";
 import { animate, motion, useMotionValue } from "framer-motion";
 import React from "react";
-import { image } from "framer-motion/client";
+
 
 
 
@@ -28,25 +27,14 @@ const images: string[] = [
   "https://images.pexels.com/photos/30385824/pexels-photo-30385824/free-photo-of-lonely-commuter-waiting-in-a-subway-station.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 ];
 
-const transition = {
-  
-  type: 'spring',
-  duration:0.1,
-  bounce:0,
-
-}
 
 const RandomImages = () => {
   const [selectedImage, setSelectedImage] = useState<string>(images[0]);
   const [imageIndex, setImageIndex] = useState<number>(0);
-  const [dragging, setDragging] = useState<boolean>(false);
   const dragX = useMotionValue(0)
   
-  const dragStart = ()=>{
-    setDragging(true)
-  }
+  
   const dragEnd = () => {
-    setDragging(false);
     const xValue = dragX.get();
     const imageWidth = 60;  // The width of each image
     const imagesDragged = Math.round(xValue / imageWidth);  // Calculate how many images were dragged
@@ -105,8 +93,7 @@ const RandomImages = () => {
       style={{
         x:dragX
       }}
-      onDragStart={dragStart}
-      // onDragEnd={dragEnd}
+
       onDrag={dragEnd}
        className=" flex flex-row md:flex-col w-full h-full will-change-transform ">
       {images.map((img, index) => (

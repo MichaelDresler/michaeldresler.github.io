@@ -1,5 +1,4 @@
 "use client"
-import { geistMono } from "../fonts";
 import { motion } from "framer-motion";
 
 export default function Home() {
