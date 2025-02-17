@@ -45,7 +45,7 @@ const RandomImages = () => {
     // Initial check
     handleResize();
 
-    const preventScroll = (e:any) => {
+    const preventScroll = (e:WheelEvent) => {
       e.preventDefault();
     };
   
@@ -58,7 +58,6 @@ const RandomImages = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("wheel", preventScroll);
-      window.removeEventListener("scroll", preventScroll);
     };
   }, []);
   
