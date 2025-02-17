@@ -21,7 +21,7 @@ export default function About() {
             </ul>
 
           </div>
-          <Image className="md:max-h-[90%] md:w-[80%] object-[100%_10%] object-cover mx-auto row-start-1 overflow-hidden rounded-sm md:col-start-2" src={portait} quality={100} alt="hello"/>
+          <Image className="md:max-h-[90%] md:w-[80%] object-[100%_10%] object-cover mx-auto row-start-1 overflow-hidden rounded-2xl md:col-start-2" src={portait} quality={100} alt="hello"/>
            
           
         </main>

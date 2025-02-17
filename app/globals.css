@@ -5,12 +5,14 @@
 :root {
   /* --surface: 18, 18, 18;
   --text-primary: rgba(255,255,255,0.87);
-  --text-secondary: rgba(255,255,255,0.6);
-  --foreground: rgba(255, 255, 255, 1); */
+  --text-secondary: rgba(255,255,255,80);
+  --inverse: 0, 0, 0;
+  --foreground: 255, 255, 255; */
 
   --surface: 255, 255, 255;
   --text-primary: rgba(0, 0, 0, 0.87);
   --text-secondary: rgba(0, 0, 0, 0.6);
+  --inverse:255, 255, 255;
   --foreground :  0, 0, 0;
 
 }
@@ -36,7 +38,7 @@ body {
 
 @layer components{
   .content-box{
-    @apply max-w-[1840px] mx-auto px-4 md:px-8 lg:px-16
+    @apply max-w-[1840px] mx-auto px-4 md:px-8 
   }
 
   .paragraph{
@@ -44,9 +46,17 @@ body {
   }
 
   .link{
-    @apply text-text-secondary text-base font-normal hover:text-text-primary duration-300
+    @apply text-text-secondary text-[12px] font-normal duration-300
   }
   .salt{
     font-feature-settings: "ss03","ss02" ,"ss08"; 
+  }
+  .clamp{
+    font-size: clamp(1rem, 0.8483rem + 0.4854vw, 1.625rem);
+  }
+  .clamp2{
+    font-size: clamp(1.5rem, 0.8932rem + 1.9417vw, 4rem);
+    letter-spacing: -0.03em;
+    line-height: 105%;
   }
 }

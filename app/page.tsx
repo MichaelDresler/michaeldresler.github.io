@@ -11,7 +11,7 @@ export default function Home() {
          animate={{ opacity: 1 ,y:0 }}
          whileInView="visible"
          viewport={{ once: true }}
-         transition={{  opacity: { duration: 2  }, 
+         transition={{  opacity: { duration: 1  }, 
          y: { duration: 1, ease: [0.25,0,0.20,1] }}}
         >
           <h1 className="md:font-medium text-pretty  font-semibold text-[2.5rem] md:text-[4rem] xl:text-[6.5rem]  text-text-primary tracking-tighter leading-[120%] md:leading-[100%] ">
@@ -23,9 +23,7 @@ export default function Home() {
           </h2>
         </motion.div>
       </main>
-      <h1 className={` md:font-medium text-pretty  font-semibold text-[2rem] md:text-[4rem] xl:text-[5rem]  text-text-primary tracking-tighter leading-[120%] md:leading-[100%] pb-4 mb-16 border-b `}>
-            Projects
-          </h1>
+     
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="aspect-[9/6] rounded-md bg-foreground/20"></div>
         <div className="aspect-[9/6] rounded-md bg-foreground/20"></div>

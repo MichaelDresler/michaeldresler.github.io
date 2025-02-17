@@ -11,10 +11,12 @@ const config: Config = {
       colors: {
         surface: "rgba(var(--surface), <alpha-value>)",
         foreground: "rgba(var(--foreground), <alpha-value>)",
+        inverse: "rgba(var(--inverse), <alpha-value>)",
       },
       textColor:{
         "text-primary": "var(--text-primary)",
         "text-secondary": "var(--text-secondary)",
+        
       },
       fontSize: {
         xs: [
