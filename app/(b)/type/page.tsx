@@ -1,12 +1,11 @@
 "use client";
 
-import { AnimatedText } from "@/app/components/AnimatedText";
 import { MouseText } from "@/app/components/MouseText";
-import { RandomText } from "@/app/components/RandomText";
 import { useEffect, useState } from "react";
 
-export default function type() {
+export default function Type() {
   const [vw10, setVw10] = useState(0);
+  console.log(vw10)
 
   useEffect(() => {
     const updateWidth = () => {

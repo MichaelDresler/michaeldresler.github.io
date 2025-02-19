@@ -11,20 +11,31 @@ type NavLink = {
   url: string;
 };
 
+
+
 export default function NavBar() {
   const easing = cubicBezier(0.6, 0, 0.4, 1.1);
   const pathname = "/" + usePathname().split("/")[1];
-  console.log(pathname);
+
+  console.log("pathname:",pathname)
+
+
+
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
   const navRef = useRef<HTMLDivElement>(null);
 
+  console.log("active hover: ", activeHover)
+
   const navlinks: NavLink[] = [
     { name: "home", url: "/" },
     { name: "about", url: "/about" },
-    { name: "Projects", url: "/projects" },
+    { name: "Projects", url: "/projects"},
     { name: "Resume", url: "/files/resume.pdf" },
+    { name: "gallery", url: "/testing" },
+
+
     // {name:"styleguide", url: "/styleguide"},
   ];
 
@@ -58,7 +69,9 @@ export default function NavBar() {
       document.removeEventListener("mousedown", handleClick);
     };
   }, [pathname]);
-  console.log(activeHover);
+
+
+
 
   return (
     <div className="fixed w-full left-0 top-0 text-sm px-6 sm:px-12  z-[1000]">
@@ -67,11 +80,12 @@ export default function NavBar() {
 
       <div
         ref={navRef}
+        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3.5rem" }}
         className={` ${
-          isOpen ? "rounded-[16px] h-[20rem]" : " rounded-[32px] h-[3.5rem] sm:h-[3rem]"
+          isOpen ? `rounded-[12px]` : " rounded-[32px]"
         }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6 sm:w-fit z-[1000]`}
       >
-        <ul className={` flex w-full sm:w-auto items-center py-4 `}>
+        <ul className={` flex w-full sm:w-auto items-center pt-4 `}>
           {/* surge logo
           <li className="flex items-center link ">
             <Link href="/">MD</Link>

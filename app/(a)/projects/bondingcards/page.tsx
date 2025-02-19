@@ -1,5 +1,5 @@
 
-import {ProjectHero} from "../components/ProjectHero";
+import {ProjectHero} from "../../../components/ProjectHero";
 import * as bbb from "@/content/bondingCards";
 export default function projects() {
 

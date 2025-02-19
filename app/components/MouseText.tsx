@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useState } from "react";
+
 
 type MouseTextProps = {
   text: string;
@@ -62,10 +62,10 @@ const BlurredChar = ({ char }: { char: string }) => {
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const width = rect.width
-    const height = rect.height
+
     
     const mouseX = e.clientX -rect.left
-    const mouseY = e.clientX -rect.top
+
 
     const xPct = mouseX/(width/2)
     blurValue.set(xPct)

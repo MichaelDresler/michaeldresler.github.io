@@ -1,7 +1,5 @@
 
-import {motion, useMotionValue, useSpring, useTransform} from "framer-motion"
-import { filter } from "framer-motion/client";
-import { useState } from "react";
+import {motion} from "framer-motion"
 
 type AnimatedTextProps = {
   text: string;

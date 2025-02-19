@@ -126,20 +126,20 @@ const RandomImages = () => {
 
 
   return (
-    <div onWheel={handleWheel}   className="relative w-screen overflow-y-hidden h-dvh overflow-hidden bg-white box-content">
+    <div onWheel={handleWheel}   className="relative w-screen overflow-y-hidden h-dvh overflow-hidden bg-surface box-content">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[80%] overflow-hidden">
 
       <img
           src={selectedImage}
           alt="reando"
-          className=" absolute shadow-[0px_10px_25px_4px_rgba(0,_0,_0,_0.2)] top-1/2 left-1/2 -translate-x-1/2 md:h-[95%] -translate-y-1/2  object-contain"
+          className=" absolute  top-1/2 left-1/2 -translate-x-1/2 md:h-[95%] -translate-y-1/2  object-contain"
         />
       </div>
     
     {/* minimap */}
-    <div  className="absolute md:top-1/2 md:right-[8em] md:w-[88px] md:left-auto md:bottom-auto top-auto right-auto bottom-[5em] left-1/2 w-auto h-[88px] ">
+    <div  className="absolute md:top-1/2 md:right-[2em] 2xl:right-[8em] md:w-[88px] md:left-auto md:bottom-auto top-auto right-auto bottom-[5em] left-1/2 w-auto h-[88px] ">
       {/* indicator */}
-      <div className="absolute top-0 left-0 md:w-full md:h-[60px] border-black border z-10 w-[60px] h-full pointer-events-none"></div>
+      <div className="absolute top-0 left-0 md:w-full md:h-[60px] border-foreground border z-10 w-[60px] h-full pointer-events-none"></div>
 
       {/* items */}
       <motion.div
