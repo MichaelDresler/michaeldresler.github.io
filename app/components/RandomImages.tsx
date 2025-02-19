@@ -7,6 +7,7 @@ import React from "react";
 
 
 const images: string[] = [
+  "/touchpoint.png",
   "https://images.pexels.com/photos/30442348/pexels-photo-30442348/free-photo-of-historic-cityscape-of-catania-sicily.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   "https://images.pexels.com/photos/30474533/pexels-photo-30474533/free-photo-of-rustic-italian-architecture-with-terra-cotta-rooftops.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   "https://images.pexels.com/photos/30129937/pexels-photo-30129937/free-photo-of-scenic-coastal-gazebo-overlooking-ocean-waves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -125,13 +126,13 @@ const RandomImages = () => {
 
 
   return (
-    <div onWheel={handleWheel}   className="relative w-screen overflow-y-hidden h-dvh overflow-hidden bg-amber-50 box-content">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-full overflow-hidden">
+    <div onWheel={handleWheel}   className="relative w-screen overflow-y-hidden h-dvh overflow-hidden bg-white box-content">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[80%] overflow-hidden">
 
       <img
           src={selectedImage}
           alt="reando"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 md:h-[95%] -translate-y-1/2  object-contain"
+          className=" absolute shadow-[0px_10px_25px_4px_rgba(0,_0,_0,_0.2)] top-1/2 left-1/2 -translate-x-1/2 md:h-[95%] -translate-y-1/2  object-contain"
         />
       </div>
     
