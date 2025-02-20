@@ -74,18 +74,18 @@ export default function NavBar() {
 
 
   return (
-    <div className="fixed w-full left-0 top-0 text-sm px-6 sm:px-12  z-[1000]">
+    <div className={`fixed w-full transition-all duration-500 left-0 top-0 text-sm px-4 sm:px-12  z-[1000]`}>
       {/* used for progressive blur behind navbar */}
       <div className="w-screen h-full absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]"></div>
 
       <div
         ref={navRef}
-        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3.5rem" }}
+        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3rem" }}
         className={` ${
           isOpen ? `rounded-[12px]` : " rounded-[32px]"
-        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6 sm:w-fit z-[1000]`}
+        }   sm:mx-auto ml-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className} ${isOpen?"w-full":"w-[70px]"}   transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6  sm:w-fit z-[1000]`}
       >
-        <ul className={` flex w-full sm:w-auto items-center pt-4 `}>
+        <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo
           <li className="flex items-center link ">
             <Link href="/">MD</Link>
@@ -149,7 +149,7 @@ export default function NavBar() {
                   {link.name}
                 </Link>
                 <span
-                  className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] sm:inset-y-[-10px] sm:inset-x-[-20px] ${
+                  className={`  text-sm absolute pointer-events-none inset-x-[-32px] inset-y-[-10px] sm:inset-y-[-10px] sm:inset-x-[-20px] ${
                     pathname === link.url && "  -z-10"
                   }`}
                 >
