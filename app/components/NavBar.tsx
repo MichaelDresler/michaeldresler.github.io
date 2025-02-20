@@ -16,10 +16,10 @@ type NavLink = {
 export default function NavBar() {
   const easing = cubicBezier(0.6, 0, 0.4, 1.1);
   const pathname = "/" + usePathname().split("/")[1];
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [scrollingDown, setScrollingDown] = useState(false);
 
   console.log("pathname:",pathname)
-
-
 
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -56,19 +56,34 @@ export default function NavBar() {
     }
   };
 
+  const handleScroll = () => {
+    const scrollTop = document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // scrolling down
+      setScrollingDown(true);
+    } else {
+      // scrolling up
+      setScrollingDown(false);
+    }
+    setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); // Ensure scroll position is non-negative
+  };
+
   useEffect(() => {
     setIsOpen(false);
     // Add event listener to handle window resize
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousedown", handleClick);
+    window.addEventListener("scroll", handleScroll);
     setActiveHover(pathname);
+    
     // Cleanup event listener on component unmount
 
     return () => {
       window.removeEventListener("resize", handleResize);
       document.removeEventListener("mousedown", handleClick);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [pathname]);
+  }, [pathname,lastScrollTop]);
 
 
 
@@ -83,7 +98,7 @@ export default function NavBar() {
         style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3rem" }}
         className={` ${
           isOpen ? `rounded-[12px]` : " rounded-[32px]"
-        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6 sm:w-fit z-[1000]`}
+        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  ${scrollingDown && "translate-y-[-150%]"} md:translate-y-[0%]  transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6 sm:w-fit z-[1000]`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo
