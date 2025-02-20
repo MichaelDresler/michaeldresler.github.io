@@ -80,12 +80,12 @@ export default function NavBar() {
 
       <div
         ref={navRef}
-        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3.5rem" }}
+        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3rem" }}
         className={` ${
           isOpen ? `rounded-[12px]` : " rounded-[32px]"
         }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  transition-all duration-300  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6 sm:w-fit z-[1000]`}
       >
-        <ul className={` flex w-full sm:w-auto items-center pt-4 `}>
+        <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo
           <li className="flex items-center link ">
             <Link href="/">MD</Link>
