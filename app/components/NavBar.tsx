@@ -89,7 +89,7 @@ export default function NavBar() {
 
 
   return (
-    <div className="fixed w-full left-0 top-0 text-sm px-3 sm:px-12  z-[1000]">
+    <div className="fixed w-full left-0 top-0 text-sm px-3 sm:px-12  z-1000">
       {/* used for progressive blur behind navbar */}
       <div className="w-screen h-[3rem] absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]"></div>
 
@@ -98,7 +98,7 @@ export default function NavBar() {
         style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3rem" }}
         className={` ${
           isOpen ? `rounded-[12px]` : " rounded-[32px]"
-        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  ${scrollingDown? "translate-y-[-200%]": " "}   transition-all duration-[400ms]   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6  sm:w-fit z-[1000]`}
+        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  ${scrollingDown? "translate-y-[-200%]": " "}   transition-all duration-[400ms]   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6  sm:w-fit z-1000`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo

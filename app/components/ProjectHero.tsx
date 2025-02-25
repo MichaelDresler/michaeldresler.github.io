@@ -35,9 +35,23 @@ export const ProjectHero = ({
           {link && (
             <a
               href={link}
-              className={`${geistMono.className} shadow-[rgb(70,70,70)_0px_0px_0px_1px_inset,_rgba(0,0,0,_0.1)_0px_6px_2px_0px] uppercase bg-radial from-gray-300 from-40% to-white rounded-lg text-text-secondary p-3 text-center font-semibold tracking-tighter hover:bg-foreground/5 transition-all duration-300`}
+              className={`${geistMono.className} hidden md:flex w-full justify-center gap-4 md:justify-between ring ring-white/30 uppercase bg-foreground/20 rounded-md text-white/80 p-3 text-center font-semibold tracking-tighter hover:bg-foreground/15 transition-all duration-300`}
             >
-              View Site
+              <div> View Site</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6 rotate-180"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m19.5 4.5-15 15m0 0h11.25m-11.25 0V8.25"
+                />
+              </svg>
             </a>
           )}
         </div>
@@ -63,6 +77,28 @@ export const ProjectHero = ({
                 ))}
               </li>
             </div>
+            {link && (
+            <a
+              href={link}
+              className={`${geistMono.className} md:hidden mt-10 flex w-full justify-center gap-4 md:justify-between ring ring-white/30 uppercase bg-foreground/20 rounded-md text-white/80 p-3 text-center font-semibold tracking-tighter hover:bg-foreground/15 transition-all duration-300`}
+            >
+              <div> View Site</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6 rotate-180"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m19.5 4.5-15 15m0 0h11.25m-11.25 0V8.25"
+                />
+              </svg>
+            </a>
+          )}
           </ul>
           <p className="my-[3.5em] text-[26px] leading-[130%] text-pretty">
             {about}

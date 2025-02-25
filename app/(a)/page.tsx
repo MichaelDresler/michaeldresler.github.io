@@ -24,10 +24,10 @@ export default function Home() {
       </main>
      
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2" id="projects">
-        <div className="aspect-[9/6] rounded-md bg-foreground/20"></div>
-        <div className="aspect-[9/6] rounded-md bg-foreground/20"></div>
-        <div className="aspect-[9/6] rounded-md bg-foreground/20"></div>
-        <div className="aspect-[9/6] rounded-md bg-foreground/20"></div>
+        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
+        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
+        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
+        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
       </section>
     </div>
   );

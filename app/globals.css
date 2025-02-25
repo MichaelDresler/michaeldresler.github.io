@@ -1,62 +1,128 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --surface: 18, 18, 18;
-  --text-primary: rgba(255,255,255,0.87);
-  --text-secondary: rgba(255,255,255,0.60);
-  --inverse: 0, 0, 0;
-  --foreground: 255, 255, 255;
+@theme {
+  --color-surface: rgba(var(--surface), 1);
+  --color-foreground: rgba(var(--foreground), 1);
+  --color-inverse: rgba(var(--inverse), 1);
 
-  /* --surface: 255, 255, 255;
+  --text-color-text-primary: var(--text-primary);
+  --text-color-text-secondary: var(--text-secondary);
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 100%;
+  --text-xs--letter-spacing: ;
+  --text-s: 0.875rem;
+  --text-s--line-height: 100%;
+  --text-s--letter-spacing: ;
+  --text-base: 1rem;
+  --text-base--line-height: 150%;
+  --text-base--letter-spacing: ;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 150%;
+  --text-lg--letter-spacing: ;
+  --text-xl: 1.5625rem;
+  --text-xl--line-height: 125%;
+  --text-xl--letter-spacing: ;
+  --text-2xl: 2rem;
+  --text-2xl--line-height: 125%;
+  --text-2xl--letter-spacing: ;
+  --text-3xl: 2.5rem;
+  --text-3xl--line-height: 125%;
+  --text-3xl--letter-spacing: ;
+  --text-4xl: 3.25rem;
+  --text-4xl--line-height: 112.5%;
+  --text-4xl--letter-spacing: ;
+  --text-5xl: 4rem;
+  --text-5xl--line-height: 112.5%;
+  --text-5xl--letter-spacing: ;
+  --text-6xl: 4.5rem;
+  --text-6xl--line-height: 112.5%;
+  --text-6xl--letter-spacing: ;
+  --text-7xl: 6rem;
+  --text-7xl--line-height: 112.5%;
+  --text-7xl--letter-spacing: ;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility content-box {
+  @apply max-w-[1840px] mx-auto px-4 lg:px-24;
+}
+
+@utility boob {
+  background: rgb(42,42,42);
+  background: radial-gradient(circle, rgba(42,42,42,1) 50%, rgba(37,38,39,1) 89%);
+}
+
+
+
+@utility paragraph {
+  @apply text-text-secondary text-base md:text-lg font-light text-pretty;
+}
+
+@utility link {
+  @apply text-text-secondary text-[12px] font-normal duration-300;
+}
+
+@utility salt {
+  font-feature-settings: 'ss03', 'ss02', 'ss08';
+}
+
+@utility clamp {
+  font-size: clamp(1rem, 0.8483rem + 0.4854vw, 1.625rem);
+}
+
+@utility clamp2 {
+  font-size: clamp(1.5rem, 0.8932rem + 1.9417vw, 4rem);
+  letter-spacing: -0.03em;
+  line-height: 105%;
+}
+
+@layer utilities {
+  :root {
+    --surface: 18, 18, 18;
+    --text-primary: rgba(255, 255, 255, 0.87);
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --inverse: 0, 0, 0;
+    --foreground: 255, 255, 255;
+
+    /* --surface: 255, 255, 255;
   --text-primary: rgba(0, 0, 0, 0.87);
   --text-secondary: rgba(0, 0, 0, 0.6);
   --inverse:255, 255, 255;
   --foreground :  0, 0, 0; */
+  }
 
-}
-
-/* @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
   :root {
     --background: 18, 18, 18;
     --foreground: #ededed;
   }
 } */
 
-body {
-  background: rgb(var(--surface));
+  body {
+    background: rgb(var(--surface));
 
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-@layer components{
-  .content-box{
-    @apply max-w-[1840px] mx-auto px-4 md:px-24 
-  }
-
-  .paragraph{
-    @apply text-text-secondary text-base md:text-lg font-light text-pretty
-  }
-
-  .link{
-    @apply text-text-secondary text-[12px] font-normal duration-300
-  }
-  .salt{
-    font-feature-settings: "ss03","ss02" ,"ss08"; 
-  }
-  .clamp{
-    font-size: clamp(1rem, 0.8483rem + 0.4854vw, 1.625rem);
-  }
-  .clamp2{
-    font-size: clamp(1.5rem, 0.8932rem + 1.9417vw, 4rem);
-    letter-spacing: -0.03em;
-    line-height: 105%;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
