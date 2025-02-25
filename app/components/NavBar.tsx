@@ -98,7 +98,7 @@ export default function NavBar() {
         style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3rem" }}
         className={` ${
           isOpen ? `rounded-[12px]` : " rounded-[32px]"
-        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  ${scrollingDown? "w-[0px]": "w-[100%] px-6"} md:translate-y-[0%]  transition-all duration-[400ms]  mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row sm:px-6  sm:w-fit z-[1000]`}
+        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  ${scrollingDown? "translate-y-[-200%]": " "}   transition-all duration-[400ms]   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6  sm:w-fit z-[1000]`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo

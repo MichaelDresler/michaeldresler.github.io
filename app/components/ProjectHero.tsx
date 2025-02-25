@@ -35,7 +35,7 @@ export const ProjectHero = ({
           {link && (
             <a
               href={link}
-              className={`${geistMono.className} border border-black/40 uppercase bg-foreground/75 rounded-lg text-inverse p-3 text-center font-semibold tracking-tighter hover:bg-foreground/50 transition-all duration-300`}
+              className={`${geistMono.className} shadow-[rgb(70,70,70)_0px_0px_0px_1px_inset,_rgba(0,0,0,_0.1)_0px_6px_2px_0px] uppercase bg-radial from-gray-300 from-40% to-white rounded-lg text-text-secondary p-3 text-center font-semibold tracking-tighter hover:bg-foreground/5 transition-all duration-300`}
             >
               View Site
             </a>
