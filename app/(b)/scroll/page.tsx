@@ -60,7 +60,7 @@ export default function scroll() {
   return (
     <Smooth>
       <main className=" h-screen w-screen  my-auto">
-        {/* <section className="snap-item w-screen h-screen bg-white/10 z-[10111199]"></section> */}
+        <section className="snap-item w-screen h-screen bg-white/10 z-[10111199]"></section>
 
 
 

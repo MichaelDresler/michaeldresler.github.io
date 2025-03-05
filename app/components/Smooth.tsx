@@ -6,8 +6,7 @@ import { lerp } from "vega";
 export const Smooth = ({ children }: { children: React.ReactNode }) => {
   return <ReactLenis options={{
     lerp:1,
-    duration:1,
-    infinite:true
+    duration:1
   }} root>{children}</ReactLenis>;
   
 };
