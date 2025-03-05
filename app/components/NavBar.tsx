@@ -19,14 +19,11 @@ export default function NavBar() {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollingDown, setScrollingDown] = useState(false);
 
-  console.log("pathname:",pathname)
-
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
   const navRef = useRef<HTMLDivElement>(null);
 
-  console.log("active hover: ", activeHover)
 
   const navlinks: NavLink[] = [
     { name: "home", url: "/" },
