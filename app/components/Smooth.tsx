@@ -1,7 +1,13 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
+import { ReactLenis, useLenis } from "lenis/react";
+import { lerp } from "vega";
 
 export const Smooth = ({ children }: { children: React.ReactNode }) => {
-  return <ReactLenis root>{children}</ReactLenis>;
+  return <ReactLenis options={{
+    lerp:1,
+    duration:1,
+    infinite:true
+  }} root>{children}</ReactLenis>;
+  
 };

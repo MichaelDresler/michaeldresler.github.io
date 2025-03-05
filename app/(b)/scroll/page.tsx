@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Snap from "lenis/snap";
 import { useLenis } from "lenis/react";
 import { Smooth } from "@/app/components/Smooth";
+import Image from "next/image";
+import michael from "/public/image.png"
 
 export default function scroll() {
   const fakeNames = [
@@ -58,15 +60,9 @@ export default function scroll() {
   return (
     <Smooth>
       <main className=" h-screen w-screen  my-auto">
-        <section className="snap-item w-screen h-screen bg-white/10 z-[10111199]"></section>
+        {/* <section className="snap-item w-screen h-screen bg-white/10 z-[10111199]"></section> */}
 
-        {/* <div className="fixed w-full left-0 bottom-0 pointer-events-none rotate-180 z-100">
-          <div className="w-screen h-[25rem] absolute top-0 left-0 bg-surface/100  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_10%,_rgba(255,255,255,0)_90%)]  backdrop-blur-[20px] "></div>
-        </div>
 
-        <div className="fixed w-full left-0 top-0 pointer-events-none  z-[400]">
-          <div className="w-screen h-[25rem] absolute top-0 left-0 bg-surface/100  [mask-image:linear-gradient(180deg,_rgba(255,0,0,1)_5%,_rgba(255,255,255,0)_90%)]  backdrop-blur-[20px] "></div>
-        </div> */}
 
         <ol className="relative w-full  ">
           <div className="w-full z-[100] h-[20rem] sticky top-0  bg-surface [mask-image:linear-gradient(180deg,_rgba(255,0,0,1)_5%,_rgba(255,255,255,0)_90%)]  backdrop-blur-[20px] "></div>
@@ -75,7 +71,7 @@ export default function scroll() {
 
           {/* <div className="sticky w-[600px] h-[8rem] left-0   top-1/2 transform-[translate(10%,-55%)] border-t border-b border-white/10 z-[10000]  pointer-events-none"></div> */}
 
-          <div className="grid grid-cols-[0.6fr_1fr_0.6fr] mt-[-640px] px-12   ">
+          <div className="grid grid-cols-[0.6fr_0.6fr_1fr] mt-[-640px] px-12   ">
             <div className="mt-[80%] pb-[300px]">
               {fakeNames.map((name, index) => (
                 <motion.li
@@ -115,11 +111,11 @@ export default function scroll() {
                 </motion.li>
               ))}
             </div>
-            <div className="sticky top-0 py-8 w-full z-[10000] h-screen">
-              <div className="w-[85%] ml-auto h-full bg-white/10 "></div>
-            </div>
-            <div className=" flex sticky top-0 py-8 w-full z-[10000] h-screen">
-              <div className="mt-auto ml-6  h-fit  text-white/80 text-pretty ">
+            <div className=" flex flex-col sticky top-0 py-8 w-full z-[10000] h-screen">
+            <div className=" ml-6  h-fit  text-white/80 text-pretty ">
+                01
+              </div>
+              <div className=" ml-6  h-fit  text-white/80 text-pretty ">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
@@ -130,6 +126,14 @@ export default function scroll() {
                 containing 
               </div>
             </div>
+            <div className="sticky top-0 py-8 w-full z-[10000] h-screen">
+              <Image
+              src={michael}
+              alt=""
+              className="w-[85%] ml-auto h-full bg-white/5 object-cover "
+              />
+            </div>
+           
           </div>
           {/* <div className="mt-[30rem]">hwl</div> */}
         </ol>
