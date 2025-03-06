@@ -7,40 +7,35 @@ import { useLenis } from "lenis/react";
 import { Smooth } from "@/app/components/Smooth";
 import Image from "next/image";
 
-import dan from "/public/port/dan.png"
-import maheen from "/public/port/maheen.png"
-import connor from "/public/port/connor.png"
-import mark from "/public/port/mark.png"
-import armina from "/public/port/armina.png"
-import marta from "/public/port/marta.png"
-import matt from "/public/port/matt.png"
-import chris from "/public/port/chris.png"
-import tt from "/public/port/bestie2.png"
-
-
+import dan from "/public/port/dan.png";
+import maheen from "/public/port/maheen.png";
+import connor from "/public/port/connor.png";
+import mark from "/public/port/mark.png";
+import armina from "/public/port/armina.png";
+import marta from "/public/port/marta.png";
+import matt from "/public/port/matt.png";
+import chris from "/public/port/chris.png";
+import tt from "/public/port/bestie2.png";
 
 export default function scroll() {
-
   const [imgIndex, setImgIndex] = useState(1);
 
   const imageList = [
     // WHEN STRUCTURING THIS LIST ENSURE THAT WHOEVER IS HIGHLIGHTED AT THE BEGINING OF THE PAGE IS FIRST IN THE ARRAY (ie. marta is first highlighted when opening page so her picture is first)
     dan,
     maheen,
-    connor, 
+    connor,
     marta,
     tt,
     mark,
     chris,
     armina,
     matt,
-
-
-
   ];
+  const numSpeakers = 8
 
   const fakeNames = [
-    // TO FIGURE OUT SEAMLESS SCROLL, FIRST DECIDE HOW MANY ELEMENTS YOU WANT DISPLAY ON THE SCREEN.  
+    // TO FIGURE OUT SEAMLESS SCROLL, FIRST DECIDE HOW MANY ELEMENTS YOU WANT DISPLAY ON THE SCREEN.
     // N = NUM ELEMENTS ON SCREEN (ex. 8)
     // S = VIEWPORT HEIGHT (ex. 818)
     // HEIGHT OF ELEMENT = S/N (ex. 818/8 = 103px)
@@ -74,34 +69,13 @@ export default function scroll() {
     "Mark Strathern",
     "Christopher Elawa",
     "Armina Foroughi",
-    
- 
- 
-
-    
   ];
 
-  // const cubicBezier = (t: number, ...params: number[]) => {
-  //   const [p0, p1, p2, p3] = params;
-  //   const c0 = (1 - t) ** 3;
-  //   const c1 = 3 * (1 - t) ** 2 * t;
-  //   const c2 = 3 * (1 - t) * t ** 2;
-  //   const c3 = t ** 3;
-
-  //   return c0 * p0 + c1 * p1 + c2 * p2 + c3 * p3;
-  // };
-
-  
-  
-
   const lenis = useLenis(({ scroll }) => {
-        // console.log(window.scrollY)
-    
+    // console.log(window.scrollY)
   });
 
-  function isElementActive(element: HTMLElement) {
-  
-  }
+  function isElementActive(element: HTMLElement) {}
 
   useEffect(() => {
     if (lenis) {
@@ -111,27 +85,29 @@ export default function scroll() {
         easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for snapping
         duration: 1.25, // Snap duration is 600ms
       });
-      
+
       // Ensure listItems is only accessed in the browser
-      const listItems = document.querySelectorAll(".snap-item") as NodeListOf<HTMLElement>;
-  
+      const listItems = document.querySelectorAll(
+        ".snap-item"
+      ) as NodeListOf<HTMLElement>;
+
       listItems.forEach((item, index) => {
         snap.addElement(item, {
           align: ["center"],
         });
       });
 
-      const entries = Array.from(snap.elements.entries())
-      const elementsArray = entries.map(entry => entry[1].rect.top);
+      const entries = Array.from(snap.elements.entries());
+      const elementPosY = entries.map((entry) => entry[1].rect.top);
+      console.log
 
       window.addEventListener("scroll", () => {
-        console.log("Scroll position:", window.scrollY); // For debugging
-        elementsArray.forEach((element, index) => {
-          if(Math.abs( Math.round(window.scrollY) - element ) <= 80){
-            setImgIndex(index % 9)
+        elementPosY.forEach((element, index) => {
+          if (Math.abs(Math.round(window.scrollY) - element) <= 30) {
+            console.log("index",index,"scrollpos",Math.abs(Math.round(window.scrollY)),"element posy",element,"threshold:",Math.round(Math.abs(window.scrollY - element)))
+            setImgIndex(index % 9);
             // console.log(index)
           }
-
         });
       });
 
@@ -139,39 +115,29 @@ export default function scroll() {
       return () => {
         window.removeEventListener("scroll", () => {});
       };
-
-
     } else {
-      console.error("Lenis instance is undefined or not in a browser environment");
+      console.error(
+        "Lenis instance is undefined or not in a browser environment"
+      );
     }
-    
-  }, [lenis,]); // Empty dependency array means this runs only once after component mounts
-
-  
-
- 
+  }, [lenis]); // Empty dependency array means this runs only once after component mounts
 
   return (
     <Smooth>
       <main className=" h-screen w-screen   ">
-        {/* <section className="snap-item w-screen h-screen bg-white/10 z-[10111199]"></section> */}
-
-
-
         <ol className="relative w-full  ">
-
-
           <div className="grid grid-cols-[0.6fr_0.6fr_1fr]  px-12   ">
             <div className=" ">
               {fakeNames.map((name, index) => (
                 <motion.li
-                  className="snap-item text-text-secondary/20 text-[2rem] lg:text-[3rem] font-medium tracking-[-0.04em] h-[103px] "
+                  style={{height:window.innerHeight/numSpeakers}}
+                  className="snap-item text-text-secondary/20 text-[2rem] lg:text-[3rem] bg-red-300 font-medium tracking-[-0.04em]  "
                   key={index}
                   initial={{
                     color: "var(--text-primary)",
                     opacity: 0.2,
-                    scale: 0.9,
-                    originX:0
+                    // scale: 0.9,
+                    originX: 0,
                     // width:"12rem"
                     //     rotateX: "-30deg",
                     // translateZ:"40px"
@@ -198,16 +164,12 @@ export default function scroll() {
                   {/* <div className="text-base tracking-tight leading-0">
                     Product designer, Meta
                   </div> */}
-                  <div className="  " >
-                    {name}
-                  </div>
+                  <div className="  ">{name}</div>
                 </motion.li>
               ))}
             </div>
             <div className=" flex flex-col sticky top-0 py-8 w-full z-[10000] h-screen ">
-            <div className=" ml-6  h-fit  text-white/80 text-pretty ">
-                01
-              </div>
+              <div className=" ml-6  h-fit  text-white/80 text-pretty ">01</div>
               <div className=" ml-6  h-fit  text-white/80 text-pretty ">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -216,17 +178,16 @@ export default function scroll() {
                 survived not only five centuries, but also the leap into
                 electronic typesetting, remaining essentially unchanged. It was
                 popularised in the 1960s with the release of Letraset sheets
-                containing 
+                containing
               </div>
             </div>
             <div className="sticky top-0 py-8 w-full z-[10000] h-screen">
               <Image
-              src={imageList[imgIndex]}
-              alt=""
-              className="w-[85%] ml-auto h-full bg-white/5 object-cover "
+                src={imageList[imgIndex]}
+                alt=""
+                className="w-[85%] ml-auto h-full bg-white/5 object-cover "
               />
             </div>
-           
           </div>
           {/* <div className="mt-[30rem]">hwl</div> */}
         </ol>
