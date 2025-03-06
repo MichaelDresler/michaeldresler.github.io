@@ -6,10 +6,47 @@ import Snap from "lenis/snap";
 import { useLenis } from "lenis/react";
 import { Smooth } from "@/app/components/Smooth";
 import Image from "next/image";
-import michael from "/public/image.png"
+
+import dan from "/public/port/dan.png"
+import maheen from "/public/port/maheen.png"
+import connor from "/public/port/connor.png"
+import mark from "/public/port/mark.png"
+import armina from "/public/port/armina.png"
+import marta from "/public/port/marta.png"
+import matt from "/public/port/matt.png"
+import chris from "/public/port/chris.png"
+import tt from "/public/port/bestie2.png"
+
+
 
 export default function scroll() {
+
+  const [imgIndex, setImgIndex] = useState(1);
+
+  const imageList = [
+    // WHEN STRUCTURING THIS LIST ENSURE THAT WHOEVER IS HIGHLIGHTED AT THE BEGINING OF THE PAGE IS FIRST IN THE ARRAY (ie. marta is first highlighted when opening page so her picture is first)
+    dan,
+    maheen,
+    connor, 
+    marta,
+    tt,
+    mark,
+    chris,
+    armina,
+    matt,
+
+
+
+  ];
+
   const fakeNames = [
+    // TO FIGURE OUT SEAMLESS SCROLL, FIRST DECIDE HOW MANY ELEMENTS YOU WANT DISPLAY ON THE SCREEN.  
+    // N = NUM ELEMENTS ON SCREEN (ex. 8)
+    // S = VIEWPORT HEIGHT (ex. 818)
+    // HEIGHT OF ELEMENT = S/N (ex. 818/8 = 103px)
+    // T = TOTAL NUM OF ELEMENTS IN ARRAY  (ex.9 speakers in this case)
+    // NT = NEW TOTAL NUM ELEMENT IN ARRAY FOR SEAMLpESS SCROLL = T*2 + N(THE ADDED ELEMENTS MUST BE TAKEN FROM TOP OF THE LIST AND PUT AT THE BOTTOM) (ex. 9*2 = 18 + 8 = 26 )
+
     "Dan Nanasi",
     "Maheen Sohail",
     "Connor Lowe",
@@ -19,68 +56,123 @@ export default function scroll() {
     "Christopher Elawa",
     "Armina Foroughi",
     "Matt Walsh",
+    "Dan Nanasi",
+    "Maheen Sohail",
+    "Connor Lowe",
+    "Marta Bernstein",
+    "Touchpoint Team",
+    "Mark Strathern",
+    "Christopher Elawa",
+    "Armina Foroughi",
+    "Matt Walsh",
+    // TAKEN FROM TOP OF LIST DOWNWARDS
+    "Dan Nanasi",
+    "Maheen Sohail",
+    "Connor Lowe",
+    "Marta Bernstein",
+    "Touchpoint Team",
+    "Mark Strathern",
+    "Christopher Elawa",
+    "Armina Foroughi",
+    
+ 
+ 
+
+    
   ];
 
-  const cubicBezier = (t: number, ...params: number[]) => {
-    const [p0, p1, p2, p3] = params;
-    const c0 = (1 - t) ** 3;
-    const c1 = 3 * (1 - t) ** 2 * t;
-    const c2 = 3 * (1 - t) * t ** 2;
-    const c3 = t ** 3;
+  // const cubicBezier = (t: number, ...params: number[]) => {
+  //   const [p0, p1, p2, p3] = params;
+  //   const c0 = (1 - t) ** 3;
+  //   const c1 = 3 * (1 - t) ** 2 * t;
+  //   const c2 = 3 * (1 - t) * t ** 2;
+  //   const c3 = t ** 3;
 
-    return c0 * p0 + c1 * p1 + c2 * p2 + c3 * p3;
-  };
+  //   return c0 * p0 + c1 * p1 + c2 * p2 + c3 * p3;
+  // };
+
+  
+  
 
   const lenis = useLenis(({ scroll }) => {
-    //     console.log(window.scrollY)
+        // console.log(window.scrollY)
+    
   });
 
-  const listItems = document.querySelectorAll(
-    ".snap-item"
-  ) as NodeListOf<HTMLElement>;
-
-  if (lenis) {
-    const snap = new Snap(lenis, {
-      type: "proximity", // Make the snap strict (must snap to points)
-      lerp: 1, // Slightly smoother snap
-
-      easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for snapping
-      //       easing: (t) => cubicBezier(t, 0, 0.2, 0, 1), // Cubic easing for snapping
-      duration: 1.25, // Snap duration is 600ms
-    });
-    listItems.forEach((item, index) => {
-      snap.addElement(item, {
-        align: ["center"],
-      });
-    });
-  } else {
-    console.error("Lenis instance is undefined");
+  function isElementActive(element: HTMLElement) {
+  
   }
+
+  useEffect(() => {
+    if (lenis) {
+      const snap = new Snap(lenis, {
+        type: "proximity", // Make the snap strict (must snap to points
+        lerp: 1, // Slightly smoother snap
+        easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for snapping
+        duration: 1.25, // Snap duration is 600ms
+      });
+      
+      // Ensure listItems is only accessed in the browser
+      const listItems = document.querySelectorAll(".snap-item") as NodeListOf<HTMLElement>;
+  
+      listItems.forEach((item, index) => {
+        snap.addElement(item, {
+          align: ["center"],
+        });
+      });
+
+      const entries = Array.from(snap.elements.entries())
+      const elementsArray = entries.map(entry => entry[1].rect.top);
+
+      window.addEventListener("scroll", () => {
+        console.log("Scroll position:", window.scrollY); // For debugging
+        elementsArray.forEach((element, index) => {
+          if(Math.abs( Math.round(window.scrollY) - element ) <= 80){
+            setImgIndex(index % 9)
+            // console.log(index)
+          }
+
+        });
+      });
+
+      // Clean up the scroll event listener if needed
+      return () => {
+        window.removeEventListener("scroll", () => {});
+      };
+
+
+    } else {
+      console.error("Lenis instance is undefined or not in a browser environment");
+    }
+    
+  }, [lenis,]); // Empty dependency array means this runs only once after component mounts
+
+  
+
+ 
 
   return (
     <Smooth>
-      <main className=" h-screen w-screen  my-auto">
+      <main className=" h-screen w-screen   ">
         {/* <section className="snap-item w-screen h-screen bg-white/10 z-[10111199]"></section> */}
 
 
 
         <ol className="relative w-full  ">
-          <div className="w-full z-[100] h-[20rem] sticky top-0  bg-surface [mask-image:linear-gradient(180deg,_rgba(255,0,0,1)_5%,_rgba(255,255,255,0)_90%)]  backdrop-blur-[20px] "></div>
 
-          <div className="w-full z-[1000] h-[20rem] sticky top-0 translate-y-[calc(100vh-20rem)] rotate-180  bg-surface [mask-image:linear-gradient(180deg,_rgba(255,0,0,1)_5%,_rgba(255,255,255,0)_90%)]  backdrop-blur-[20px] "></div>
 
-          {/* <div className="sticky w-[600px] h-[8rem] left-0   top-1/2 transform-[translate(10%,-55%)] border-t border-b border-white/10 z-[10000]  pointer-events-none"></div> */}
-
-          <div className="grid grid-cols-[0.6fr_0.6fr_1fr] mt-[-640px] px-12   ">
-            <div className="mt-[80%] pb-[300px]">
+          <div className="grid grid-cols-[0.6fr_0.6fr_1fr]  px-12   ">
+            <div className=" ">
               {fakeNames.map((name, index) => (
                 <motion.li
-                  className="snap-item text-[2rem] lg:text-[3rem] my-12  font-medium tracking-[-0.04em] "
-                  key={name}
+                  className="snap-item text-text-secondary/20 text-[2rem] lg:text-[3rem] font-medium tracking-[-0.04em] h-[103px] "
+                  key={index}
                   initial={{
                     color: "var(--text-primary)",
                     opacity: 0.2,
-                    scale: 0.98,
+                    scale: 0.9,
+                    originX:0
+                    // width:"12rem"
                     //     rotateX: "-30deg",
                     // translateZ:"40px"
                     // transform: "rotateX(-30deg) translateZ(40px),"
@@ -89,29 +181,30 @@ export default function scroll() {
                     color: "var(--text-primary)",
                     opacity: 1,
                     scale: 1,
+                    // width:"14rem"
                     //     rotateX: "0deg",
                     // translateZ:"10px"
 
                     // transform: "rotateX(-0deg) translateZ(0px) scale(1)"
                   }}
                   viewport={{
-                    margin: "-50%  0% -50% 0%",
+                    margin: "0%  0% -90% 0%",
                   }}
                   transition={{
                     duration: 0.75,
                     ease: [0.25, 0.8, 0.25, 1], // S-curve Bezier easing
                   }}
                 >
-                  <div className="text-base tracking-tight leading-0">
+                  {/* <div className="text-base tracking-tight leading-0">
                     Product designer, Meta
-                  </div>
-                  <a className="" href="">
+                  </div> */}
+                  <div className="  " >
                     {name}
-                  </a>
+                  </div>
                 </motion.li>
               ))}
             </div>
-            <div className=" flex flex-col sticky top-0 py-8 w-full z-[10000] h-screen">
+            <div className=" flex flex-col sticky top-0 py-8 w-full z-[10000] h-screen ">
             <div className=" ml-6  h-fit  text-white/80 text-pretty ">
                 01
               </div>
@@ -128,7 +221,7 @@ export default function scroll() {
             </div>
             <div className="sticky top-0 py-8 w-full z-[10000] h-screen">
               <Image
-              src={michael}
+              src={imageList[imgIndex]}
               alt=""
               className="w-[85%] ml-auto h-full bg-white/5 object-cover "
               />
