@@ -5,9 +5,13 @@ import { lerp } from "vega";
 
 export const Smooth = ({ children }: { children: React.ReactNode }) => {
   return <ReactLenis options={{
-    lerp:1,
-    duration:1,
-    infinite:true
+    lerp:0,
+    duration:10,
+    // infinite:true,
+    
+    orientation:"horizontal",
+    gestureOrientation:"horizontal"
+
   }} root>{children}</ReactLenis>;
   
 };

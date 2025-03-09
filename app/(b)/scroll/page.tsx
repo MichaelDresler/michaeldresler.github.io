@@ -1,11 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 import Snap from "lenis/snap";
 import { useLenis } from "lenis/react";
 import { Smooth } from "@/app/components/Smooth";
 import Image from "next/image";
+import { useScroll } from "framer-motion";
 
 import dan from "/public/port/dan.png";
 import maheen from "/public/port/maheen.png";
@@ -16,9 +17,11 @@ import marta from "/public/port/marta.png";
 import matt from "/public/port/matt.png";
 import chris from "/public/port/chris.png";
 import tt from "/public/port/bestie2.png";
+import { ScalingCarousel } from "@/app/components/ScalingCarousel";
 
 export default function scroll() {
-  const [imgIndex, setImgIndex] = useState(1);
+  const [itemOffsets, setItemOffsets] = useState<number[]>([]);
+
 
   const imageList = [
     // WHEN STRUCTURING THIS LIST ENSURE THAT WHOEVER IS HIGHLIGHTED AT THE BEGINING OF THE PAGE IS FIRST IN THE ARRAY (ie. marta is first highlighted when opening page so her picture is first)
@@ -29,177 +32,156 @@ export default function scroll() {
     tt,
     mark,
     chris,
-    armina,
-    matt,
-  ];
-  const numSpeakers = 8
+    dan,
+    maheen,
+    connor,
+    marta,
+    tt,
+    mark,
+    chris,
 
-  const fakeNames = [
-    // TO FIGURE OUT SEAMLESS SCROLL, FIRST DECIDE HOW MANY ELEMENTS YOU WANT DISPLAY ON THE SCREEN.
-    // N = NUM ELEMENTS ON SCREEN (ex. 8)
-    // S = VIEWPORT HEIGHT (ex. 818)
-    // HEIGHT OF ELEMENT = S/N (ex. 818/8 = 103px)
-    // T = TOTAL NUM OF ELEMENTS IN ARRAY  (ex.9 speakers in this case)
-    // NT = NEW TOTAL NUM ELEMENT IN ARRAY FOR SEAMLpESS SCROLL = T*2 + N(THE ADDED ELEMENTS MUST BE TAKEN FROM TOP OF THE LIST AND PUT AT THE BOTTOM) (ex. 9*2 = 18 + 8 = 26 )
-
-    "Dan Nanasi",
-    "Maheen Sohail",
-    "Connor Lowe",
-    "Marta Bernstein",
-    "Touchpoint Team",
-    "Mark Strathern",
-    "Christopher Elawa",
-    "Armina Foroughi",
-    "Matt Walsh",
-    "Dan Nanasi",
-    "Maheen Sohail",
-    "Connor Lowe",
-    "Marta Bernstein",
-    "Touchpoint Team",
-    "Mark Strathern",
-    "Christopher Elawa",
-    "Armina Foroughi",
-    "Matt Walsh",
-    // TAKEN FROM TOP OF LIST DOWNWARDS
-    "Dan Nanasi",
-    "Maheen Sohail",
-    "Connor Lowe",
-    "Marta Bernstein",
-    "Touchpoint Team",
-    "Mark Strathern",
-    "Christopher Elawa",
-    "Armina Foroughi",
+    // armina,
+    // matt,
   ];
+  const numSpeakers = 8;
+
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollXProgress } = useScroll({ container: ref });
+  const widthTransform = useTransform(scrollXProgress, [0, 1], [100, 500]);
+  const heightTransform = useTransform(scrollXProgress, [0, 1], [100, 800]);
 
   const lenis = useLenis(({ scroll }) => {
     // console.log(window.scrollY)
   });
 
-  function isElementActive(element: HTMLElement) {}
+  const handleWheel = (event: WheelEvent) => {
+    // Prevent default vertical scroll behavior
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    // Determine how much to scroll horizontally
+    const scrollAmount = event.deltaY;
+    // Get the current scroll position and adjust it horizontally
+    if (ref.current) {
+      ref.current.scrollLeft += scrollAmount * 0.4;
+    }
+  };
 
   useEffect(() => {
-    if (lenis) {
-      const snap = new Snap(lenis, {
-        type: "proximity", // Make the snap strict (must snap to points
-        lerp: 1, // Slightly smoother snap
-        easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for snapping
-        duration: 1.25, // Snap duration is 600ms
-      });
+    // Add the scroll event listener on mount
 
-      // Ensure listItems is only accessed in the browser
-      const listItems = document.querySelectorAll(
-        ".snap-item"
-      ) as NodeListOf<HTMLElement>;
-
-      listItems.forEach((item, index) => {
-        snap.addElement(item, {
-          align: ["center"],
+    const calculateOffsets = () => {
+      const items = ref.current?.children;
+      if (items) {
+        const offsets = Array.from(items).map((item) => {
+          // Calculate the offset of the item relative to the viewport
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.left + rect.width / 2; // center of the item
+          const viewportCenter = window.innerWidth / 2; // center of the viewport
+          return Math.abs(itemCenter - viewportCenter); // distance from the center
         });
-      });
+        setItemOffsets(offsets);
+      }
+    };
 
-      const entries = Array.from(snap.elements.entries());
-      const elementPosY = entries.map((entry) => entry[1].rect.top);
-      console.log
+    // Recalculate on scroll or resize
+    window.addEventListener("wheel", handleWheel);
+    window.addEventListener("resize", calculateOffsets);
+    window.addEventListener("wheel", calculateOffsets);
+    calculateOffsets(); // Initial calculation
 
-      window.addEventListener("scroll", () => {
-        elementPosY.forEach((element, index) => {
-          if (Math.abs(Math.round(window.scrollY) - element) <= 30) {
-            console.log("index",index,"scrollpos",Math.abs(Math.round(window.scrollY)),"element posy",element,"threshold:",Math.round(Math.abs(window.scrollY - element)))
-            setImgIndex(index % 9);
-            // console.log(index)
-          }
-        });
-      });
-
-      // Clean up the scroll event listener if needed
-      return () => {
-        window.removeEventListener("scroll", () => {});
-      };
-    } else {
-      console.error(
-        "Lenis instance is undefined or not in a browser environment"
-      );
-    }
-  }, [lenis]); // Empty dependency array means this runs only once after component mounts
+    return () => {
+      window.removeEventListener("resize", calculateOffsets);
+      window.removeEventListener("scroll", calculateOffsets);
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
 
   return (
-    <Smooth>
-      <main className=" h-screen w-screen   ">
-        <ol className="relative w-full  ">
-          <div className="grid grid-cols-[0.6fr_0.6fr_1fr]  px-12   ">
-            <div className=" ">
-              {fakeNames.map((name, index) => (
-                <motion.li
-                  style={{height:window.innerHeight/numSpeakers}}
-                  className="snap-item text-text-secondary/20 text-[2rem] lg:text-[3rem] bg-red-300 font-medium tracking-[-0.04em]  "
-                  key={index}
-                  initial={{
-                    color: "var(--text-primary)",
-                    opacity: 0.2,
-                    // scale: 0.9,
-                    originX: 0,
-                    // width:"12rem"
-                    //     rotateX: "-30deg",
-                    // translateZ:"40px"
-                    // transform: "rotateX(-30deg) translateZ(40px),"
-                  }}
-                  whileInView={{
-                    color: "var(--text-primary)",
-                    opacity: 1,
-                    scale: 1,
-                    // width:"14rem"
-                    //     rotateX: "0deg",
-                    // translateZ:"10px"
+      <main className="flex items-end w-screen h-screen overflow-y-hidden">
+        <ScalingCarousel/>
+      </main>
 
-                    // transform: "rotateX(-0deg) translateZ(0px) scale(1)"
-                  }}
-                  viewport={{
-                    margin: "0%  0% -90% 0%",
-                  }}
-                  transition={{
-                    duration: 0.75,
-                    ease: [0.25, 0.8, 0.25, 1], // S-curve Bezier easing
+      /* <main className=" relative w-screen h-screen overflow-y-hidden  ">
+        <svg
+          id="progress"
+          width="80"
+          height="80"
+          className="absolute top-0"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="30"
+            pathLength="1"
+            className=" absolute top-0"
+          />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="30"
+            className="stroke-amber-400 stroke-3 fill-indigo-50"
+            style={{ pathLength: scrollXProgress }}
+          />
+        </svg>
+        <div className="grid grid-rows-2 h-full      ">
+          <div className="grid grid-cols-[1fr_1fr_1fr] pt-16 px-8 ">
+            <div className=" text-[48px] font-[helvetica] tracking-tight  leading-[90%] text-text-primary text-pretty ">
+              Christopher Elawa
+            </div>
+            <div className=" text-[15px]   text-text-secondary/100 text-pretty ">
+              <span className="text-text-primary font-semibold">
+                {" "}
+                Product Designer <br />{" "}
+              </span>
+              Matt lives outside of Denver and is the Founder and CEO of Green
+              Stone. Seven years in, the firm delivered solutions for Twitter,
+              American Express, Google, Logitech, Beats By Dre, and many other
+              clients across the globally. Prior to Green Stone, Matt spent 8
+              years founding, building, and leading a team of 25 Experience
+              Designers at Crispin Porter + Bogusky in Boulder as well as
+              several years at R/GA on the Nike account in New York where he
+              helped craft a number of influential platforms including NikeID
+              and Nike+. Through that journey, his projects have won many
+              marquee industry awards, but he gets far more excited about
+              winning the hearts and minds of the people he designs for.
+            </div>
+          </div>
+
+          <div ref={ref} className="flex items-end flex-row gap-2 overflow-x-scroll ">
+          {imageList.map((img, index) => {
+              const distanceFromCenter = useMotionValue(itemOffsets[index]);
+
+              // Define the scale factor based on distance
+              const scale = 1-(itemOffsets[index]/window.innerWidth/2)*3
+              
+
+              return (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 max-w-[450px] aspect-[7/10] bg-red-600"
+                  style={{
+                    width: 400 * scale,
+
+                    // scale: scale, // Use dynamic scale here
                   }}
                 >
-                  {/* <div className="text-base tracking-tight leading-0">
-                    Product designer, Meta
-                  </div> */}
-                  <div className="  ">{name}</div>
-                </motion.li>
-              ))}
-            </div>
-            <div className=" flex flex-col sticky top-0 py-8 w-full z-[10000] h-screen ">
-              <div className=" ml-6  h-fit  text-white/80 text-pretty ">01</div>
-              <div className=" ml-6  h-fit  text-white/80 text-pretty ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing
-              </div>
-            </div>
-            <div className="sticky top-0 py-8 w-full z-[10000] h-screen">
-              <Image
-                src={imageList[imgIndex]}
-                alt=""
-                className="w-[85%] ml-auto h-full bg-white/5 object-cover "
-              />
-            </div>
+                  <Image
+                    src={img}
+                    alt="Speaker"
+                    style={{
+                      width: 200 * scale,
+                      height: 400 * scale,
+                      // scale: scale, // Use dynamic scale here
+                    }}
+                    className="object-cover w-full h-full"
+                  />
+                </motion.div>
+              )
+            })}
           </div>
-          {/* <div className="mt-[30rem]">hwl</div> */}
-        </ol>
+        </div>
+      </main> */
 
-        {/* <div className="w-full h-full fixed flex justify-end items-end top-0 z-[10000] pointer-events-none">
-          <div className=" flex justify-end  ">
-            <span className="h-fit w-fit font-bold text-[16rem] leading-[100%]  text-[rgb(241,240,228)] ">
-              01
-            </span>
-          </div>
-        </div> */}
-      </main>
-    </Smooth>
   );
 }
