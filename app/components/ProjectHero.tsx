@@ -29,13 +29,13 @@ export const ProjectHero = ({
         /> */}
       </div>
 
-      <div className="text-text-secondary grid grid-cols-1 md:grid-cols-[0.5fr_0.6fr_1.25fr_0.5fr] mt-12">
+      <div className="text-text-secondary grid grid-cols-1 md:grid-cols-[0.52fr_0.6fr_1.25fr_0.5fr] mt-12">
         <div className="flex flex-col gap-6  mb-8">
-          <div className="clamp2 font-medium text-text-primary">{title}</div>
+          <div className="clamp2 font-normal text-text-primary">{title}</div>
           {link && (
             <a
               href={link}
-              className={`${geistMono.className} hidden md:flex w-full justify-center gap-4 md:justify-between ring ring-white/30 uppercase bg-foreground/20 rounded-md text-white/80 p-3 text-center font-semibold tracking-tighter hover:bg-foreground/15 transition-all duration-300`}
+              className={`${geistMono.className} hidden md:flex w-full justify-center gap-4 md:justify-between ring ring-white/30 uppercase bg-foreground/20 rounded-sm text-white/80 p-3 text-center font-normal  hover:bg-foreground/15 transition-all duration-300`}
             >
               <div> View Site</div>
               <svg
@@ -55,7 +55,7 @@ export const ProjectHero = ({
             </a>
           )}
         </div>
-        <div className="md:col-start-3 md:col-span-full">
+        <div className="md:col-start-3 md:col-span-full font-light">
           <ul>
             <div className="flex flex-col md:flex-row justify-between gap-4 py-4 md:py-[1.5em] border-b border-foreground/20">
               <li className="text-text-primary">Year</li>
@@ -80,7 +80,7 @@ export const ProjectHero = ({
             {link && (
             <a
               href={link}
-              className={`${geistMono.className} md:hidden mt-10 flex w-full justify-center gap-4 md:justify-between ring ring-white/30 uppercase bg-foreground/20 rounded-md text-white/80 p-3 text-center font-semibold tracking-tighter hover:bg-foreground/15 transition-all duration-300`}
+              className={`${geistMono.className} md:hidden mt-10 flex w-full justify-center gap-4 md:justify-between ring ring-white/30 uppercase bg-foreground/20 rounded-md text-white/80 p-3 text-center font-normal hover:bg-foreground/15 transition-all duration-300`}
             >
               <div> View Site</div>
               <svg
@@ -100,7 +100,7 @@ export const ProjectHero = ({
             </a>
           )}
           </ul>
-          <p className="my-[3.5em] text-[26px] leading-[130%] text-pretty">
+          <p className="my-[3.5em] font-light text-[26px] leading-[130%] text-pretty">
             {about}
           </p>
         </div>

@@ -13,10 +13,10 @@ export default function Home() {
          transition={{  opacity: { duration: 1  }, 
          y: { duration: 1, ease: [0.25,0,0.20,1] }}}
         >
-          <h1 className="md:font-semibold text-pretty  font-semibold text-[2.5rem] md:text-[4rem] xl:text-[6.5rem]  text-text-primary tracking-[-0.09em] leading-[120%] md:leading-[100%] ">
-            Michael Dresler — <br /> Designer & Developer
+          <h1 className="md:font-normal text-pretty  font-normal text-[2.5rem] md:text-[4rem] xl:text-[9rem]  text-text-primary tracking-[-0.06em] leading-[120%] md:leading-[95%] max-w-[15ch] ">
+            Michael Dresler — <br /> Designer & Developer Based in Vancouver
           </h1>
-          <h2 className=" mt-8 font-medium text-2xl text-text-secondary tracking-[-0.05em] max-w-[32ch] ">
+          <h2 className=" mt-8 font-normal text-lg text-text-secondary tracking-[-0.02em] max-w-[37ch] ">
             My passion for design, coupled with a background in development, has
             pushed me to expand my approach beyond just aesthetics.
           </h2>

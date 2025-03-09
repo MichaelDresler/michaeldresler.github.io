@@ -21,8 +21,8 @@ export default function projects() {
 
 
           <div className="py-12">
-            <h2 className="clamp2 font-medium text-text-primary leading-[2em]">Hero Section</h2>
-            <p className="text-lg text-text-secondary max-w-[64ch]">The goal was to create a more dynamic and intuitive online experience that better communicates the organization’s mission while maintaining an inclusive and welcoming tone. By refining the messaging and improving the overall user experience, the redesign helps SFU Surge inspire and support the next generation of tech innovators.</p>
+            <h2 className="clamp2 font-normal text-text-primary leading-[2em]">Hero Section</h2>
+            <p className="text-lg font-light text-text-secondary max-w-[64ch]">The goal was to create a more dynamic and intuitive online experience that better communicates the organization’s mission while maintaining an inclusive and welcoming tone. By refining the messaging and improving the overall user experience, the redesign helps SFU Surge inspire and support the next generation of tech innovators.</p>
           </div>
           
           
