@@ -5,30 +5,35 @@ import Link from "next/link";
 export default function About() {
   return (
     <div>
-      <main className="flex flex-col lg:flex-row font-normal max-w-[1400px] pt-12 gap-8 lg:gap-12 xl:gap-24 mx-auto  ">
-        <div className=" h-full max-w-[500px] ">
+      <main className="grid gap-x-6 xl:gap-x-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 pt-4 ">
+
+        <div className=" h-full lg:col-start-8 lg:col-span-5 xl:col-start-9 xl:col-span-4 rounded-md overflow-hidden">
           <Image
-            className="  w-fit h-[80%]  object-cover   rounded-none "
+            className=" grayscale md:max-w-[400px] lg:max-w-none object-cover w-full h-full  rounded-none "
             src={portait}
             quality={100}
             alt="hello"
           />
         </div>
 
-        <div className="flex flex-col flex-1 justify-between lg:gap-0 gap-12 ">
+        <span className="hidden lg:flex row-start-1 col-start-1 text-xl text-text-primary leading-[100%]">01</span>
+
+        <div className="mt-8 sm:mt-0 flex flex-col flex-1 justify-between lg:gap-0 gap-12 lg:col-start-3 lg:col-span-4 lg:row-start-1  ">
 
           <div>
-            <h1 className="text-text-primary md:text-[2rem] leading-[100%]   tracking-[-0.05em] mb-6">
+            <h1 className="text-text-primary text-xl  leading-[100%]   tracking-[-0.05em] mb-4 md:mb-6">
               About me
             </h1>
 
-            <p className="  text-text-secondary max-w-[41ch] md:text-lg leading-[140%] text-pretty  tracking-[-0.02em]">
+            <p className="  text-text-secondary max-w-[41ch] xl:text-lg leading-[140%] text-pretty  tracking-[-0.02em]">
               Hi, I'm Michael, a designer and developer currently at Simon
               Fraser University’s Interactive Arts and Technology program. I'm
               passionate about merging my design and coding skills to create
               immersive experiences. I explore design history to inform my
               approach and understand the contextual evolution that shapes
-              today's design landscape
+              today's design landscape.             Hi, I'm Michael, a designer and developer currently at Simon
+              Fraser University’s Interactive Arts and Technology program. I'm
+
             </p>
           </div>
 
