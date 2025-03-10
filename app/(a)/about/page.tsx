@@ -19,7 +19,7 @@ export default function About() {
 
         <span className={`hidden lg:flex row-start-1 col-start-1 text-xl text-text-primary leading-[100%] ${geistMono.className}`}>01</span>
 
-        <div className="mt-8 sm:mt-0 flex flex-col flex-1 justify-between lg:gap-0 gap-12 lg:col-start-3 lg:col-span-4 lg:row-start-1  ">
+        <div className="mt-8 sm:mt-0 flex flex-col flex-1 justify-between lg:gap-0 gap-12 lg:col-start-4 lg:col-span-4 lg:row-start-1  ">
 
           <div>
             <h1 className="text-text-primary text-xl  leading-[100%]   tracking-[-0.05em] mb-4 md:mb-6">
@@ -38,7 +38,7 @@ export default function About() {
             </p>
           </div>
 
-          <ul className="flex flex-col gap-2  pb-12 ">
+          <ul className="flex flex-col gap-2  xl:pb-[12rem] ">
             <h2 className="md:text-lg text-text-primary tracking-[-0.02em] md:mb-6">Contact</h2>
             <li>
               <Link
