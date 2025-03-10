@@ -35,7 +35,7 @@ export const ProjectHero = ({
           {link && (
             <a
               href={link}
-              className={`${geistMono.className} hidden md:flex w-full justify-center gap-4 md:justify-between uppercase border-b text-white/80 hover:text-inverse py-4 px-2 text-center font-normal  hover:bg-foreground/90 transition-all duration-300`}
+              className={`${geistMono.className} hidden md:flex w-full justify-center gap-4 md:justify-between uppercase border-b border-foreground text-text-primary/80 hover:text-inverse py-4 px-2 text-center font-normal  hover:bg-foreground/90 transition-all duration-300`}
             >
               <div> View Site</div>
               <svg

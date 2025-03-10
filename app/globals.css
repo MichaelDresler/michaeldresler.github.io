@@ -100,17 +100,17 @@
 
 @layer utilities {
   :root {
-    --surface: 18, 18, 18;
+    /* --surface: 18, 18, 18;
     --text-primary: rgba(255, 255, 255, 0.87);
     --text-secondary: rgba(255, 255, 255, 0.6);
     --inverse: 0, 0, 0;
-    --foreground: 255, 255, 255;
+    --foreground: 255, 255, 255; */
 
-    /* --surface: 248, 246, 243;
+    --surface: 248, 246, 243;
   --text-primary: rgba(0, 0, 0, 0.87);
   --text-secondary: rgba(0, 0, 0, 0.6);
   --inverse:255, 255, 255;
-  --foreground :  0, 0, 0; */
+  --foreground :  0, 0, 0;
   }
 
   /* @media (prefers-color-scheme: dark) {
