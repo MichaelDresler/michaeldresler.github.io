@@ -25,7 +25,7 @@ export default function About() {
               About me
             </h1>
 
-            <p className="  text-text-secondary max-w-[41ch] xl:text-lg leading-[140%] text-pretty  tracking-[-0.02em]">
+            <p className="  text-text-secondary max-w-[41ch] 2xl:text-lg leading-[140%] text-pretty  tracking-[-0.02em]">
               Hi, I'm Michael, a designer and developer currently at Simon
               Fraser University’s Interactive Arts and Technology program. I'm
               passionate about merging my design and coding skills to create
@@ -41,7 +41,7 @@ export default function About() {
             <h2 className="md:text-lg text-text-primary  md:mb-6">Contact</h2>
             <li>
               <Link
-                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 md:text-lg `}
+                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 2xl:text-lg `}
                 href={"/"}
               >
                 Mail
@@ -49,7 +49,7 @@ export default function About() {
             </li>
             <li>
               <Link
-                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 md:text-lg `}
+                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 2xl:text-lg `}
                 href={"/"}
               >
                 LinkedIn
@@ -57,7 +57,7 @@ export default function About() {
             </li>
             <li>
               <Link
-                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 md:text-lg `}
+                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 2xl:text-lg `}
                 href={"/"}
               >
                 {" "}
