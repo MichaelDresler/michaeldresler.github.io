@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div>
-      <main className=" w-full xl:h-[calc(100vh-200px)] flex items-end mb-24 ">
+    <div className="px-4">
+      <main className=" w-full pt-[200px] xl:h-[calc(100vh)] flex items-end mb-24  ">
         <motion.div
          initial={{ opacity: 0, y:70  }}
          animate={{ opacity: 1 ,y:0 }}

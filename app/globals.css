@@ -65,9 +65,9 @@
   text-wrap: balance;
 }
 
-@utility content-box {
-  @apply max-w-[2340px] mx-auto px-4 md:px-16 2xl:px-24;
-}
+/* @utility content-box {
+  @apply max-w-[2340px] mx-auto px-4  ;
+} */
 
 @utility boob {
   background: rgb(42,42,42);

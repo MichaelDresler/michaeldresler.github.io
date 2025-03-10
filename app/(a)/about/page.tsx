@@ -1,22 +1,23 @@
 import Image from "next/image";
 import portait from "@/public/image.png";
 import Link from "next/link";
+import { geistMono } from "@/app/fonts";
 
 export default function About() {
   return (
     <div>
-      <main className="grid gap-x-6 xl:gap-x-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 pt-4 ">
+      <main className=" w-screen xl:h-screen p-3 pt-24 xl:p-8 xl:pt-24 grid gap-x-6 xl:gap-x-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 box-border   ">
 
-        <div className=" h-full lg:col-start-8 lg:col-span-5 xl:col-start-9 xl:col-span-4 rounded-md overflow-hidden">
+        <div className=" h-full lg:col-start-8 lg:col-span-5  overflow-hidden">
           <Image
-            className=" grayscale md:max-w-[400px] lg:max-w-none object-cover w-full h-full  rounded-none "
+            className=" grayscale md:max-w-[400px] lg:max-w-none object-cover object-[120%_10%] sm:object-center w-full h-full  rounded-none "
             src={portait}
             quality={100}
             alt="hello"
           />
         </div>
 
-        <span className="hidden lg:flex row-start-1 col-start-1 text-xl text-text-primary leading-[100%]">01</span>
+        <span className={`hidden lg:flex row-start-1 col-start-1 text-xl text-text-primary leading-[100%] ${geistMono.className}`}>01</span>
 
         <div className="mt-8 sm:mt-0 flex flex-col flex-1 justify-between lg:gap-0 gap-12 lg:col-start-3 lg:col-span-4 lg:row-start-1  ">
 
@@ -37,11 +38,11 @@ export default function About() {
             </p>
           </div>
 
-          <ul className="flex flex-col gap-2 tracking-[-0.04em] pb-12 ">
-            <h2 className="md:text-lg text-text-primary  md:mb-6">Contact</h2>
+          <ul className="flex flex-col gap-2  pb-12 ">
+            <h2 className="md:text-lg text-text-primary tracking-[-0.02em] md:mb-6">Contact</h2>
             <li>
               <Link
-                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 2xl:text-lg `}
+                className={` ${geistMono.className} uppercase underline text-text-secondary/90 hover:text-text-primary duration-100  `}
                 href={"/"}
               >
                 Mail
@@ -49,7 +50,7 @@ export default function About() {
             </li>
             <li>
               <Link
-                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 2xl:text-lg `}
+                className={` ${geistMono.className} uppercase underline text-text-secondary/90 hover:text-text-primary duration-100  `}
                 href={"/"}
               >
                 LinkedIn
@@ -57,7 +58,7 @@ export default function About() {
             </li>
             <li>
               <Link
-                className={` underline text-text-secondary/90 hover:text-text-primary duration-100 2xl:text-lg `}
+                className={` ${geistMono.className} uppercase underline text-text-secondary/90 hover:text-text-primary duration-100  `}
                 href={"/"}
               >
                 {" "}
