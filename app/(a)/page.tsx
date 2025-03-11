@@ -1,5 +1,8 @@
 "use client"
 import { motion } from "framer-motion";
+import { Thumbnail } from "../components/Thumbnail";
+import surge from "@/public/surge.png"
+import test from "@/public/webpage.png"
 
 export default function Home() {
   return (
@@ -24,10 +27,10 @@ export default function Home() {
       </main>
      
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2" id="projects">
-        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
-        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
-        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
-        <div className="aspect-9/6 rounded-md bg-foreground/20"></div>
+        <Thumbnail img={surge} textColor="text-text-secondary" bgColor="bg-[#0D0E13]" title="Sfu Surge" tags={["web design","development"]}/>
+        <Thumbnail img={test}  textColor="text-text-secondary" bgColor="bg-[#293027]" title="Siat Visual Design survey" tags={["web design","development"]}/>
+
+
       </section>
     </div>
   );
