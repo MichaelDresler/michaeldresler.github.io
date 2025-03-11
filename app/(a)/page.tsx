@@ -26,9 +26,9 @@ export default function Home() {
         </motion.div>
       </main>
      
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-2" id="projects">
-        <Thumbnail img={surge} textColor="text-text-secondary" bgColor="bg-[#0D0E13]" title="Sfu Surge" tags={["web design","development"]}/>
-        <Thumbnail img={test}  textColor="text-text-secondary" bgColor="bg-[#293027]" title="Siat Visual Design survey" tags={["web design","development"]}/>
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 pb-8" id="projects">
+        <Thumbnail img={surge} textColor="text-white/80" bgColor="bg-[#0D0E13]" title="Sfu Surge" tags={["web design","development"]}/>
+        <Thumbnail img={test}  textColor="text-white/80" bgColor="bg-[#293027]" title="Siat data vis" tags={["web design","development"]}/>
 
 
       </section>

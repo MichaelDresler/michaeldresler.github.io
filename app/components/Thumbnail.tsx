@@ -21,10 +21,10 @@ export const Thumbnail = ({
 }: ThumbnailProps) => {
   return (
     <>
-      <Link href={"/projects/surge"} className={` flex flex-col gap-4 py-4 rounded-xl ${textColor} ${bgColor} outline-2 outline-foreground/7 hover:outline-foreground/10 duration-300 group`}>
+      <Link href={"/projects/surge"} className={` aspect-[16/9] flex flex-col gap-12 py-4 rounded-sm ${textColor} ${bgColor} outline-1 outline-foreground/7 hover:outline-foreground/10 duration-300 group`}>
       
       <div className=" grid grid-cols-2 w-full  px-8">
-        <div className={`uppercase  text-sm ${geistMono.className} `}>{title}</div>
+        <div className={`uppercase  text-sm ${geistMono.className} max-w-[15ch] `}>{title}</div>
           <div>
           {tags.map((tag, index)=>(
               <div key={index}className={`w-fit uppercase  text-sm ${geistMono.className} `} >{tag}</div>
