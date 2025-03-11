@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.className} salt content-box antialiased `}
+        className={`${geistSans.className} salt content-box antialiased max-w-[1920px] mx-auto`}
       >
         <NavBar/>
         {children}
