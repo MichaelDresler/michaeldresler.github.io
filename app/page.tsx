@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion";
-import { Thumbnail } from "../components/Thumbnail";
+import { Thumbnail } from "./components/Thumbnail";
 import surge from "@/public/surge.png"
 import test from "@/public/webpage.png"
 

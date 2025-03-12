@@ -1,4 +1,4 @@
-import { ProjectHero } from "../../../components/ProjectHero";
+import { ProjectHero } from "../../components/ProjectHero";
 import * as surge from "@/content/surgeContent";
 import { ImageContainer } from "@/app/components/ImageContainer";
 

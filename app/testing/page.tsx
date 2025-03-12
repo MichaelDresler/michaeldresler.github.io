@@ -1,5 +1,5 @@
 
-import RandomImages from "../../components/RandomImages";
+import RandomImages from "../components/RandomImages";
 
 export default function testing() {
 

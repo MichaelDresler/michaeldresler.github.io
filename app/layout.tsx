@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "../globals.css";
-import NavBar from "../components/NavBar";
-import { geistSans } from "../fonts";
+import "./globals.css";
+import NavBar from "./components/NavBar";
+import { geistSans } from "./fonts";
 
 
 
@@ -18,8 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.className} salt content-box antialiased max-w-[1920px] mx-auto`}
-      >
+        className={`${geistSans.className} salt content-box antialiased `}>
         <NavBar/>
         {children}
       </body>
