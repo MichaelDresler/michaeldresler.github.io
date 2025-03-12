@@ -6,11 +6,11 @@ import { geistMono } from "@/app/fonts";
 export default function About() {
   return (
     <div>
-      <main className=" w-screen  h-[calc(100vh-var(--padding-top))] px-12  pt-4 grid gap-x-6 xl:gap-x-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 box-border   ">
+      <main className=" w-screen  md:aspect-video  md:max-h-[calc(100dvh-var(--padding-top))] about-padding  pb-12 md:pb-0 xl:pt-4 grid gap-x-6 xl:gap-x-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12   ">
 
         <div className=" h-full lg:col-start-8 lg:col-span-5  overflow-hidden">
           <Image
-            className=" grayscale md:max-w-[400px] lg:max-w-none object-cover object-[120%_10%] sm:object-center w-full h-full  rounded-none "
+            className=" grayscale md:max-w-[400px]  lg:max-w-none object-cover object-[50%_10%] sm:object-center w-full h-full  rounded-none "
             src={portait}
             quality={100}
             alt="hello"
@@ -19,7 +19,7 @@ export default function About() {
 
         <span className={`hidden lg:flex row-start-1 col-start-1 text-xl text-text-primary leading-[100%] ${geistMono.className}`}>01</span>
 
-        <div className="mt-8 sm:mt-0 flex flex-col flex-1 justify-between lg:gap-0 gap-12 lg:col-start-4 lg:col-span-4 lg:row-start-1  ">
+        <div className="mt-8 sm:mt-0 flex flex-col flex-1 justify-between lg:gap-0 gap-12 lg:col-start-3 xl:col-start-4 lg:col-span-4 lg:row-start-1  ">
 
           <div>
             <h1 className="text-text-primary text-xl  leading-[100%]   tracking-[-0.05em] mb-4 md:mb-6">

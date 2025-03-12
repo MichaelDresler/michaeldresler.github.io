@@ -24,6 +24,7 @@ export default function NavBar() {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
   const navRef = useRef<HTMLDivElement>(null);
 
   console.log("active hover: ", activeHover)
@@ -44,7 +45,8 @@ export default function NavBar() {
   };
 
   const handleResize = () => {
-    const newWidth: number = window.innerWidth;
+    setWindowWidth(window.innerWidth)
+    const newWidth = window.innerWidth
     if (newWidth > 640) {
       setIsOpen(false);
     }
@@ -75,6 +77,7 @@ export default function NavBar() {
     document.addEventListener("mousedown", handleClick);
     window.addEventListener("scroll", handleScroll);
     setActiveHover(pathname);
+    setWindowWidth(window.innerWidth)
     
     // Cleanup event listener on component unmount
 
@@ -89,24 +92,29 @@ export default function NavBar() {
 
 
   return (
-    <div className="fixed w-full left-0 top-0 text-sm px-3 sm:px-12  z-1000">
+    <div className={`  fixed w-screen  border-b border-foreground/8  top-0 text-sm  z-1000 bg-surface/80 backdrop-blur-md ${scrollingDown && "translate-y-[-200%]"} transition-transform duration-300`} >
       {/* used for progressive blur behind navbar */}
-      <div className="w-screen h-[3rem] absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]"></div>
+      {/* <div className="w-screen h-[3rem] absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]"></div> */}
 
       <div
         ref={navRef}
-        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3rem" }}
-        className={` ${
-          isOpen ? `rounded-[12px]` : " rounded-[32px]"
-        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  ${scrollingDown? "translate-y-[-200%]": " "}   transition-all duration-[400ms]   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6  sm:w-fit z-1000`}
+        style={{
+          height: isOpen
+            ? `${56 * navlinks.length + 56}px`
+            : windowWidth > 640
+            ? "5rem"
+            : "3rem",
+        }}
+        className={` h-fit ${geistMono.className} content-box  mx-auto duration-300  overflow-hidden flex flex-col sm:flex-row  z-1000`}
       >
-        <ul className={` flex w-full sm:w-auto items-center py-3 `}>
+        <ul className={` flex w-full sm:w-auto items-center py-3  `}>
           {/* surge logo
           <li className="flex items-center link ">
             <Link href="/">MD</Link>
           </li> */}
           {/* hamburger and x buttons for nav toggle */}
-          <li className="flex items-center ml-auto text-text-primary">
+          <li className="flex items-center justify-between w-full text-text-primary">
+            <Link href={"/"} className="block sm:hidden">MD</Link>
             <button
               className="sm:hidden relative ml-auto "
               onClick={toggleMenu}
@@ -145,7 +153,9 @@ export default function NavBar() {
         </ul>
 
         {/* content box for nav links */}
-        <div className="flex justify-center ">
+        <Link href="/" className="sm:flex justify-center  items-center uppercase text-text-primary hidden ">Michael Dresler</Link>
+        <div className="flex justify-center sm:ml-auto">
+
           <ul className="flex flex-col justify-center sm:flex-row gap-8 sm:gap-12 mt-4 sm:mt-0 items-center uppercase">
             {navlinks.map((link, index) => (
               <li
@@ -156,7 +166,7 @@ export default function NavBar() {
                 <Link
                   className={`  link ${
                     pathname === link.url
-                      ? "text-inverse"
+                      ? "text-text-primary"
                       : "text-text-secondary"
                   }`}
                   href={link.url}
@@ -164,7 +174,7 @@ export default function NavBar() {
                   {link.name}
                 </Link>
                 <span
-                  className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] sm:inset-y-[-10px] sm:inset-x-[-20px] ${
+                  className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] sm:inset-y-[-10px] sm:inset-x-[-10px] ${
                     pathname === link.url && "  -z-10"
                   }`}
                 >
@@ -176,7 +186,7 @@ export default function NavBar() {
                         ease: easing,
                         duration: 0.5,
                       }}
-                      className={` w-full h-full bg-foreground/90 rounded-full  `}
+                      className={` w-full h-full border-white border-b `}
                     >
 
                     </motion.div>

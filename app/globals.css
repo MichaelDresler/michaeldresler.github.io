@@ -65,9 +65,15 @@
   text-wrap: balance;
 }
 
-/* @utility content-box {
-  @apply max-w-[2340px] mx-auto px-4  ;
-} */
+@utility content-box {
+  @apply max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12   ;
+}
+
+@utility about-padding {
+  @apply px-4 sm:px-6 md:px-10 2xl:px-12   ;
+}
+
+
 
 @utility boob {
   background: rgb(42,42,42);
@@ -122,9 +128,10 @@
   }
 } */
 
+
   body {
     background: rgb(var(--surface));
-
+    /* scrollbar-gutter: stable; */
     font-family: Arial, Helvetica, sans-serif;
   }
 }
