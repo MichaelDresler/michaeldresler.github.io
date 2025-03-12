@@ -7,7 +7,7 @@ import test from "@/public/webpage.png"
 export default function Home() {
   return (
     <div className="px-4">
-      <main className=" w-full pt-[200px] xl:h-[calc(100vh)] flex items-end mb-24  ">
+      <main className=" w-full h-[calc(50vh-var(--padding-top))] xl:h-[calc(100vh-var(--padding-top))] flex items-end mb-24  ">
         <motion.div
          initial={{ opacity: 0, y:70  }}
          animate={{ opacity: 1 ,y:0 }}

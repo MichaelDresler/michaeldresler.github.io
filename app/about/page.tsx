@@ -6,7 +6,7 @@ import { geistMono } from "@/app/fonts";
 export default function About() {
   return (
     <div>
-      <main className=" w-screen xl:h-screen p-3 pt-24 xl:p-8 xl:pt-24 grid gap-x-6 xl:gap-x-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 box-border   ">
+      <main className=" w-screen  h-[calc(100vh-var(--padding-top))] px-12  pt-4 grid gap-x-6 xl:gap-x-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 box-border   ">
 
         <div className=" h-full lg:col-start-8 lg:col-span-5  overflow-hidden">
           <Image
