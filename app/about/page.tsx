@@ -22,7 +22,7 @@ export default function About() {
         <div className="mt-8 sm:mt-0 flex flex-col flex-1 justify-between lg:gap-0 gap-12 lg:col-start-3 xl:col-start-4 lg:col-span-4 lg:row-start-1  ">
 
           <div>
-            <h1 className="text-text-primary text-xl  leading-[100%]   tracking-[-0.05em] mb-4 md:mb-6">
+            <h1 className="text-text-primary text-2xl font-medium  leading-[100%]   tracking-[-0.05em] mb-4 md:mb-6">
               About me
             </h1>
 
@@ -38,11 +38,11 @@ export default function About() {
             </p>
           </div>
 
-          <ul className="flex flex-col gap-2  xl:pb-[12rem] ">
-            <h2 className="md:text-lg text-text-primary tracking-[-0.02em] md:mb-6">Contact</h2>
+          <ul className="flex flex-col gap-2  xl:pb-[2rem]  ">
+            <h2 className="md:text-lg  font-medium text-text-primary tracking-[-0.02em] md:mb-6">Contact</h2>
             <li>
               <Link
-                className={` ${geistMono.className} uppercase underline text-text-secondary/90 hover:text-text-primary duration-100  `}
+                className={` ${geistMono.className} uppercase text-sm underline text-text-secondary/90 hover:text-text-primary duration-100  `}
                 href={"/"}
               >
                 Mail
@@ -50,7 +50,7 @@ export default function About() {
             </li>
             <li>
               <Link
-                className={` ${geistMono.className} uppercase underline text-text-secondary/90 hover:text-text-primary duration-100  `}
+                className={` ${geistMono.className} uppercase text-sm underline text-text-secondary/90 hover:text-text-primary duration-100  `}
                 href={"/"}
               >
                 LinkedIn
@@ -58,7 +58,7 @@ export default function About() {
             </li>
             <li>
               <Link
-                className={` ${geistMono.className} uppercase underline text-text-secondary/90 hover:text-text-primary duration-100  `}
+                className={` ${geistMono.className} uppercase text-sm underline text-text-secondary/90 hover:text-text-primary duration-100  `}
                 href={"/"}
               >
                 {" "}

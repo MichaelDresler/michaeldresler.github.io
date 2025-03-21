@@ -21,7 +21,7 @@ export const Thumbnail = ({
 }: ThumbnailProps) => {
   return (
     <>
-      <Link href={"/projects/surge"} className={` aspect-[16/9] flex flex-col gap-8 p-5 rounded-md ${textColor} ${bgColor} outline-1 outline-foreground/7 hover:outline-foreground/10 duration-300 group`}>
+      <Link href={"/projects/surge"} className={` aspect-[16/9] flex flex-col gap-8 p-5 rounded-md ${textColor} ${bgColor} outline-1 outline-foreground/20 duration-300 group`}>
       
       <div className=" grid grid-cols-2 w-full  ">
         <div className={`uppercase  text-sm ${geistMono.className} max-w-[15ch] `}>{title}</div>

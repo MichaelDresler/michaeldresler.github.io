@@ -32,7 +32,6 @@ export default function NavBar() {
   const navlinks: NavLink[] = [
     { name: "home", url: "/" },
     { name: "about", url: "/about" },
-    { name: "Projects", url: "/projects"},
     { name: "Resume", url: "/files/resume.pdf" },
     { name: "gallery", url: "/testing" },
 
@@ -102,12 +101,12 @@ export default function NavBar() {
           height: isOpen
             ? `${56 * navlinks.length + 56}px`
             : windowWidth > 640
-            ? "5rem"
-            : "3rem",
+            ? "4rem"
+            : "4rem",
         }}
         className={` h-fit ${geistMono.className} content-box  mx-auto duration-300  overflow-hidden flex flex-col sm:flex-row  z-1000`}
       >
-        <ul className={` flex w-full sm:w-auto items-center py-3  `}>
+        <ul className={` flex w-full sm:w-auto items-center py-4  `}>
           {/* surge logo
           <li className="flex items-center link ">
             <Link href="/">MD</Link>
@@ -164,9 +163,9 @@ export default function NavBar() {
                 key={index}
               >
                 <Link
-                  className={`  link ${
+                  className={`link ${
                     pathname === link.url
-                      ? "text-text-primary"
+                      ? "text-text-primary font-medium"
                       : "text-text-secondary"
                   }`}
                   href={link.url}
@@ -186,7 +185,7 @@ export default function NavBar() {
                         ease: easing,
                         duration: 0.5,
                       }}
-                      className={` w-full h-full border-white border-b `}
+                      className={` w-full h-full border-foreground border-b `}
                     >
 
                     </motion.div>
