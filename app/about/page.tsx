@@ -1,6 +1,5 @@
 import Image from "next/image";
 import portait from "@/public/image.png";
-import Link from "next/link";
 import { geistMono } from "@/app/fonts";
 import {svgIcons} from "@/app/fonts"
 

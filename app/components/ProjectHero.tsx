@@ -1,4 +1,3 @@
-import { geistMono } from "../fonts";
 import { Button } from "./Button";
 
 type ProjectHeroProps = {

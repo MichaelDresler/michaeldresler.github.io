@@ -3,7 +3,7 @@ import * as surge from "@/content/surgeContent";
 import { ImageContainer } from "@/app/components/ImageContainer";
 
 import homenew from "/public/surge/home-new.png";
-import homeold from "/public/surge/home-old.png";
+
 
 export default function projects() {
   return (
