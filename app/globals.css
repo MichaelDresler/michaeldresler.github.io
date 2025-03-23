@@ -87,7 +87,7 @@
 }
 
 @utility link {
-  @apply text-text-secondary text-[12px] font-normal duration-300;
+  @apply text-text-secondary text-[14px] font-normal duration-300 capitalize;
 }
 
 @utility salt {

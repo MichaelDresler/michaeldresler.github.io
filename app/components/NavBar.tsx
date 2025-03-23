@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { cubicBezier } from "framer-motion";
-import { geistMono } from "../fonts";
 
 type NavLink = {
   name: string;
@@ -19,21 +18,21 @@ export default function NavBar() {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollingDown, setScrollingDown] = useState(false);
 
-  console.log("pathname:",pathname)
+  // console.log("pathname:",pathname)
 
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
   const navRef = useRef<HTMLDivElement>(null);
 
-  console.log("active hover: ", activeHover)
+  // console.log("active hover: ", activeHover)
 
   const navlinks: NavLink[] = [
     { name: "home", url: "/" },
     { name: "about", url: "/about" },
-    { name: "Projects", url: "/projects"},
-    { name: "Resume", url: "/files/resume.pdf" },
-    { name: "gallery", url: "/testing" },
+    { name: "projects", url: "/#projects"},
+    { name: "resume", url: "/files/resume.pdf" },
+    // { name: "gallery", url: "/testing" },
 
 
     // {name:"styleguide", url: "/styleguide"},
@@ -91,14 +90,14 @@ export default function NavBar() {
   return (
     <div className="fixed w-full left-0 top-0  px-3 sm:px-12  z-1000">
       {/* used for progressive blur behind navbar */}
-      <div className="w-screen h-[3rem] absolute top-0 left-0 bg-surface/20  [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]"></div>
+      {/* <div className="w-screen absolute top-0 left-0 bg-surface/20 h-full [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]"></div> */}
 
       <div
         ref={navRef}
-        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "3rem" }}
+        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "2.75rem" }}
         className={` ${
           isOpen ? `rounded-[12px]` : " rounded-[32px]"
-        }   mx-auto bg-foreground/10 bg-opacity-[75%] ${geistMono.className}  ${scrollingDown? "translate-y-[-200%]": " "}   transition-all duration-[400ms]   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-6  sm:w-fit z-1000`}
+        }   mx-auto bg-foreground/10  ${scrollingDown? "translate-y-[-200%]": " "}   transition-all duration-[400ms]   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-4 sm:px-1  sm:w-fit z-1000 outline-1 outline-foreground/15`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo
@@ -146,25 +145,23 @@ export default function NavBar() {
 
         {/* content box for nav links */}
         <div className="flex justify-center ">
-          <ul className="flex flex-col justify-center sm:flex-row gap-8 sm:gap-12 mt-4 sm:mt-0 items-center uppercase">
+          <ul className="flex flex-col justify-center sm:flex-row  mt-4 sm:mt-0 items-center ">
             {navlinks.map((link, index) => (
               <li
                 onMouseDown={() => setActiveHover(link.url)}
-                className={`group relative flex gap-12 `}
+                className={`group relative flex `}
                 key={index}
               >
                 <Link
-                  className={`  link ${
-                    pathname === link.url
-                      ? "text-inverse"
-                      : "text-text-secondary"
+                  className={`  link font-medium  sm:py-0 sm:px-5 px-0 py-[14px] ${
+                    pathname === link.url && "text-text-primary"
                   }`}
                   href={link.url}
                 >
                   {link.name}
                 </Link>
                 <span
-                  className={`  text-sm absolute pointer-events-none inset-x-[-50px] inset-y-[-10px] sm:inset-y-[-10px] sm:inset-x-[-20px] ${
+                  className={`  text-sm absolute pointer-events-none inset-x-[-48px] inset-y-[0px] sm:inset-y-[-8px] sm:inset-x-[0px] ${
                     pathname === link.url && "  -z-10"
                   }`}
                 >
@@ -176,7 +173,7 @@ export default function NavBar() {
                         ease: easing,
                         duration: 0.5,
                       }}
-                      className={` w-full h-full bg-foreground/90 rounded-full  `}
+                      className={` w-full h-full bg-foreground/15 rounded-full  `}
                     >
 
                     </motion.div>
