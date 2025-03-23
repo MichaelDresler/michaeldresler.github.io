@@ -7,10 +7,7 @@ import {svgIconsInfo} from "@/app/fonts"
 export default function About() {
 
   const icons = Object.entries(svgIcons);
-  const info = [
-    "Vancouver, BC",
-    "Interactive Arts and Technology, Simon Fraser University",
-  ];
+
 
 
 
@@ -67,11 +64,11 @@ export default function About() {
               explore new perspectives.
             </p>
             <ul className="mt-24">
-            {info.map((item, index) => {
+            {svgIconsInfo.map((item, index) => {
               return (
                 <li key={index} className="flex flex-row text-text-secondary max-w-[25ch] \">
-                  <div className="mr-2 mb-4">{svgIconsInfo[index]}</div>
-                  {item}
+                  <div className="mr-2 mb-4">{item.icon}</div>
+                  {item.label}
                 </li>
               );
             })}
