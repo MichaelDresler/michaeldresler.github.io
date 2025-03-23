@@ -3,6 +3,7 @@ import portait from "@/public/aboutme.png";
 import { geistMono } from "@/app/fonts";
 import {svgIcons} from "@/app/fonts"
 import {svgIconsInfo} from "@/app/fonts"
+import {Concentrations} from "@/app/fonts"
 
 export default function About() {
 
@@ -26,12 +27,11 @@ export default function About() {
           </div>
          
           <div className="p-6 bg-foreground/5 rounded-xl outline-1 outline-foreground/10">
-            <h1 className="text-text-primary text-2xl md:text-[2.5rem] font-semibold tracking-tighter mb-6">
+            <h1 className="text-text-primary text-2xl md:text-[2.5rem] font-semibold tracking-tighter mb-5">
               Michael Dresler
             </h1>
-            <h2 className="text-text-secondary text-lg tracking-tight mb-6">
-              Bridging design and development has given me a genuine excitement
-              to learn new skills and bring my ideas to life.
+            <h2 className="text-white/70 text-lg tracking-normal mb-6">
+              Designer & developer driven by curiousity. Always looking to add to my toolbox by exploring how things are made and how others work.
             </h2>
             <div className="flex gap-3 text-text-secondary">
             {icons.map(([key, value]) => {
@@ -63,10 +63,27 @@ export default function About() {
               design inspires me to continually challenge my thinking and
               explore new perspectives.
             </p>
-            <ul className="mt-24">
+            <ul className="mt-8 mb-16">
             {svgIconsInfo.map((item, index) => {
               return (
                 <li key={index} className="flex flex-row text-text-secondary max-w-[25ch] \">
+                  <div className="mr-2 mb-4">{item.icon}</div>
+                  {item.label}
+                </li>
+              );
+            })}
+            </ul>
+
+
+            <h3
+              className={`${geistMono.className} text-sm mb-4 font-semibold tracking-wider text-text-secondary/80 uppercase`}
+            >
+              Concentrations
+            </h3>
+            <ul className="">
+            {Concentrations.map((item, index) => {
+              return (
+                <li key={index} className="flex flex-row text-text-secondary pb-1 max-w-[25ch] ">
                   <div className="mr-2 mb-4">{item.icon}</div>
                   {item.label}
                 </li>

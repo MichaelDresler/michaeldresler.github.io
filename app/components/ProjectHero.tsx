@@ -31,7 +31,7 @@ export const ProjectHero = ({
 
       <div className="text-text-secondary grid grid-cols-1 md:grid-cols-[0.52fr_0.6fr_1.25fr_0.5fr] mt-12">
         <div className="flex flex-col gap-6  mb-8">
-          <div className="font-semibold text-3xl tracking-tighter text-text-primary">{title}</div>
+          <div className="font-semibold text-4xl tracking-[-0.04em] text-text-primary">{title}</div>
           {link && <Button className="hidden md:flex" title="View Site" link="https://sfusurge.com/"/> }
         </div>
         <div className="md:col-start-3 md:col-span-full font-normal">
@@ -58,7 +58,7 @@ export const ProjectHero = ({
             </div>
             {link && <Button className="md:hidden" title="View Site" link="https://sfusurge.com/"/>}
           </ul>
-          <p className="my-[3.5em] font-normal text-[20px] leading-[145%] text-pretty">
+          <p className="my-[3.5em] font-normal text-[24px] leading-[145%] text-pretty">
             {about}
           </p>
         </div>
