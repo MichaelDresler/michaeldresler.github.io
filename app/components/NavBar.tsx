@@ -88,7 +88,7 @@ export default function NavBar() {
 
 
   return (
-    <div className="fixed w-full left-0 top-0  px-3 sm:px-12  z-1000">
+    <div className="fixed w-full left-0 top-0  px-3 sm:px-12  z-1000 ">
       {/* used for progressive blur behind navbar */}
       {/* <div className="w-screen absolute top-0 left-0 bg-surface/20 h-full [mask-image:linear-gradient(180deg,_rgba(0,0,0,1)_20%,_rgba(255,255,255,0)_80%)]  backdrop-blur-[8px]"></div> */}
 
@@ -96,8 +96,8 @@ export default function NavBar() {
         ref={navRef}
         style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "2.75rem" }}
         className={` ${
-          isOpen ? `rounded-[12px]` : " rounded-[32px]"
-        }   mx-auto bg-foreground/10  ${scrollingDown? "translate-y-[-200%]": " "}   transition-all duration-[400ms]   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-4 sm:px-1  sm:w-fit z-1000 outline-1 outline-foreground/15`}
+          isOpen ? `rounded-[12px] bg-surface/80` : " rounded-[32px] bg-foreground/10"
+        }   mx-auto   ${scrollingDown&& "translate-y-[-200%]"}   transition-all duration-200 will-change-auto   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-4 sm:px-1  sm:w-fit z-1000 outline-1 outline-foreground/15`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo

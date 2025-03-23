@@ -1,5 +1,5 @@
 import Image from "next/image";
-import portait from "@/public/image.png";
+import portait from "@/public/aboutme.png";
 import { geistMono } from "@/app/fonts";
 import {svgIcons} from "@/app/fonts"
 import {svgIconsInfo} from "@/app/fonts"
@@ -12,8 +12,8 @@ export default function About() {
 
 
   return (
-    <div className="px-4 pb-6 flex justify-center ">
-      <div className="flex flex-col sm:max-w-[40rem] lg:flex-row lg:max-w-[60rem] gap-4 ">
+    <div className="px-4 pb-6 flex justify-center  ">
+      <div className="flex flex-col sm:max-w-[40rem] lg:flex-row lg:max-w-[55rem]  2xl:max-w-[75rem] gap-4">
         <div className="flex flex-col gap-4 w-full ">
           <div className="aspect-square  overflow-hidden grayscale rounded-xl outline-1 outline-foreground/10">
 

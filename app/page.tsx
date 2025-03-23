@@ -3,10 +3,20 @@ import { motion } from "framer-motion";
 import { Thumbnail } from "./components/Thumbnail";
 import surge from "@/public/surge.png"
 import test from "@/public/webpage.png"
+import { useEffect } from "react";
 
 export default function Home() {
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    return () => {
+      document.documentElement.style.scrollBehavior = ""; // Reset when leaving
+    };
+  }, []);
+  
   return (
-    <div className="content-box">
+    <div className="content-box ">
       <main className=" w-full aspect-video max-h-[calc(100dvh-var(--padding-top))]  flex items-end mb-24 pb-8  ">
         <motion.div
          initial={{ opacity: 0, y:70  }}

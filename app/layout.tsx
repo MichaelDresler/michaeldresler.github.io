@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.className}   antialiased pt-[var(--padding-top)] `}>
+        className={`${geistSans.className} overflow-y-scroll antialiased pt-[var(--padding-top)] `}>
         <NavBar/>
         {children}
       </body>

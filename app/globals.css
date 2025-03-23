@@ -104,6 +104,7 @@
   line-height: 105%;
 }
 
+
 @layer utilities {
   :root {
     --surface: 18, 18, 18;
@@ -130,9 +131,9 @@
 } */
 
 
+
   body {
     background: rgb(var(--surface));
-    /* scrollbar-gutter: stable; */
     font-family: Arial, Helvetica, sans-serif;
   }
 }
