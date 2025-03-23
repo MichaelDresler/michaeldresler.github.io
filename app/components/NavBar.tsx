@@ -8,6 +8,7 @@ import { cubicBezier } from "framer-motion";
 type NavLink = {
   name: string;
   url: string;
+  path: string;
 };
 
 
@@ -18,7 +19,7 @@ export default function NavBar() {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollingDown, setScrollingDown] = useState(false);
 
-  // console.log("pathname:",pathname)
+  console.log("pathname:",pathname)
 
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -28,10 +29,10 @@ export default function NavBar() {
   // console.log("active hover: ", activeHover)
 
   const navlinks: NavLink[] = [
-    { name: "home", url: "/" },
-    { name: "about", url: "/about" },
-    { name: "projects", url: "/#projects"},
-    { name: "resume", url: "/files/resume.pdf" },
+    { name: "home", url: "/", path:"/" },
+    { name: "about", url: "/about", path:"/about"  },
+    { name: "projects", url: "/#projects", path:"/projects"},
+    { name: "resume", url: "/files/resume.pdf", path:"/files/resume.pdf" },
     // { name: "gallery", url: "/testing" },
 
 
@@ -148,13 +149,13 @@ export default function NavBar() {
           <ul className="flex flex-col justify-center sm:flex-row  mt-4 sm:mt-0 items-center ">
             {navlinks.map((link, index) => (
               <li
-                onMouseDown={() => setActiveHover(link.url)}
+                onMouseDown={() => setActiveHover(link.path)}
                 className={`group relative flex `}
                 key={index}
               >
                 <Link
                   className={`  link font-medium  sm:py-0 sm:px-5 px-0 py-[14px] ${
-                    pathname === link.url && "text-text-primary"
+                    pathname === link.path && "text-text-primary"
                   }`}
                   href={link.url}
                 >
@@ -162,10 +163,10 @@ export default function NavBar() {
                 </Link>
                 <span
                   className={`  text-sm absolute pointer-events-none inset-x-[-48px] inset-y-[0px] sm:inset-y-[-8px] sm:inset-x-[0px] ${
-                    pathname === link.url && "  -z-10"
+                    pathname === link.path && "  -z-10"
                   }`}
                 >
-                  {link.url === activeHover && (
+                  {link.path === activeHover && (
                     <motion.div
                       layoutId="active"
                       style={{ originY: "0px"}}
