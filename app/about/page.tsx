@@ -51,7 +51,7 @@ export default function About() {
             >
               About me
             </h3>
-            <p className="text-text-secondary text-base text-pretty">
+            <p className="text-white/70 text-base text-pretty">
               In university, I discovered UX/UI Design as the ideal way to
               combine creativity with meaningful impact. My journey began with
               self-driven learning, developing empathy for users, mastering
@@ -66,7 +66,7 @@ export default function About() {
             <ul className="mt-8 mb-16">
             {svgIconsInfo.map((item, index) => {
               return (
-                <li key={index} className="flex flex-row text-text-secondary max-w-[25ch] \">
+                <li key={index} className="flex flex-row text-white/70 max-w-[25ch] \">
                   <div className="mr-2 mb-4">{item.icon}</div>
                   {item.label}
                 </li>
@@ -74,7 +74,7 @@ export default function About() {
             })}
             </ul>
 
-
+            
             <h3
               className={`${geistMono.className} text-sm mb-4 font-semibold tracking-wider text-text-secondary/80 uppercase`}
             >
@@ -83,7 +83,7 @@ export default function About() {
             <ul className="">
             {Concentrations.map((item, index) => {
               return (
-                <li key={index} className="flex flex-row text-text-secondary pb-1 max-w-[25ch] ">
+                <li key={index} className="flex flex-row text-white/70 pb-1 max-w-[25ch] ">
                   <div className="mr-2 mb-4">{item.icon}</div>
                   {item.label}
                 </li>

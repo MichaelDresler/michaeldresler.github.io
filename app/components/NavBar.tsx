@@ -8,7 +8,6 @@ import { cubicBezier } from "framer-motion";
 type NavLink = {
   name: string;
   url: string;
-  path: string;
 };
 
 
@@ -29,10 +28,10 @@ export default function NavBar() {
   // console.log("active hover: ", activeHover)
 
   const navlinks: NavLink[] = [
-    { name: "home", url: "/", path:"/" },
-    { name: "about", url: "/about", path:"/about"  },
-    { name: "projects", url: "/#projects", path:"/projects"},
-    { name: "resume", url: "/files/resume.pdf", path:"/files/resume.pdf" },
+    { name: "home", url: "/", },
+    { name: "about", url: "/about"},
+    { name: "projects", url: "/#projects"},
+    { name: "resume", url: "/files/resume.pdf" },
     // { name: "gallery", url: "/testing" },
 
 
@@ -69,22 +68,30 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    setIsOpen(false);
     // Add event listener to handle window resize
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousedown", handleClick);
-    window.addEventListener("scroll", handleScroll);
+
     setActiveHover(pathname);
-    
     // Cleanup event listener on component unmount
 
     return () => {
       window.removeEventListener("resize", handleResize);
       document.removeEventListener("mousedown", handleClick);
+
+    };
+  }, [pathname])
+
+  useEffect(() => {
+    setIsOpen(false);
+    // Add event listener to handle window resize
+    window.addEventListener("scroll", handleScroll);
+    
+    // Cleanup event listener on component unmount
+    return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [pathname,lastScrollTop]);
-
+  }, [lastScrollTop]);
 
 
 
@@ -149,13 +156,13 @@ export default function NavBar() {
           <ul className="flex flex-col justify-center sm:flex-row  mt-4 sm:mt-0 items-center ">
             {navlinks.map((link, index) => (
               <li
-                onMouseDown={() => setActiveHover(link.path)}
+                onMouseDown={() => setActiveHover(link.url)}
                 className={`group relative flex `}
                 key={index}
               >
                 <Link
                   className={`  link font-medium  sm:py-0 sm:px-5 px-0 py-[14px] ${
-                    pathname === link.path && "text-text-primary"
+                    pathname === activeHover && "text-text-primary"
                   }`}
                   href={link.url}
                 >
@@ -163,10 +170,10 @@ export default function NavBar() {
                 </Link>
                 <span
                   className={`  text-sm absolute pointer-events-none inset-x-[-48px] inset-y-[0px] sm:inset-y-[-8px] sm:inset-x-[0px] ${
-                    pathname === link.path && "  -z-10"
+                    pathname === activeHover && "  -z-10"
                   }`}
                 >
-                  {link.path === activeHover && (
+                  {link.url.replace("/#", "/") === activeHover && (
                     <motion.div
                       layoutId="active"
                       style={{ originY: "0px"}}
