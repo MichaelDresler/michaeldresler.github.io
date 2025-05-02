@@ -156,13 +156,13 @@ export default function NavBar() {
           <ul className="flex flex-col justify-center sm:flex-row  mt-4 sm:mt-0 items-center ">
             {navlinks.map((link, index) => (
               <li
-                onMouseDown={() => setActiveHover(link.url)}
+                onMouseDown={() => setActiveHover(link.url.replace("/#", "/"))}
                 className={`group relative flex `}
                 key={index}
               >
                 <Link
                   className={`  link font-medium  sm:py-0 sm:px-5 px-0 py-[14px] ${
-                    pathname === activeHover && "text-text-primary"
+                    pathname === link.url && "text-text-primary"
                   }`}
                   href={link.url}
                 >

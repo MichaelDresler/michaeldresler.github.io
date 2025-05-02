@@ -29,9 +29,7 @@ export default function Home() {
          y: { duration: 1, ease: [0.25,0,0.20,1] }}}
         >
           <h1 className="text-pretty  font-medium text-[2.5rem] md:text-[4rem] 2xl:text-[rem]  text-text-primary tracking-[-0.05em] leading-[120%]  md:leading-[110%] max-w-[95%] ">
-           Hi, I'm Michael, a Designer and developer based in Vancouver, Bc.   My passion for design, coupled with a background in development, has
-            pushed me to expand my approach beyond just aesthetics.            My passion for design, coupled with a background in development, has
-            pushed me to expand my approach beyond just aesthetics.      
+          Hi, I'm Michael. I started in computer science, drawn to structured problem-solving, but design gave me the space to create and explore ideas more freely. Now, I blend both disciplines to design thoughtful, engaging experiences. Whether branding, speculative concepts, or interactive projects—I’m always learning, building, and pushing ideas further.      
           </h1>
         
         </motion.div>
