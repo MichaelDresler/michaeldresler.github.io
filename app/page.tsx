@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import { Thumbnail } from "./components/Thumbnail";
 import surge from "@/public/surge.png"
 import test from "@/public/webpage.png"
+import bytebot from "@/public/bytebot.png"
 import { useEffect } from "react";
+import BytebotSVG from "./components/bytebot"
 
 //  Michael Dresler — <br /> Designer & Developer Based in Vancouver
 
@@ -36,8 +38,10 @@ export default function Home() {
       </main>
      
       <section className="grid grid-cols-1 xl:grid-cols-2 gap-6  pb-12" id="projects">
-        <Thumbnail img={surge} textColor="text-text-secondary" bgColor="bg-foreground/5" title="Sfu Surge" tags={["web design","development"]}/>
-        <Thumbnail img={test}  textColor="text-text-secondary" bgColor="bg-foreground/5" title="Siat data vis" tags={["web design","development"]}/>
+        <Thumbnail img={BytebotSVG} link="/" textColor="text-white" bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]" title="ByteBot" description={"Arduino Prototype"}/>
+        <Thumbnail img={BytebotSVG} link="/" textColor="text-white" bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]" title="ByteBot" description={"Arduino Prototype"}/>
+        <Thumbnail img={BytebotSVG} link="/" textColor="text-white" bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]" title="ByteBot" description={"Arduino Prototype"}/>
+        <Thumbnail img={test}  link="/" textColor="text-text-secondary" bgColor="bg-foreground/5" title="Siat data vis" description={"hello"}/>
 
 
       </section>
