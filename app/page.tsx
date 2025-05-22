@@ -6,6 +6,7 @@ import test from "@/public/webpage.png"
 import bytebot from "@/public/bytebot.png"
 import { useEffect } from "react";
 import BytebotSVG from "./components/bytebot"
+import GuardianSVG from "./components/gaurdian"
 
 //  Michael Dresler — <br /> Designer & Developer Based in Vancouver
 
@@ -39,7 +40,7 @@ export default function Home() {
      
       <section className="grid grid-cols-1 xl:grid-cols-2 gap-6  pb-12" id="projects">
         <Thumbnail img={BytebotSVG} link="/" textColor="text-white" bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]" title="ByteBot" description={"Arduino Prototype"}/>
-        <Thumbnail img={BytebotSVG} link="/" textColor="text-white" bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]" title="ByteBot" description={"Arduino Prototype"}/>
+        <Thumbnail img={GuardianSVG} link="/" textColor="text-white" bgColor="bg-[linear-gradient(30deg,#082213_19%,#143621_78%,#224930_100%)]" title="Guardian" description={"App Prototype"}/>
         <Thumbnail img={BytebotSVG} link="/" textColor="text-white" bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]" title="ByteBot" description={"Arduino Prototype"}/>
         <Thumbnail img={test}  link="/" textColor="text-text-secondary" bgColor="bg-foreground/5" title="Siat data vis" description={"hello"}/>
 
