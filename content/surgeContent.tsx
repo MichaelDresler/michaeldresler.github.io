@@ -4,6 +4,8 @@ import { StaticImageData } from "next/image";
 
 export const heroContent = {
   title: "SFU Surge Website",
+  subtitle: "Website Redesign",
+  deliverable: "Website",
   year: "2024",
   role: ["Web Design", "Front-end Development"],
   names: ["Michael Dresler","Christina Ranganit"],

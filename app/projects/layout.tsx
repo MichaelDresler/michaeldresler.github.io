@@ -4,5 +4,5 @@ export default function ProjectsLayout({
   }: {
     children: React.ReactNode
   }) {
-    return <section className="content-box px-24">{children}</section>
+    return <section className=" ">{children}</section>
   }

@@ -25,9 +25,9 @@ export default function Home() {
 
   return (
     <>  
-      <div className="absolute w-full top-0">
+      <div className="absolute w-full h-full top-0   -z-20">
         <svg
-          viewBox="0 0 1804 1464"
+          viewBox="0 0 1804 1250"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -36,7 +36,7 @@ export default function Home() {
             cy="561.396"
             r="901.759"
             fill="url(#paint0_radial_2796_4719)"
-            fill-opacity="0.12"
+            fillOpacity="0.05"
           />
           <defs>
             <radialGradient
@@ -47,8 +47,8 @@ export default function Home() {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(901.998 561.396) rotate(90) scale(901.759)"
             >
-              <stop stop-color="white" />
-              <stop offset="1" stop-color="#737373" stop-opacity="0" />
+              <stop stopColor="white" />
+              <stop offset="1" stopColor="white" stopOpacity="0" />
             </radialGradient>
           </defs>
         </svg>
@@ -100,6 +100,24 @@ export default function Home() {
             description={"Arduino Prototype"}
           />
           <Thumbnail1
+            img={GuardianSVG}
+            width="w-[30%]"
+            link="/"
+            textColor="text-white/87"
+            bgColor="bg-[linear-gradient(30deg,#082213_19%,#143621_78%,#224930_100%)]"
+            title="Guardian"
+            description={"App Prototype"}
+          />
+                    <Thumbnail1
+            img={GuardianSVG}
+            width="w-[30%]"
+            link="/"
+            textColor="text-white/87"
+            bgColor="bg-[linear-gradient(30deg,#082213_19%,#143621_78%,#224930_100%)]"
+            title="Guardian"
+            description={"App Prototype"}
+          />
+                    <Thumbnail1
             img={GuardianSVG}
             width="w-[30%]"
             link="/"

@@ -29,19 +29,19 @@ export const Thumbnail1 = ({
     <>
       <Link
         href={link}
-        className={` relative aspect-[1.45/1] flex flex-col  rounded-3xl 2xl:rounded-4xl ${textColor} bg-white/5 duration-300 group overflow-hidden p-8 border border-white/15 hover:bg-white/8`}
+        className={` relative aspect-square sm:aspect-[1.45/1] flex flex-col  rounded-3xl 2xl:rounded-2xl ${textColor} bg-white/5 duration-300 group overflow-hidden p-5 sm:p-8 border border-white/15 hover:bg-white/8`}
       >
         <div className="mb-5">
           <div
-            className={`  text-xl font-semibold tracking-tight max-w-[15ch] `}
+            className={` text-lg sm:text-xl font-semibold tracking-tight max-w-[15ch] `}
           >
             {title}
           </div>
-          <span className="text-white/60 text-lg">{description}</span>
+          <span className="text-white/60 text-base sm:text-lg">{description}</span>
         </div>
 
         <div
-          className={` relative aspect-[1.45/1]   rounded-3xl 2xl:rounded-4xl ${bgColor} duration-300 group overflow-hidden shadow-2xl`}
+          className={` relative aspect-[1.45/1]   rounded-3xl 2xl:rounded-2xl ${bgColor} duration-300 group overflow-hidden shadow-2xl my-auto`}
         >
           {isImage(img) ? (
             <Image
@@ -52,7 +52,7 @@ export const Thumbnail1 = ({
           ) : (
             // Render the component like <BytebotSVG />
             <div
-              className={` relative ${width} mx-auto mt-[1.25rem] group-hover:scale-[1.04] duration-300 `}
+              className={` relative ${width} mx-auto mt-[1.25rem] group-hover:scale-[1.04] duration-300  `}
             >
               {React.createElement(img)}
             </div>

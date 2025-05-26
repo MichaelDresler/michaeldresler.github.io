@@ -16,7 +16,7 @@ export const Button = ({
     (
       <a
         href={link}
-        className={`${geistMono.className} ${className} flex w-full  gap-4 md:justify-between uppercase border-b border-foreground/20 text-text-primary/80 hover:text-inverse textxs py-4 px-2 text-center font-normal  hover:bg-foreground/90 transition-all duration-300 `}
+        className={`${className} flex w-full  gap-4 justify-center uppercase bg-white/10 rounded-md text-text-primary/80 textxs py-4 px-4 text-center font-normal group hover:bg-foreground/15 transition-all duration-300 border-1 border-white/10`}
       >
         <div>{title}</div>
         <svg
@@ -24,7 +24,7 @@ export const Button = ({
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          className="size-6 rotate-180 stroke-foreground/20"
+          className="size-6 rotate-180 stroke-foreground/80  "
         >
           <path
             strokeLinecap="round"
