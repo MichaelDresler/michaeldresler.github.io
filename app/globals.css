@@ -109,17 +109,21 @@
     max-inline-size: min(calc(100% - 48px), 52rem)
   }
   .myclass > .medium-content {
-    max-inline-size: 95%;
+    max-inline-size: 80%;
   }
   .myclass > .full-content {
     max-inline-size: 100%;
+  }
+  .fade-in{
+    --fade-amount: 50%;
+    mask-image: linear-gradient(to bottom, black, black var(--fade-amount), black calc(100% - var(--fade-amount)), transparent);
   }
 }
 
 
 @layer utilities {
   :root {
-    --surface: 18, 18, 18;
+    --surface: 12, 12, 12;
     --text-primary: rgba(255, 255, 255, 0.87);
     --text-secondary: rgba(255, 255, 255, 0.6);
     --inverse: 0, 0, 0;

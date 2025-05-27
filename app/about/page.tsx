@@ -10,6 +10,35 @@ export default function About() {
 
   return (
     <div className="px-4 pb-6 flex justify-center  ">
+       <div className="absolute w-full h-full top-0   -z-20">
+        <svg
+          viewBox="0 0 1804 1500"
+          transform="translate(0, -1000)"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="901.998"
+            cy="561.396"
+            r="901.759"
+            fill="url(#paint0_radial_2796_4719)"
+            fillOpacity="0.05"
+          />
+          <defs>
+            <radialGradient
+              id="paint0_radial_2796_4719"
+              cx="0"
+              cy="0.0"
+              r="0.9"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(901.998 561.396) rotate(90) scale(901.759)"
+            >
+              <stop stopColor="white" />
+              <stop offset="1" stopColor="white" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
       <div className="flex flex-col sm:max-w-[40rem] lg:flex-row lg:max-w-[60rem]  2xl:max-w-[75rem] gap-4">
         <div className="flex flex-col gap-4 w-full ">
           <div className="aspect-square  overflow-hidden grayscale rounded-xl outline-1 outline-foreground/10">

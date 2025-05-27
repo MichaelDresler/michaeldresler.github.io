@@ -2,8 +2,7 @@ import { ProjectHero } from "../../components/ProjectHero";
 import * as surge from "@/content/surgeContent";
 import { ImageContainer } from "@/app/components/ImageContainer";
 
-import homenew from "/public/surge/home-new.png";
-import { geistMono } from "@/app/fonts";
+import homenew from "/public/webpage.png";
 import { TextBlock } from "@/app/components/TextBlock";
 
 

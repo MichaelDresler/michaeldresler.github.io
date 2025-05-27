@@ -27,17 +27,17 @@ export const ProjectHero = ({
     <>
 
     
-      <div className="relative full-content -mt-24 aspect-square sm:aspect-[2.2/1] bg-white/10 rounded-xl flex justify-center overflow-hidden z-30">
+      <div className="relative full-content aspect-[2.25/1] overflow-hidden -mt-24  z-30 fade-in">
         <Image
       src={image}
       alt="hello"
       sizes="100vw"
-      className=" w-full object-cover "
+      className="mx-auto "
         />
       </div>
 
       <div className="text-text-secondary ">
-        <div className="flex flex-col gap-4  my-16">
+        <div className="flex flex-col gap-4  my-20">
           <div className="font-semibold text-center text-4xl tracking-[-0.05em] text-text-primary">
             {title}
           </div>

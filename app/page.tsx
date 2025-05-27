@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>  
-      <div className="absolute w-full h-full top-0   -z-20">
+      <div className="absolute w-full h-full top-0 -z-20">
         <svg
           viewBox="0 0 1804 1250"
           fill="none"
@@ -36,26 +36,26 @@ export default function Home() {
             cy="561.396"
             r="901.759"
             fill="url(#paint0_radial_2796_4719)"
-            fillOpacity="0.05"
+            fillOpacity="0.6"
           />
           <defs>
             <radialGradient
               id="paint0_radial_2796_4719"
               cx="0"
               cy="0.0"
-              r="0.9"
+              r="1"
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(901.998 561.396) rotate(90) scale(901.759)"
             >
-              <stop stopColor="white" />
-              <stop offset="1" stopColor="white" stopOpacity="0" />
+              <stop stopColor="#272727" />
+              <stop offset="1" stopColor="#0C0C0C" stopOpacity="1" />
             </radialGradient>
           </defs>
         </svg>
       </div>
 
       <div className="content-box ">
-        <main className=" w-full   flex items-center justify-center  pb-24">
+        <main className=" w-full   flex items-center justify-center  pt-12 pb-24">
           <motion.div
             initial={{ opacity: 0, y: 70 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ export default function Home() {
           <Thumbnail1
             img={BytebotSVG}
             width="w-[72%]"
-            link="/projects/surge"
+            link="/projects/bytebot"
             textColor="text-white/87"
             bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]"
             title="ByteBot"
@@ -108,24 +108,7 @@ export default function Home() {
             title="Guardian"
             description={"App Prototype"}
           />
-                    <Thumbnail1
-            img={GuardianSVG}
-            width="w-[30%]"
-            link="/"
-            textColor="text-white/87"
-            bgColor="bg-[linear-gradient(30deg,#082213_19%,#143621_78%,#224930_100%)]"
-            title="Guardian"
-            description={"App Prototype"}
-          />
-                    <Thumbnail1
-            img={GuardianSVG}
-            width="w-[30%]"
-            link="/"
-            textColor="text-white/87"
-            bgColor="bg-[linear-gradient(30deg,#082213_19%,#143621_78%,#224930_100%)]"
-            title="Guardian"
-            description={"App Prototype"}
-          />
+
         </section>
       </div>
     </>
