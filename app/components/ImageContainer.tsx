@@ -18,7 +18,7 @@ export const ImageContainer = ({ img, tag, caption }: ImageContainerProps) => {
           alt=""
           sizes="80vw"
           quality={100}
-          className=" bg-foreground/4  p-4 md:p-8 border border-foreground/10 rounded-sm md:rounded-lg w-full"
+          className=" bg-foreground/3  p-4 md:p-12 rounded-3xl w-full"
         ></Image>
         
         <div className="flex flex-row mt-4 gap-4 ">

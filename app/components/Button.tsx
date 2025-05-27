@@ -16,7 +16,7 @@ export const Button = ({
     (
       <a
         href={link}
-        className={`${className} flex w-full  gap-4 justify-center uppercase bg-white/10 rounded-md text-text-primary/80 textxs py-4 px-4 text-center font-normal group hover:bg-foreground/15 transition-all duration-300 border-1 border-white/10`}
+        className={`${className} flex w-full  gap-4 justify-center uppercase bg-white/25 rounded-md text-text-primary/80 py-4 px-4 text-center font-medium tracking-wider group hover:bg-foreground/15 transition-all duration-300 border-1 border-white/10`}
       >
         <div>{title}</div>
         <svg

@@ -4,6 +4,7 @@ import { ImageContainer } from "@/app/components/ImageContainer";
 
 import homenew from "/public/surge/home-new.png";
 import { geistMono } from "@/app/fonts";
+import { TextBlock } from "@/app/components/TextBlock";
 
 
 export default function projects() {
@@ -12,6 +13,7 @@ export default function projects() {
       <main className=" myclass">
         <ProjectHero
           title={surge.heroContent.title}
+          image={homenew}
           subtitle={surge.heroContent.subtitle}
           deliverable={surge.heroContent.deliverable}
           timeline={surge.heroContent.year}
@@ -21,15 +23,16 @@ export default function projects() {
           link="https://sfusurge.com"
         />
 
-          <div className="pt-24">
-            <span className={`text-text-secondary text-base uppercase  pb-12 tracking-wider ${geistMono.className}`}>Landing Page</span>
-            <h2 className="text-[40px] font-semibold text-text-primary tracking-tight mt-2  leading-[100%] mb-6">First Impressions</h2>
-            <p className="text-[16px] font-normal text-white/70 max-w-[50ch] 2xl:text-lg mb-12">The goal was to create a more dynamic and intuitive online experience that better communicates the organization’s mission while maintaining an inclusive and welcoming tone. By refining the messaging and improving the overall user experience, the redesign helps SFU Surge inspire and support the next generation of tech innovators.</p>
-          </div>
+        <TextBlock
+        heading="Designing and Developing"
+        text="As the Lead Designer and Developer, I was responsible for defining the project specifications, including selecting the necessary sensors, enabling wireless communication, and determining the dimensions and assembly of the form. Additionally, I created wiring diagrams, wrote the Arduino code, and assembled the prototype. Check out the final form below."
+        />
+
+
           
 
 
-          <div className="grid grid-cols-1 gap-12 medium ">
+          <div className="grid grid-cols-1 gap-12 medium-content  ">
             {/* <ImageContainer img={homeold} tag="Old Site" caption="this is a caption"/> */}
             <ImageContainer img={homenew} tag="New Site" caption="this is a caption"/>
 

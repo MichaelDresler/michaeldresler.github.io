@@ -106,11 +106,13 @@
 @layer components {
   .myclass > *{
     margin-inline:auto;
-    max-inline-size: 60rem;
+    max-inline-size: min(calc(100% - 48px), 52rem)
   }
-  .myclass > .medium {
-    max-inline-size: 80%;
-
+  .myclass > .medium-content {
+    max-inline-size: 95%;
+  }
+  .myclass > .full-content {
+    max-inline-size: 100%;
   }
 }
 
