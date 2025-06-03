@@ -27,57 +27,56 @@ export const ProjectHero = ({
     <>
 
     
-      <div className="relative full-content aspect-[2.25/1] overflow-hidden -mt-24  z-30 fade-in">
+      <div className="relative  bg-[#141414] p-12 -mt-24 full-content overflow-hidden ">
         <Image
       src={image}
       alt="hello"
       sizes="100vw"
-      className="mx-auto "
+      className=" rounded-xl w-[70%] mx-auto h-full object-cover"
         />
       </div>
 
-      <div className="text-text-secondary ">
-        <div className="flex flex-col gap-4  my-20">
-          <div className="font-semibold text-center text-4xl tracking-[-0.05em] text-text-primary">
+      <div className="text-text-secondary mt-12 ">
+        <div className="flex flex-col gap-4  ">
+          <div className="font-semibold text-5xl tracking-[-0.05em] text-text-primary">
             {title}
           </div>
-          <div className="font-normal text-center text-2xl tracking-[-0.04em] text-text-secondary">
+          <div className="font-medium text-xl tracking-[-0.03em] text-text-secondary/70">
             {subtitle}
           </div>
         </div>
-        <h3 className="text-xl text-white font-semibold mb-4 tracking-tight">Description</h3>
-        <p className=" font-normal text-[1.125rem] text-white/50 leading-[160%] text-pretty pb-8 border-b-2 border-white/15">
+        <p className=" font-normal text-[1rem] text-white/70 leading-[150%] text-pretty py-8 border-y-2 border-white/10 mt-12">
           {about}
         </p>
-        <div className=" font-normal my-8">
-          <ul>
-            <div className="grid grid-cols-2 gap-4 py-4 md:py-[1.5em] border-b border-foreground/10">
-              <li className="text-text-primary/60 font-medium uppercase tracking-wider">
+        <div className="my-8">
+          <ul className="flex flex-col gap-4 sm:gap-0 sm:flex-row justify-between">
+            <div className="  ">
+              <li className="text-text-primary/90 font-medium ">
                 Deliverable
               </li>
-              <li className="text-[18px]">{deliverable}</li>
+              <li className="">{deliverable}</li>
             </div>
-            <div className="grid grid-cols-2 gap-4 py-4 md:py-[1.5em] border-b border-foreground/10">
-              <li className="text-text-primary/60 font-medium uppercase tracking-wider">
+            <div className="  ">
+              <li className="text-text-primary/90 font-medium ">
                 Year
               </li>
-              <li className="text-[18px]">{timeline}</li>
+              <li className="">{timeline}</li>
             </div>
-            <div className="grid grid-cols-2 gap-4 py-4 md:py-[1.5em] border-b border-foreground/10">
-              <li className="text-text-primary/60 font-medium uppercase tracking-wider">
+            <div className="  ">
+              <li className="text-text-primary/90 font-medium ">
                 Role{" "}
               </li>
-              <li className="max-w-[20ch] text-[18px]  ">
+              <li className="max-w-[20ch]   ">
                 {roles.map((role, index) => (
                   <div key={index}>{role}</div>
                 ))}
               </li>
             </div>
-            <div className="grid grid-cols-2 gap-4 py-4 md:py-[1.5em] border-b border-foreground/10">
-              <li className="text-text-primary/60 font-medium uppercase tracking-wider">
+            <div className="  ">
+              <li className="text-text-primary/90 font-medium ">
                 Team{" "}
               </li>
-              <li className="max-w-[20ch] text-[18px]  ">
+              <li className="max-w-[20ch]   ">
                 {names.map((name, index) => (
                   <div key={index}>{name}</div>
                 ))}

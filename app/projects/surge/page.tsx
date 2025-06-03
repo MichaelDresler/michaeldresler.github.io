@@ -23,6 +23,7 @@ export default function projects() {
         />
 
         <TextBlock
+        subheading="Contribution"
         heading="Designing and Developing"
         text="As the Lead Designer and Developer, I was responsible for defining the project specifications, including selecting the necessary sensors, enabling wireless communication, and determining the dimensions and assembly of the form. Additionally, I created wiring diagrams, wrote the Arduino code, and assembled the prototype. Check out the final form below."
         />

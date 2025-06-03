@@ -10,6 +10,7 @@ export default function About() {
 
   return (
     <div className="px-4 pb-6 flex justify-center  ">
+            <div className="fixed top-0 w-screen h-screen bg-radial-[at_50%_10%] from-[#ffffff] to-70% to-[#131313] opacity-8 -z-10 "></div>
        <div className="absolute w-full h-full top-0   -z-20">
         <svg
           viewBox="0 0 1804 1500"

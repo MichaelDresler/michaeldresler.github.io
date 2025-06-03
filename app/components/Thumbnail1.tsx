@@ -29,7 +29,7 @@ export const Thumbnail1 = ({
     <>
       <Link
         href={link}
-        className={` relative aspect-square sm:aspect-[1.45/1] flex flex-col  rounded-3xl 2xl:rounded-2xl ${textColor} bg-white/5 duration-300 group overflow-hidden p-5 sm:p-8 border border-white/15 hover:bg-white/8`}
+        className={` relative aspect-square sm:aspect-[1.38/1] flex flex-col  rounded-xl ${textColor} bg-white/5 duration-300 group overflow-hidden p-5 sm:p-8 border border-white/15 hover:bg-white/8`}
       >
         <div className="mb-5">
           <div
@@ -41,7 +41,7 @@ export const Thumbnail1 = ({
         </div>
 
         <div
-          className={` relative aspect-[1.45/1]   rounded-3xl 2xl:rounded-2xl ${bgColor} duration-300 group overflow-hidden shadow-2xl my-auto`}
+          className={` relative aspect-[1.45/1]   rounded-2xl ${bgColor} duration-300 group overflow-hidden shadow-2xl my-auto`}
         >
           {isImage(img) ? (
             <Image

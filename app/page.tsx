@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 import { Thumbnail } from "./components/Thumbnail";
 import surge from "@/public/surge.png";
 import test from "@/public/webpage.png";
@@ -13,6 +13,31 @@ import { image } from "d3";
 import { Thumbnail1 } from "./components/Thumbnail1";
 
 //  Michael Dresler — <br /> Designer & Developer Based in Vancouver
+const containerVariants = {
+  hidden:{
+  },
+  visible:{
+    transition:{
+      staggerChildren: 0.12
+    }
+  }
+}
+
+const childrenVariants = {
+  hidden:{
+    opacity:0,
+    y:80,
+    
+  },
+  visible:{
+    opacity: 1,
+    y:0,
+    transition:{
+      opacity: { duration: 2 },
+      y: { duration: 0.8, ease: [0.25, 0, 0.2, 1] },
+    }
+  }
+}
 
 export default function Home() {
   useEffect(() => {
@@ -27,7 +52,7 @@ export default function Home() {
     <>  
       <div className="absolute w-full h-full top-0 -z-20">
         <svg
-          viewBox="0 0 1804 1250"
+          viewBox="0 0 1804 1450"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -55,34 +80,30 @@ export default function Home() {
       </div>
 
       <div className="content-box ">
-        <main className=" w-full   flex items-center justify-center  pt-12 pb-24">
+        <main className=" w-full   flex items-center justify-center  pt-4 pb-24">
           <motion.div
-            initial={{ opacity: 0, y: 70 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileInView="visible"
+            variants={containerVariants}
+            initial= "hidden"
+            animate= "visible"
+            // whileInView="visible"
             viewport={{ once: true }}
-            transition={{
-              opacity: { duration: 1 },
-              y: { duration: 1, ease: [0.25, 0, 0.2, 1] },
-            }}
           >
-            <>
-              <div className="aspect-square max-w-[212px] mx-auto rounded-full overflow-hidden mb-8">
+              <motion.div variants={childrenVariants} className="aspect-square max-w-[212px] mx-auto rounded-full overflow-hidden mb-8">
                 <Image
                   src={portait}
                   alt="pfp"
                   className=" object-cover scale-[150%]  grayscale ml-[1%] mt-[25%]"
                 />
-              </div>
+              </motion.div>
 
-              <h1 className="text-pretty  font-semibold text-[2.5rem] md:text-[4.5rem] 2xl:text-[rem]  text-text-primary tracking-[-0.05em] leading-[110%]  md:leading-[110%] text-center max-w-[12ch] mx-auto mb-6 ">
+              <motion.h1 variants={childrenVariants} className="text-pretty  font-semibold text-[2.5rem] md:text-[4.5rem] 2xl:text-[rem]  text-text-primary tracking-[-0.05em] leading-[110%]  md:leading-[110%] text-center max-w-[12ch] mx-auto mb-6 ">
                 I'm Michael, a Designer based in Vancouver
-              </h1>
-              <h2 className="text-lg text-text-secondary text-center  max-w-[45ch]">
+              </motion.h1>
+              <motion.h2 variants={childrenVariants} className="text-lg text-text-secondary text-center  max-w-[45ch]">
                 I have 11 years of experience working on userful and mindful
                 products toghether with startups and known Brands.
-              </h2>
-            </>
+              </motion.h2>
+
           </motion.div>
         </main>
 
@@ -102,7 +123,7 @@ export default function Home() {
           <Thumbnail1
             img={GuardianSVG}
             width="w-[30%]"
-            link="/"
+            link="/projects/surge"
             textColor="text-white/87"
             bgColor="bg-[linear-gradient(30deg,#082213_19%,#143621_78%,#224930_100%)]"
             title="Guardian"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./components/NavBar";
-import { geistSans } from "./fonts";
+import { geistSans, inter } from "./fonts";
 
 
 
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.className} overflow-y-scroll antialiased pt-[var(--padding-top)] `}>
+        className={`${inter.className} overflow-y-scroll antialiased pt-[var(--padding-top)] `}>
         <NavBar/>
         {children}
       </body>

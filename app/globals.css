@@ -114,8 +114,9 @@
   .myclass > .full-content {
     max-inline-size: 100%;
   }
+
   .fade-in{
-    --fade-amount: 50%;
+    --fade-amount: 10%;
     mask-image: linear-gradient(to bottom, black, black var(--fade-amount), black calc(100% - var(--fade-amount)), transparent);
   }
 }
