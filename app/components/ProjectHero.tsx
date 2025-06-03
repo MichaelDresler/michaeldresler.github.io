@@ -38,10 +38,10 @@ export const ProjectHero = ({
 
       <div className="text-text-secondary mt-12 ">
         <div className="flex flex-col gap-4  ">
-          <div className="font-semibold text-5xl tracking-[-0.05em] text-text-primary">
+          <div className="font-medium text-5xl text-primary tracking-[-0.03em] text-text-primary">
             {title}
           </div>
-          <div className="font-medium text-xl tracking-[-0.03em] text-text-secondary/70">
+          <div className="font-medium text-xl text-primary tracking-[-0.03em] text-text-secondary/70">
             {subtitle}
           </div>
         </div>

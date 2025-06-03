@@ -1,6 +1,5 @@
 import Image from "next/image";
 import portait from "@/public/aboutme.png";
-import { geistMono } from "@/app/fonts";
 import { svgIcons } from "@/app/fonts";
 import { svgIconsInfo } from "@/app/fonts";
 import { Concentrations } from "@/app/fonts";
@@ -81,7 +80,7 @@ export default function About() {
 
         <div className="p-6 w-full bg-foreground/5 rounded-xl outline-1 outline-foreground/10">
           <h3
-            className={`${geistMono.className} text-sm mb-4 font-semibold text-text-secondary/80 uppercase`}
+            className={` text-sm mb-4 font-semibold text-text-secondary/80 uppercase`}
           >
             About me
           </h3>
@@ -104,7 +103,7 @@ export default function About() {
           </p>
 
           <h3
-            className={`${geistMono.className} text-sm mb-4 font-semibold text-text-secondary/80 uppercase mt-8`}
+            className={` text-sm mb-4 font-semibold text-text-secondary/80 uppercase mt-8`}
           >
             Contact
           </h3>

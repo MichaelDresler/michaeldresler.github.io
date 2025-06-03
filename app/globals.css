@@ -1,12 +1,13 @@
 @import 'tailwindcss';
 
 @theme {
+  --font-sans: "Inter";
   --color-surface: rgba(var(--surface), 1);
   --color-foreground: rgba(var(--foreground), 1);
   --color-inverse: rgba(var(--inverse), 1);
 
-  --text-color-text-primary: var(--text-primary);
-  --text-color-text-secondary: var(--text-secondary);
+  --text-color-primary: var(--text-primary);
+  --text-color-secondary: var(--text-secondary);
 
   --text-xs: 0.75rem;
   --text-xs--line-height: 100%;
@@ -41,6 +42,8 @@
   --text-7xl: 6rem;
   --text-7xl--line-height: 112.5%;
   --text-7xl--letter-spacing: ;
+
+  
 }
 
 /*
@@ -80,27 +83,16 @@
 }
 
 
-
-@utility paragraph {
-  @apply text-text-secondary text-base md:text-lg font-light text-pretty;
-}
-
 @utility link {
-  @apply text-text-secondary text-[14px] font-normal duration-300 capitalize;
+  @apply text-secondary text-[14px] font-normal duration-300 capitalize;
 }
 
-@utility salt {
+/* @utility salt {
   font-feature-settings: 'ss03', 'ss02', 'ss08';
-}
+} */
 
 @utility clamp {
   font-size: clamp(1rem, 0.8483rem + 0.4854vw, 1.625rem);
-}
-
-@utility clamp2 {
-  font-size: clamp(1.5rem, 0.8932rem + 1.9417vw, 4rem);
-  letter-spacing: -0.03em;
-  line-height: 105%;
 }
 
 @layer components {
@@ -146,6 +138,7 @@
     --foreground: #ededed;
   }
 } */
+
 
 
 

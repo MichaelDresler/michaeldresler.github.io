@@ -96,7 +96,7 @@ export default function Home() {
                 />
               </motion.div>
 
-              <motion.h1 variants={childrenVariants} className="text-pretty  font-semibold text-[2.5rem] md:text-[4.5rem] 2xl:text-[rem]  text-text-primary tracking-[-0.05em] leading-[110%]  md:leading-[110%] text-center max-w-[12ch] mx-auto mb-6 ">
+              <motion.h1 variants={childrenVariants} className="text-pretty  font-semibold text-[2.5rem] md:text-[4.5rem] 2xl:text-[rem]  text-text-primary tracking-[-0.03em] leading-[110%]  md:leading-[110%] text-center max-w-[12ch] mx-auto mb-6 ">
                 I'm Michael, a Designer based in Vancouver
               </motion.h1>
               <motion.h2 variants={childrenVariants} className="text-lg text-text-secondary text-center  max-w-[45ch]">
