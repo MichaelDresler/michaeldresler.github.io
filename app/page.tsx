@@ -61,7 +61,7 @@ export default function Home() {
             cy="561.396"
             r="901.759"
             fill="url(#paint0_radial_2796_4719)"
-            fillOpacity="0.6"
+            fillOpacity="1"
           />
           <defs>
             <radialGradient
@@ -96,10 +96,10 @@ export default function Home() {
                 />
               </motion.div>
 
-              <motion.h1 variants={childrenVariants} className="text-pretty  font-semibold text-[2.5rem] md:text-[4.5rem] 2xl:text-[rem]  text-text-primary tracking-[-0.03em] leading-[110%]  md:leading-[110%] text-center max-w-[12ch] mx-auto mb-6 ">
+              <motion.h1 variants={childrenVariants} className="text-pretty  font-semibold text-[2.5rem] md:text-[4.5rem] 2xl:text-[rem]  text-primary tracking-[-0.03em] leading-[110%]  md:leading-[110%] text-center max-w-[12ch] mx-auto mb-6 ">
                 I'm Michael, a Designer based in Vancouver
               </motion.h1>
-              <motion.h2 variants={childrenVariants} className="text-lg text-text-secondary text-center  max-w-[45ch]">
+              <motion.h2 variants={childrenVariants} className="text-lg text-secondary text-center  max-w-[45ch]">
                 I have 11 years of experience working on userful and mindful
                 products toghether with startups and known Brands.
               </motion.h2>
@@ -115,7 +115,7 @@ export default function Home() {
             img={BytebotSVG}
             width="w-[72%]"
             link="/projects/bytebot"
-            textColor="text-white/87"
+            textColor="text-primary"
             bgColor="bg-[linear-gradient(210deg,#F8CD42_0%,#F1A707_93%)]"
             title="ByteBot"
             description={"Arduino Prototype"}
@@ -124,7 +124,7 @@ export default function Home() {
             img={GuardianSVG}
             width="w-[30%]"
             link="/projects/surge"
-            textColor="text-white/87"
+            textColor="text-primary"
             bgColor="bg-[linear-gradient(30deg,#082213_19%,#143621_78%,#224930_100%)]"
             title="Guardian"
             description={"App Prototype"}

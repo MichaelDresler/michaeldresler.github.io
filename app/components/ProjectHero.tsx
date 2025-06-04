@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "./Button";
 import Image, { StaticImageData } from "next/image";
 
@@ -5,7 +6,7 @@ type ProjectHeroProps = {
   title: string;
   subtitle: string;
   image: StaticImageData;
-  deliverable:string;
+  deliverable: string;
   timeline: string;
   roles: string[];
   names: string[];
@@ -25,71 +26,62 @@ export const ProjectHero = ({
 }: ProjectHeroProps) => {
   return (
     <>
-
-    
-      <div className="relative  bg-[#141414] p-12 -mt-24 full-content overflow-hidden ">
+      <div className="relative  p-12 -mt-24 full-content overflow-hidden ">
         <Image
-      src={image}
-      alt="hello"
-      sizes="100vw"
-      className=" rounded-xl w-[70%] mx-auto h-full object-cover"
+          src={image}
+          alt="hello"
+          sizes="100vw"
+          className=" rounded-xl w-[70%] mx-auto h-full object-cover"
         />
       </div>
 
-      <div className="text-text-secondary mt-12 ">
-        <div className="flex flex-col gap-4  ">
-          <div className="font-medium text-5xl text-primary tracking-[-0.03em] text-text-primary">
+      <div className="mt-12 ">
+        <div className="flex flex-col gap-5  ">
+          <div className="font-medium text-5xl text-primary leading-[100%] tracking-[-0.03em] ">
             {title}
           </div>
-          <div className="font-medium text-xl text-primary tracking-[-0.03em] text-text-secondary/70">
+          <div className="font-medium text-2xl tracking-[-0.02em] leading-[100%] text-secondary">
             {subtitle}
           </div>
         </div>
-        <p className=" font-normal text-[1rem] text-white/70 leading-[150%] text-pretty py-8 border-y-2 border-white/10 mt-12">
-          {about}
+        <p className=" font-normal text-[1rem] text-secondary leading-[150%] text-pretty py-8 border-y-1 border-primary/20 mt-10">
+          {about.split("\n").map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
         </p>
-        <div className="my-8">
+        <div className="my-8 text-secondary">
           <ul className="flex flex-col gap-4 sm:gap-0 sm:flex-row justify-between">
             <div className="  ">
-              <li className="text-text-primary/90 font-medium ">
-                Deliverable
-              </li>
-              <li className="">{deliverable}</li>
+              <li className=" font-medium ">Deliverable</li>
+              <li className="font-normal">{deliverable}</li>
             </div>
             <div className="  ">
-              <li className="text-text-primary/90 font-medium ">
-                Year
-              </li>
-              <li className="">{timeline}</li>
+              <li className=" font-medium ">Year</li>
+              <li className=" font-normal">{timeline}</li>
             </div>
             <div className="  ">
-              <li className="text-text-primary/90 font-medium ">
-                Role{" "}
-              </li>
-              <li className="max-w-[20ch]   ">
+              <li className=" font-medium ">Role</li>
+              <li className="max-w-[20ch] font-normal  ">
                 {roles.map((role, index) => (
                   <div key={index}>{role}</div>
                 ))}
               </li>
             </div>
             <div className="  ">
-              <li className="text-text-primary/90 font-medium ">
-                Team{" "}
-              </li>
+              <li className=" font-medium ">Team </li>
               <li className="max-w-[20ch]   ">
                 {names.map((name, index) => (
                   <div key={index}>{name}</div>
                 ))}
               </li>
             </div>
-            {link && (
-              <Button
-                className=" mt-12"
-                title="View Site"
-                link={link}
-              />
-            )}
           </ul>
+          {link && (
+            <Button className=" mt-12" title="View Live Site" link={link} />
+          )}
         </div>
       </div>
     </>

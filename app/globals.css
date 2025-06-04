@@ -9,6 +9,8 @@
   --text-color-primary: var(--text-primary);
   --text-color-secondary: var(--text-secondary);
 
+  --border-color-primary: var(--text-secondary);
+
   --text-xs: 0.75rem;
   --text-xs--line-height: 100%;
   --text-xs--letter-spacing: ;
@@ -124,8 +126,8 @@
 
 
     /* --surface: 248, 246, 243;
-  --text-primary: rgba(0, 0, 0, 0.87);
-  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-primary: rgba(59,61,65,1);
+  --text-secondary: rgba(59,61,65,1);
   --inverse:255, 255, 255;
   --foreground :  0, 0, 0; */
 

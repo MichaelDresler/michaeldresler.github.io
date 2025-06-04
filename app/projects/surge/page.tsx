@@ -22,6 +22,8 @@ export default function projects() {
           link="https://sfusurge.com"
         />
 
+        <div className="mt-32"></div>
+
         <TextBlock
         subheading="Contribution"
         heading="Designing and Developing"
@@ -34,7 +36,7 @@ export default function projects() {
 
           <div className="grid grid-cols-1 gap-12 medium-content  ">
             {/* <ImageContainer img={homeold} tag="Old Site" caption="this is a caption"/> */}
-            <ImageContainer img={homenew} tag="New Site" caption="this is a caption"/>
+            {/* <ImageContainer img={homenew} tag="New Site" caption="this is a caption"/> */}
 
           </div>
 

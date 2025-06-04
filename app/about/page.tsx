@@ -50,10 +50,10 @@ export default function About() {
           </div>
 
           <div className="p-6 bg-foreground/5 rounded-xl outline-1 outline-foreground/10">
-            <h1 className="text-text-primary text-2xl md:text-[2.5rem] font-semibold tracking-tighter mb-5">
+            <h1 className="text-primary text-2xl md:text-[2.5rem] font-semibold tracking-tighter mb-5">
               Michael Dresler
             </h1>
-            <h2 className="text-white/70 text-lg tracking-normal mb-6">
+            <h2 className="text-secondary text-lg tracking-normal mb-6">
               Designer & developer driven by curiousity. Always looking to add
               to my toolbox by exploring how things are made and how others
               work.
@@ -63,7 +63,7 @@ export default function About() {
               return (
                 <li
                   key={index}
-                  className="flex flex-row text-white/70 max-w-[25ch] \"
+                  className="flex flex-row text-secondary max-w-[25ch] \"
                 >
                   <div className="mr-2 mb-4">{item.icon}</div>
                   {item.label}
@@ -80,11 +80,11 @@ export default function About() {
 
         <div className="p-6 w-full bg-foreground/5 rounded-xl outline-1 outline-foreground/10">
           <h3
-            className={` text-sm mb-4 font-semibold text-text-secondary/80 uppercase`}
+            className={` text-sm mb-4 font-semibold text-primary uppercase tracking-widest`}
           >
-            About me
+            About
           </h3>
-          <p className="text-white/70 text-base text-pretty">
+          <p className="text-secondary text-base text-pretty">
           Hi, I'm Michael! I started university as a computer science student because I gravitated toward the certainty that comes with logical, step-by-step problem-solving. That structure felt comfortable to me, but over time, I realized I had more of an urge to create — to take an idea, design it thoughtfully, and give it purpose.
             <br />
             <br />
@@ -103,18 +103,18 @@ export default function About() {
           </p>
 
           <h3
-            className={` text-sm mb-4 font-semibold text-text-secondary/80 uppercase mt-8`}
+            className={` text-sm mb-4 font-semibold text-secondary uppercase mt-8`}
           >
             Contact
           </h3>
 
-          <ul className="flex gap-3 text-text-secondary">
+          <ul className="flex gap-3 text-secondary">
               {icons.map(([key, value]) => {
                 return (
                   <a
                     href="/"
                     key={key}
-                    className="text-text-secondary hover:text-text-primary duration-150"
+                    className="text-secondary hover:text-primary duration-150"
                   >
                     {value}
                   </a>

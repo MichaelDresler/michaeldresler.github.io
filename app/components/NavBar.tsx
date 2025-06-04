@@ -113,7 +113,7 @@ export default function NavBar() {
             <Link href="/">MD</Link>
           </li> */}
           {/* hamburger and x buttons for nav toggle */}
-          <li className="flex items-center ml-auto text-text-primary">
+          <li className="flex items-center ml-auto text-primary">
             <button
               className="sm:hidden relative ml-auto "
               onClick={toggleMenu}
@@ -162,7 +162,7 @@ export default function NavBar() {
               >
                 <Link
                   className={`  link font-medium  sm:py-0 sm:px-5 px-0 py-[14px] ${
-                    pathname === link.url && "text-text-primary"
+                    pathname === link.url && "text-primary"
                   }`}
                   href={link.url}
                 >

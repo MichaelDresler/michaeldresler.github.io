@@ -1,4 +1,3 @@
-import { geistMono } from "../fonts";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -37,7 +36,7 @@ export const Thumbnail1 = ({
           >
             {title}
           </div>
-          <span className="text-white/60 text-base sm:text-lg">{description}</span>
+          <span className="text-secondary text-base sm:text-lg">{description}</span>
         </div>
 
         <div

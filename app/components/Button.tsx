@@ -1,4 +1,3 @@
-import { geistMono } from "../fonts";
 
 type ButtonProps = {
   title: string;
@@ -16,7 +15,7 @@ export const Button = ({
     (
       <a
         href={link}
-        className={`${className} flex w-full  gap-4 justify-center uppercase bg-white/80 rounded-md text-inverse/80 py-4 px-4 text-center font-medium tracking-wider group hover:bg-white/60 transition-all duration-300 border-1 border-white/10`}
+        className={`${className} flex w-fit  gap-4 justify-center  bg-white/2 rounded-lg text-secondary py-[10px] px-4  font-medium tracking-tight group hover:bg-white/60 transition-all duration-300 border-1 border-primary/30`}
       >
         <div>{title}</div>
         <svg
@@ -24,7 +23,7 @@ export const Button = ({
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          className="size-6 rotate-180 stroke-inverse/80  "
+          className="size-6 rotate-180 stroke-white/60 "
         >
           <path
             strokeLinecap="round"
@@ -37,3 +36,5 @@ export const Button = ({
 
   );
 };
+
+

@@ -14,7 +14,7 @@ export const heroContent = {
     "Karanjit Singh",
   ],
   about:
-    "ByteBot is a game designed to teach children basic sequential logic. The player uses a modular block system to navigate a dog-themed car through a map while collecting rewards and avoiding obstacles. The project stemmed from the team’s interest in creating something that introduced basic programming concepts to kids not through screens, but through tangible interaction. The idea was to create a low-pressure way for kids to explore coding logic like sequencing and modularity, while also getting immediate feedback through physical movement.",
+    "ByteBot is a game designed to teach children basic sequential logic. The player uses a modular block system to navigate a dog-themed car through a map while collecting rewards and avoiding obstacles.\n\n The project stemmed from the team’s interest in creating something that introduced basic programming concepts to kids not through screens, but through tangible interaction. The idea was to create a low-pressure way for kids to explore coding logic like sequencing and modularity, while also getting immediate feedback through physical movement.",
 };
 
 export type CompetitionData = {
