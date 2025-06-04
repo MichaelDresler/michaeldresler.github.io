@@ -13,7 +13,7 @@ export const FigureCaption = ({
   return (
     <>
       <figure className="mt-12 flex flex-col gap-4  ">
-        <div className="p-12 bg-white/5 rounded-2xl aspect-video border border-white/10 ">
+        <div className="p-12 bg-white/5 rounded-lg aspect-video border border-white/10 ">
           <Image src={""} alt={""}></Image>
         </div>
 

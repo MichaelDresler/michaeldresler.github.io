@@ -40,7 +40,7 @@ export const ProjectHero = ({
           <div className="font-medium text-5xl text-primary leading-[100%] tracking-[-0.03em] ">
             {title}
           </div>
-          <div className="font-medium text-2xl tracking-[-0.02em] leading-[100%] text-secondary">
+          <div className="font-medium text-xl tracking-[-0.02em] leading-[100%] text-secondary">
             {subtitle}
           </div>
         </div>

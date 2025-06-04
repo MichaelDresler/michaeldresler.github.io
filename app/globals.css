@@ -118,7 +118,7 @@
 
 @layer utilities {
   :root {
-    --surface: 12, 12, 12;
+    --surface: 16, 16, 16;
     --text-primary: rgba(255, 255, 255, 0.87);
     --text-secondary: rgba(255, 255, 255, 0.6);
     --inverse: 0, 0, 0;

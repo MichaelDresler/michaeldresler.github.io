@@ -39,6 +39,8 @@ const childrenVariants = {
   }
 }
 
+
+
 export default function Home() {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
@@ -107,7 +109,10 @@ export default function Home() {
           </motion.div>
         </main>
 
-        <section
+        <motion.section
+            initial= "hidden"
+            animate= "visible"
+            variants={childrenVariants}
           className="grid grid-cols-1 xl:grid-cols-2 gap-6  pb-12"
           id="projects"
         >
@@ -130,7 +135,7 @@ export default function Home() {
             description={"App Prototype"}
           />
 
-        </section>
+        </motion.section>
       </div>
     </>
   );

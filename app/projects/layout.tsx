@@ -7,7 +7,7 @@ export default function ProjectsLayout({
     return <section className=" ">
 
       {/* <div className="absolute top-0 w-[130vw] h-[130vh] bg-radial-[at_38%_45%] from-[#ffffff] to-70% to-[rgb(12,12,12)] opacity-10 -z-10 over "></div> */}
-      <div className="fixed top-0 w-screen aspect-video bg-radial-[at_50%_-0%] from-[#ffffff] to-75% to-[#131313] opacity-12 -z-10 "></div>
+      <div className="fixed top-0 w-screen aspect-video bg-radial-[at_50%_-0%] from-[#ffffff] to-100% to-[#131313] opacity-3 -z-10 "></div>
       {children}
     </section>
   }
