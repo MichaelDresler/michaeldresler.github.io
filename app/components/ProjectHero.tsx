@@ -44,7 +44,7 @@ export const ProjectHero = ({
             {subtitle}
           </div>
         </div>
-        <p className=" font-normal text-base text-secondary leading-[150%] text-pretty py-8 border-y-1 border-primary/20 mt-[3.125rem]">
+        <p className=" font-normal text-base text-secondary leading-[150%] text-pretty py-8 border-y-1 border-primary mt-[3.125rem]">
           {about.split("\n").map((line, i) => (
             <React.Fragment key={i}>
               {line}

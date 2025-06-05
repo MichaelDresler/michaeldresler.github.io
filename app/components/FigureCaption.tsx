@@ -1,7 +1,7 @@
 type FigureCaptionProps = {
   heading: string;
   text: string;
-  media: React.ReactNode; // This lets you pass in <img />, <video />, or any JSX
+  media?: React.ReactNode; // This lets you pass in <img />, <video />, or any JSX
 };
 
 export const FigureCaption = ({
@@ -10,7 +10,7 @@ export const FigureCaption = ({
   media,
 }: FigureCaptionProps) => {
   return (
-    <figure className="mt-12 flex flex-col gap-4">
+    <figure className=" flex flex-col gap-4">
       <div className="px-22 py-20 bg-white/5 rounded-lg aspect-video border border-white/10 drop-shadow-[-2px_3px_20px_rgba(3,3,3,1)]">
         {media}
       </div>

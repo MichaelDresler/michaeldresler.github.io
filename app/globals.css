@@ -9,7 +9,7 @@
   --text-color-primary: var(--text-primary);
   --text-color-secondary: var(--text-secondary);
 
-  --border-color-primary: var(--text-secondary);
+  --border-color-primary: var(--border-primary);
 
   --text-xs: 0.75rem;
   --text-xs--line-height: 100%;
@@ -130,6 +130,7 @@
     --text-secondary: rgba(145, 145, 145, 1);
     --inverse: 0, 0, 0;
     --foreground: 255, 255, 255;
+    --border-primary: rgb(255, 255, 255,0.2);
 
 
     /* --surface: 248, 246, 243;
