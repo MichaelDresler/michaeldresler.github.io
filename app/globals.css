@@ -14,19 +14,19 @@
   --text-xs: 0.75rem;
   --text-xs--line-height: 100%;
   --text-xs--letter-spacing: ;
-  --text-s: 0.875rem;
+  --text-s: 1rem;
   --text-s--line-height: 100%;
   --text-s--letter-spacing: ;
-  --text-base: 1rem;
+  --text-base: 1.125rem; 
   --text-base--line-height: 150%;
   --text-base--letter-spacing: ;
   --text-lg: 1.25rem;
   --text-lg--line-height: 150%;
   --text-lg--letter-spacing: ;
-  --text-xl: 1.5625rem;
+  --text-xl: 1.5rem;
   --text-xl--line-height: 125%;
   --text-xl--letter-spacing: ;
-  --text-2xl: 2rem;
+  --text-2xl: 2.25rem;
   --text-2xl--line-height: 125%;
   --text-2xl--letter-spacing: ;
   --text-3xl: 2.5rem;
@@ -41,7 +41,7 @@
   --text-6xl: 4.5rem;
   --text-6xl--line-height: 112.5%;
   --text-6xl--letter-spacing: ;
-  --text-7xl: 6rem;
+  --text-7xl: 5rem;
   --text-7xl--line-height: 112.5%;
   --text-7xl--letter-spacing: ;
 
@@ -100,7 +100,7 @@
 @layer components {
   .myclass > *{
     margin-inline:auto;
-    max-inline-size: min(calc(100% - 48px), 52rem)
+    max-inline-size: min(calc(100% - 48px), 68rem)
   }
   .myclass > .medium-content {
     max-inline-size: 80%;
@@ -120,7 +120,7 @@
   :root {
     --surface: 16, 16, 16;
     --text-primary: rgba(255, 255, 255, 0.87);
-    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-secondary: rgba(145, 145, 145, 1);
     --inverse: 0, 0, 0;
     --foreground: 255, 255, 255;
 

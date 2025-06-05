@@ -75,7 +75,7 @@ export default function Home() {
               gradientTransform="translate(901.998 561.396) rotate(90) scale(901.759)"
             >
               <stop stopColor="#272727" />
-              <stop offset="1" stopColor="#0C0C0C" stopOpacity="1" />
+              <stop offset="1" stopColor="#101010" stopOpacity="1" />
             </radialGradient>
           </defs>
         </svg>
