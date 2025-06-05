@@ -10,6 +10,8 @@ import { TextBlock } from "@/app/components/TextBlock";
 import { FigureCaption } from "@/app/components/FigureCaption";
 import { div } from "framer-motion/client";
 import { TextSquare } from "@/app/components/TextSquare";
+import Table from "@/app/components/Table";
+import CarTable from "@/app/components/CarTable";
 
 export default function Bytebot() {
   return (
@@ -110,67 +112,63 @@ export default function Bytebot() {
 
       <section className="py-20 border-t border-primary">
         <TextBlock
-        className="mb-14"
+          className="mb-14"
           heading="Exploring Modularity options"
           subheading="Exploration & Iteration"
           text="During the research phase, our team got excited about the idea of using physical blocks as modular inputs and began exploring ways to detect different placements. We were particularly interested in how tangible interactions could enhance engagement, and brainstormed various low-cost methods to distinguish between block types—such as weight, shape, or embedded patterns"
         />
         <div className="flex flex-col gap-25">
-
-        <FigureCaption
-          heading="Home-made Pressure Sensors"
-          text="The first idea that came to mind for distinguishing between blocks was using their weight. While browsing Arduino communities, I came across a tutorial that demonstrated how to create a DIY pressure sensor using just foam, graphite, cardboard, and wire. The low cost and accessibility of the materials made this approach especially appealing. However, after building and testing the sensor, I found the output to be far too noisy and inconsistent to provide reliable readings. Additionally, high-precision scales required to accurately measure such weights were well beyond our budget."
-        />
-        <FigureCaption
-          media={
-            <video
-              src="/flow.mp4"
-              controls
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover rounded-lg"
-            />
-          }
-          heading="Copper Tape"
-          text="We explored other options and came across a previous year's project that used copper tape to enable modularity. I built a small prototype to test how well it worked. The results were promising. Copper tape was reliable enough for our needs, cost less than other options, and was easy to find at craft stores like Michaels. Based on these factors, we decided to move forward with the copper tape approach."
-        />
-
+          <FigureCaption
+            heading="Home-made Pressure Sensors"
+            text="The first idea that came to mind for distinguishing between blocks was using their weight. While browsing Arduino communities, I came across a tutorial that demonstrated how to create a DIY pressure sensor using just foam, graphite, cardboard, and wire. The low cost and accessibility of the materials made this approach especially appealing. However, after building and testing the sensor, I found the output to be far too noisy and inconsistent to provide reliable readings. Additionally, high-precision scales required to accurately measure such weights were well beyond our budget."
+          />
+          <FigureCaption
+            media={
+              <video
+                src="/flow.mp4"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+              />
+            }
+            heading="Copper Tape"
+            text="We explored other options and came across a previous year's project that used copper tape to enable modularity. I built a small prototype to test how well it worked. The results were promising. Copper tape was reliable enough for our needs, cost less than other options, and was easy to find at craft stores like Michaels. Based on these factors, we decided to move forward with the copper tape approach."
+          />
         </div>
       </section>
-      <section>
+      <section className="pb-10">
         <TextBlock
-        className="mb-14 pt-10 border-t border-primary"
+          className="mb-14 pt-10 border-t border-primary"
           heading="Planning for Modularity"
           subheading="Technical Scoping & System Design"
           text="With the modularity concept in place, I needed to ensure the system could function reliably and scale as needed. This part of the process involved diving deeper into technical planning and mapping out how each component would work together"
         />
         <div className="flex flex-col gap-25">
+          <FigureCaption
+            heading="Mapping Interaction Flow"
+            text="To better understand the technical requirements, I created a detailed interaction flow. This helped define how the system would respond to user inputs and guided the selection of necessary components."
+          />
 
-        <FigureCaption
-          heading="Mapping Interaction Flow"
-          text="To better understand the technical requirements, I created a detailed interaction flow. This helped define how the system would respond to user inputs and guided the selection of necessary components."
-        />
-        <FigureCaption
-          media={
-            <video
-              src="/flow.mp4"
-              controls
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover rounded-lg"
-            />
-          }
-          heading="Planning for Hardware Constraints"
-          text="I calculated how many Arduino pins each component would require to ensure the system could handle our desired functionality. Since the block sequencing logic hadn’t been finalized yet, I focused on calculating the hardware requirements based on the components I knew we would need. The total came out to 12 so I had 8 pins left to make the block logic work."
-        />
-
+          <FigureCaption
+            media={
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 pb-4">
+                <div>
+                  <Table />
+                </div>
+                <div>
+                  <CarTable />
+                </div>
+              </div>
+            }
+            frame={false}
+            heading="Planning for Hardware Constraints"
+            text="I calculated how many Arduino pins each component would require to ensure the system could handle our desired functionality. Since the block sequencing logic hadn’t been finalized yet, I focused on calculating the hardware requirements based on the components I knew we would need. The total came out to 12, meaning I had 8 pins left to make the block logic work."
+          />
         </div>
       </section>
-      
     </main>
   );
 }

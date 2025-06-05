@@ -6,7 +6,7 @@ import homenew from "/public/webpage.png";
 import { TextBlock } from "@/app/components/TextBlock";
 
 
-export default function projects() {
+export default function Surge() {
   return (
     <div>
       <main className=" myclass">
