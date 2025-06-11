@@ -21,12 +21,12 @@ export default function About() {
             cx="901.998"
             cy="561.396"
             r="901.759"
-            fill="url(#paint0_radial_2796_4719)"
-            fillOpacity="0.05"
+            fill="url(#paint0_radial_2796_4712)"
+            fillOpacity="0.01"
           />
           <defs>
             <radialGradient
-              id="paint0_radial_2796_4719"
+              id="paint0_radial_2796_4712"
               cx="0"
               cy="0.0"
               r="0.9"
@@ -88,10 +88,10 @@ export default function About() {
           Hi, I'm Michael! I started university as a computer science student because I gravitated toward the certainty that comes with logical, step-by-step problem-solving. That structure felt comfortable to me, but over time, I realized I had more of an urge to create — to take an idea, design it thoughtfully, and give it purpose.
             <br />
             <br />
-            That’s when I decided I wanted to pursue design. My experiences in computer science gave me the tools to build and taught me how to break problems down, but design showed me how to use those tools more effectively and shape better solutions.
+           My experiences in computer science gave me the tools to build and taught me how to break problems down, but design showed me how to use those tools more effectively and shape better solutions.
             <br />
             <br />
-            Growing up, whenever I wanted to build something I always went to my dad for help. I’ve always admired his meticulous planning and his approach to problem-solving. He taught me that thoughtful planning and decision-making are just as important as execution. It's this balance between creativity and structure that drives my work.
+            Growing up, whenever I wanted to build something I always went to my dad for help. His meticulous planning and approach to problem-solving taught me that thoughtful planning and decision-making all contribute to high level execution.
 
 
             <br />

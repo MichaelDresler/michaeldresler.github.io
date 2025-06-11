@@ -49,7 +49,7 @@ export const FigureCaption = ({
         media
       )}
       <figcaption>
-        <h3 className="font-medium text-[1.5rem] leading-[36px] text-primary tracking-[-0.03em]">
+        <h3 className="font-medium text-[1.75rem] leading-[200%] text-primary tracking-[-0.03em]">
           {heading}
         </h3>
         <p className="font-normal text-secondary text-base mt-2">{text}</p>

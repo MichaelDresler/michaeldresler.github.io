@@ -37,10 +37,10 @@ export const ProjectHero = ({
 
       <div className="mt-12 ">
         <div className="flex flex-col gap-6  ">
-          <div className="font-medium text-7xl text-primary leading-[120%] tracking-[-0.03em] ">
+          <div className="font-medium text-[4.5rem] text-primary leading-[120%] tracking-[-0.03em] ">
             {title}
           </div>
-          <div className="font-medium text-[2rem] tracking-[-0.02em] leading-[100%] text-secondary">
+          <div className="font-medium text-[1.75rem] tracking-[-0.0em] leading-[100%] text-secondary">
             {subtitle}
           </div>
         </div>

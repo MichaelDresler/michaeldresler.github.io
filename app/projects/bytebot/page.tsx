@@ -185,6 +185,12 @@ export default function Bytebot() {
           />
         </div>
       </section>
+      <div className="w-full h-[50vh] grid-cols-3 grid gap-6 relative bg-radial-[at_50%_50%] from-[#434343] to-75% to-[rgb(16,16,16)] mb-24">
+        <div className="w-full h-full bg-inherit border"></div>
+        <div className="w-full h-full bg-inherit border"></div>
+        <div className="w-full h-full bg-inherit border"></div>
+
+      </div>
     </main>
   );
 }

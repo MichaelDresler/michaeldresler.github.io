@@ -10,16 +10,13 @@ type NavLink = {
   url: string;
 };
 
-
-
 export default function NavBar() {
   const easing = cubicBezier(0.6, 0, 0.4, 1.1);
   const pathname = "/" + usePathname().split("/")[1];
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollingDown, setScrollingDown] = useState(false);
 
-  console.log("pathname:",pathname)
-
+  console.log("pathname:", pathname);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeHover, setActiveHover] = useState<string>(pathname);
@@ -28,12 +25,11 @@ export default function NavBar() {
   // console.log("active hover: ", activeHover)
 
   const navlinks: NavLink[] = [
-    { name: "home", url: "/", },
-    { name: "about", url: "/about"},
-    { name: "projects", url: "/#projects"},
+    { name: "home", url: "/" },
+    { name: "about", url: "/about" },
+    { name: "projects", url: "/#projects" },
     { name: "resume", url: "/files/resume.pdf" },
     // { name: "gallery", url: "/testing" },
-
 
     // {name:"styleguide", url: "/styleguide"},
   ];
@@ -78,22 +74,19 @@ export default function NavBar() {
     return () => {
       window.removeEventListener("resize", handleResize);
       document.removeEventListener("mousedown", handleClick);
-
     };
-  }, [pathname])
+  }, [pathname]);
 
   useEffect(() => {
     setIsOpen(false);
     // Add event listener to handle window resize
     window.addEventListener("scroll", handleScroll);
-    
+
     // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollTop]);
-
-
 
   return (
     <div className="fixed w-full left-0 top-0  px-3 sm:px-12  z-1000 ">
@@ -102,10 +95,16 @@ export default function NavBar() {
 
       <div
         ref={navRef}
-        style={{ height: isOpen ? `${56 * navlinks.length +56}px` : "2.75rem" }}
+        style={{
+          height: isOpen ? `${56 * navlinks.length + 56}px` : "2.75rem",
+        }}
         className={` ${
-          isOpen ? `rounded-[12px] bg-surface/80` : " rounded-[32px] bg-foreground/10"
-        }   mx-auto   ${scrollingDown&& "translate-y-[-200%]"}   transition-all duration-200 will-change-auto   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-4 sm:px-1  sm:w-fit z-1000 outline-1 outline-foreground/15`}
+          isOpen
+            ? `rounded-[12px] `
+            : " rounded-[32px]"
+        }   mx-auto   ${
+          scrollingDown && "opacity-0 blur-[10px]"
+        }   bg-[rgba(60,60,60,0.85)] transition-all duration-400 will-change-auto   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-4 sm:px-1  sm:w-fit z-1000 outline-1 outline-[rgb(70,70,70)]`}
       >
         <ul className={` flex w-full sm:w-auto items-center py-3 `}>
           {/* surge logo
@@ -162,7 +161,9 @@ export default function NavBar() {
               >
                 <Link
                   className={`  link font-medium  sm:py-0 sm:px-5 px-0 py-[14px] ${
-                    pathname === link.url && "text-primary"
+                    (pathname === link.url || (link.url === '/#projects' && pathname.startsWith('/projects')))
+    ? 'text-primary'
+    : 'text-primary/60'
                   }`}
                   href={link.url}
                 >
@@ -170,20 +171,19 @@ export default function NavBar() {
                 </Link>
                 <span
                   className={`  text-sm absolute pointer-events-none inset-x-[-48px] inset-y-[0px] sm:inset-y-[-8px] sm:inset-x-[0px] ${
-                    pathname === activeHover && "  -z-10"
+                    pathname === activeHover && "-z-10"
                   }`}
                 >
                   {link.url.replace("/#", "/") === activeHover && (
                     <motion.div
                       layoutId="active"
-                      style={{ originY: "0px"}}
+                      style={{ originY: "0px" }}
                       transition={{
                         ease: easing,
                         duration: 0.5,
                       }}
-                      className={` w-full h-full bg-foreground/15 rounded-full  `}
+                      className={` shadow-[0px_0px_2px_2px_rgba(0,0,0,0.09)] bg-white/15 overflow-hidden w-full h-full rounded-full  `}
                     >
-
                     </motion.div>
                   )}
                 </span>

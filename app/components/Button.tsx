@@ -15,7 +15,7 @@ export const Button = ({
     (
       <a
         href={link}
-        className={`${className} relative flex w-fit  gap-3 justify-center items-center bg-white/9 rounded-lg text-primary py-[10px] px-4  font-medium  group hover:bg-white/10 transition-all duration-300 border-1 border-primary/50 active:bg-white/4`}
+        className={`${className} relative flex w-fit  gap-3 justify-center items-center bg-white/14 rounded-lg text-primary py-[10px] px-4  font-medium  group hover:bg-white/10 transition-all duration-300 border-1 border-primary/50 overflow-hidden active:bg-white/4`}
       >
         <div>{title} </div>
         <div className="group-hover:translate-x-1 duration-200 text-lg"> {`->`}</div>
