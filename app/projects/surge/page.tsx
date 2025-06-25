@@ -7,7 +7,7 @@ import { InteractiveCardList } from "@/app/components/IconCard/InteractiveCard";
 export default function Surge() {
   return (
     <div>
-      <main className=" myclass">
+      <main className=" constrain">
         <ProjectHero
           title={surge.heroContent.title}
           image={homenew}

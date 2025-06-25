@@ -102,15 +102,20 @@
 }
 
 @layer components {
-  .myclass > * {
+  .constrain > * {
     margin-inline: auto;
     max-inline-size: min(calc(100% - 48px), 68rem);
   }
-  .myclass > .medium-content {
+  .constrain > .medium-content {
     max-inline-size: 80%;
   }
-  .myclass > .full-content {
+
+  .constrain > .full-content {
     max-inline-size: 100%;
+  }
+    .constrain > .breakout-content {
+    max-inline-size: 100% 
+
   }
 
   .fade-in {

@@ -8,10 +8,11 @@ import { TextSquare } from "@/app/components/TextSquare";
 import Table from "@/app/components/Table";
 import CarTable from "@/app/components/CarTable";
 import gradient from "@/public/gradient.png";
+import Flow from "@/public/flow.svg";
 
 export default function Bytebot() {
   return (
-    <main className="myclass flex flex-col gap-10">
+    <main className="constrain flex flex-col gap-10">
       <ProjectHero
         title={bytebot.heroContent.title}
         image={homenew}
@@ -153,9 +154,10 @@ export default function Bytebot() {
           subheading="Technical Scoping & System Design"
           text="With the modularity concept in place, I needed to ensure the system could function reliably and scale as needed. This part of the process involved diving deeper into technical planning and mapping out how each component would work together"
         />
-        <div className="flex flex-col gap-25">
+        <div className="flex flex-col gap-25 ">
           <FigureCaption
-            media={<Image alt="" src={gradient} className="p-16" />}
+          breakout={true}
+            media={<Flow className="w-full"/>}
             heading="Mapping Interaction Flow"
             text="To better understand the technical requirements, I created an interaction flow. This helped define how the system would respond to user inputs and guided the selection of necessary components."
           />
