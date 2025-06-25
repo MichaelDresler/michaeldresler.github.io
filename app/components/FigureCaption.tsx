@@ -14,9 +14,27 @@ export const FigureCaption = ({
   return (
     <figure className="flex flex-col gap-4">
       {frame ? (
-        <div className="relative  overflow-hidden rounded-2xl  border border-[#252525] drop-shadow-[-2px_3px_10px_rgba(3,3,3,0.80)]">
+        <div className="relative  overflow-hidden rounded-2xl  border border-[#252525] bg-[#0E0E0E]">
           <div className="absolute top-0 left-0 h-full w-full -z-20">
-            <svg
+            
+          </div>
+          {media}
+        </div>
+      ) : (
+        media
+      )}
+      <figcaption>
+        <h3 className="font-medium text-[1.75rem] leading-[200%] text-primary tracking-[-0.03em]">
+          {heading}
+        </h3>
+        <p className="font-normal text-secondary text-base mt-2">{text}</p>
+      </figcaption>
+    </figure>
+  );
+};
+
+
+{/* <svg
               className="w-full h-full"
               preserveAspectRatio="xMidYMid slice"
               viewBox="0 0 1133 679"
@@ -41,19 +59,4 @@ export const FigureCaption = ({
                   <stop offset="0.894148" stopColor="#0E0E0E" />
                 </radialGradient>
               </defs>
-            </svg>
-          </div>
-          {media}
-        </div>
-      ) : (
-        media
-      )}
-      <figcaption>
-        <h3 className="font-medium text-[1.75rem] leading-[200%] text-primary tracking-[-0.03em]">
-          {heading}
-        </h3>
-        <p className="font-normal text-secondary text-base mt-2">{text}</p>
-      </figcaption>
-    </figure>
-  );
-};
+            </svg> */}

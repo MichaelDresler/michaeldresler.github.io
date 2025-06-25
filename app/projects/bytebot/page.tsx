@@ -111,13 +111,13 @@ export default function Bytebot() {
           className="mb-14"
           heading="Exploring Modularity options"
           subheading="Exploration & Iteration"
-          text="During the research phase, our team got excited about the idea of using physical blocks as modular inputs and began exploring ways to detect different placements. We were particularly interested in how tangible interactions could enhance engagement, and brainstormed various low-cost methods to distinguish between block types—such as weight, shape, or embedded patterns"
+          text="During the research phase, our team got excited about the idea of using physical blocks as modular inputs and began exploring ways to detect different placements. We were particularly interested in how tangible interactions could enhance engagement, and brainstormed various low-cost methods to distinguish between block types such as weight, shape, or embedded patterns"
         />
         <div className="flex flex-col gap-25">
           <FigureCaption
             media={
               <video
-                src="/flow.mp4"
+                src="/sensor-trimmed.mp4"
                 controls
                 autoPlay
                 loop
@@ -127,7 +127,7 @@ export default function Bytebot() {
               />
             }
             heading="Home-made Pressure Sensors"
-            text="The first idea that came to mind for distinguishing between blocks was using their weight. While browsing Arduino communities, I came across a tutorial that demonstrated how to create a DIY pressure sensor using just foam, graphite, cardboard, and wire. The low cost and accessibility of the materials made this approach especially appealing. However, after building and testing the sensor, I found the output to be far too noisy and inconsistent to provide reliable readings. Additionally, high-precision scales required to accurately measure such weights were well beyond our budget."
+            text="The first idea that came to mind for distinguishing between blocks was using their weight. While browsing Arduino communities, I came across a tutorial that demonstrated how to create a DIY pressure sensor using just foam, graphite, cardboard, and wire. The low cost and accessibility of the materials made this approach especially appealing. However, after building and testing the sensor, I found the output to be far too noisy and inconsistent to provide reliable readings."
           />
           <FigureCaption
             media={
@@ -138,7 +138,7 @@ export default function Bytebot() {
                 loop
                 muted
                 playsInline
-                className=" my-12 max-h-[80vh] mx-auto  rounded-xl overflow-hidden  drop-shadow-[-2px_3px_20px_rgba(3,3,3,0.50)]"
+                className=" my-12 max-h-[80vh] mx-auto  rounded-xl overflow-hidden  "
               />
             }
             heading="Copper Tape"
@@ -149,7 +149,7 @@ export default function Bytebot() {
       <section className="pb-10">
         <TextBlock
           className="mb-14 pt-10 border-t border-primary"
-          heading="Planning for Modularity"
+          heading="Defining the unknowns"
           subheading="Technical Scoping & System Design"
           text="With the modularity concept in place, I needed to ensure the system could function reliably and scale as needed. This part of the process involved diving deeper into technical planning and mapping out how each component would work together"
         />
@@ -157,7 +157,7 @@ export default function Bytebot() {
           <FigureCaption
             media={<Image alt="" src={gradient} className="p-16" />}
             heading="Mapping Interaction Flow"
-            text="To better understand the technical requirements, I created a detailed interaction flow. This helped define how the system would respond to user inputs and guided the selection of necessary components."
+            text="To better understand the technical requirements, I created an interaction flow. This helped define how the system would respond to user inputs and guided the selection of necessary components."
           />
 
           <FigureCaption
@@ -177,11 +177,7 @@ export default function Bytebot() {
           />
         </div>
       </section>
-      <div className="w-full h-[50vh] grid-cols-3 grid gap-6 relative bg-radial-[at_50%_50%] from-[#434343] to-75% to-[rgb(16,16,16)] mb-24">
-        <div className="w-full h-full bg-inherit border"></div>
-        <div className="w-full h-full bg-inherit border"></div>
-        <div className="w-full h-full bg-inherit border"></div>
-      </div>
+
     </main>
   );
 }
