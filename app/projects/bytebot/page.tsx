@@ -135,8 +135,8 @@ export default function Bytebot() {
             text="The first idea that came to mind for distinguishing between blocks was using their weight. While browsing Arduino communities, I came across a tutorial that demonstrated how to create a DIY pressure sensor using just foam, graphite, cardboard, and wire. The low cost and accessibility of the materials made this approach especially appealing. However, after building and testing the sensor, I found the output to be far too noisy and inconsistent to provide reliable readings. Additionally, high-precision scales required to accurately measure such weights were well beyond our budget."
           />
           <FigureCaption
-
-                      media = { <video
+            media={
+              <video
                 src="/tape.mp4"
                 controls
                 autoPlay
@@ -144,8 +144,8 @@ export default function Bytebot() {
                 muted
                 playsInline
                 className=" my-12 max-h-[80vh] mx-auto  rounded-xl overflow-hidden  drop-shadow-[-2px_3px_20px_rgba(3,3,3,0.50)]"
-              />}
-            
+              />
+            }
             heading="Copper Tape"
             text="We explored other options and came across a previous year's project that used copper tape to enable modularity. I built a small prototype to test how well it worked. The results were promising. Copper tape was reliable enough for our needs, cost less than other options, and was easy to find at craft stores like Michaels. Based on these factors, we decided to move forward with the copper tape approach."
           />
@@ -160,10 +160,7 @@ export default function Bytebot() {
         />
         <div className="flex flex-col gap-25">
           <FigureCaption
-          media={< Image 
-          alt=""
-          src={gradient}
-          className="p-16"/>}
+            media={<Image alt="" src={gradient} className="p-16" />}
             heading="Mapping Interaction Flow"
             text="To better understand the technical requirements, I created a detailed interaction flow. This helped define how the system would respond to user inputs and guided the selection of necessary components."
           />
@@ -189,7 +186,6 @@ export default function Bytebot() {
         <div className="w-full h-full bg-inherit border"></div>
         <div className="w-full h-full bg-inherit border"></div>
         <div className="w-full h-full bg-inherit border"></div>
-
       </div>
     </main>
   );

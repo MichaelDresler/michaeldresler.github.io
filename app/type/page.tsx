@@ -4,28 +4,27 @@ import { MouseText } from "@/app/components/MouseText";
 import { useEffect, useState } from "react";
 import { RandomText } from "../components/RandomText";
 import { AnimatedText } from "../components/AnimatedText";
-import { Instrument_Serif } from 'next/font/google'
+import { Instrument_Serif } from "next/font/google";
 
 const instrument = Instrument_Serif({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-Instrument_Serif'
-})
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-Instrument_Serif",
+});
 
 export default function Type() {
   const [vw10, setVw10] = useState(0);
-  console.log(vw10)
+  console.log(vw10);
 
   useEffect(() => {
     const updateWidth = () => {
-      setVw10(window.innerWidth/15);
+      setVw10(window.innerWidth / 15);
     };
 
     updateWidth(); // Set initial value
     window.addEventListener("resize", updateWidth);
 
     return () => window.removeEventListener("resize", updateWidth);
-
   }, []);
 
   return (

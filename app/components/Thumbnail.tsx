@@ -8,7 +8,7 @@ type ThumbnailProps = {
   title: string;
   description: string;
   img: StaticImageData | React.ComponentType;
-  width?:string;
+  width?: string;
   bgColor: string;
   textColor: string;
   link: string;
@@ -41,13 +41,17 @@ export const Thumbnail = ({
           />
         ) : (
           // Render the component like <BytebotSVG />
-          <div className={` relative ${width} mx-auto mt-[2.5rem] group-hover:scale-[1.04] duration-300 `}>
+          <div
+            className={` relative ${width} mx-auto mt-[2.5rem] group-hover:scale-[1.04] duration-300 `}
+          >
             {React.createElement(img)}
           </div>
         )}
 
         <div className="absolute px-10 bottom-8">
-          <div className={`  text-2xl font-semibold tracking-tight max-w-[15ch] `}>
+          <div
+            className={`  text-2xl font-semibold tracking-tight max-w-[15ch] `}
+          >
             {title}
           </div>
           <span className="text-white/60 text-lg">{description}</span>

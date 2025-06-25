@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --font-sans: "Inter";
@@ -18,8 +18,8 @@
   --text-s: 1rem;
   --text-s--line-height: 100%;
   --text-s--letter-spacing: ;
-  --text-base: 1.125rem; 
-  --text-base: 1.125rem; 
+  --text-base: 1.125rem;
+  --text-base: 1.125rem;
   --text-base--line-height: 150%;
   --text-base--letter-spacing: ;
   --text-lg: 1.25rem;
@@ -49,8 +49,6 @@
   --text-7xl: 5rem;
   --text-7xl--line-height: 112.5%;
   --text-7xl--letter-spacing: ;
-
-  
 }
 
 /*
@@ -76,19 +74,20 @@
 }
 
 @utility content-box {
-  @apply max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12   ;
+  @apply max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12;
 }
 
 @utility about-padding {
-  @apply px-4 sm:px-6  2xl:px-12   ;
+  @apply px-4 sm:px-6  2xl:px-12;
 }
-
-
 
 @utility radial_gradient {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0, rgba(24, 35, 82, 0) 100%);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 0,
+    rgba(24, 35, 82, 0) 100%
+  );
 }
-
 
 @utility link {
   @apply text-secondary text-[14px] font-normal duration-300 capitalize;
@@ -103,9 +102,9 @@
 }
 
 @layer components {
-  .myclass > *{
-    margin-inline:auto;
-    max-inline-size: min(calc(100% - 48px), 68rem)
+  .myclass > * {
+    margin-inline: auto;
+    max-inline-size: min(calc(100% - 48px), 68rem);
   }
   .myclass > .medium-content {
     max-inline-size: 80%;
@@ -114,12 +113,17 @@
     max-inline-size: 100%;
   }
 
-  .fade-in{
+  .fade-in {
     --fade-amount: 10%;
-    mask-image: linear-gradient(to bottom, black, black var(--fade-amount), black calc(100% - var(--fade-amount)), transparent);
+    mask-image: linear-gradient(
+      to bottom,
+      black,
+      black var(--fade-amount),
+      black calc(100% - var(--fade-amount)),
+      transparent
+    );
   }
 }
-
 
 @layer utilities {
   :root {
@@ -132,14 +136,13 @@
     --foreground: 255, 255, 255;
     --border-primary: rgba(255, 255, 255, 0.2);
 
-
     /* --surface: 248, 246, 243;
   --text-primary: rgba(59,61,65,1);
   --text-secondary: rgba(59,61,65,1);
   --inverse:255, 255, 255;
   --foreground :  0, 0, 0; */
 
-  --padding-top: 6rem;
+    --padding-top: 6rem;
   }
 
   /* @media (prefers-color-scheme: dark) {
@@ -148,9 +151,6 @@
     --foreground: #ededed;
   }
 } */
-
-
-
 
   body {
     background: rgb(var(--surface));

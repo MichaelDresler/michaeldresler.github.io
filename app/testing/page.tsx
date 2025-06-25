@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 // import RandomImages from "../components/RandomImages";
 
 // export default function testing() {
@@ -14,7 +13,13 @@
 //     );
 //   }
 import { useState } from "react";
-import { deltaCorpsPriest1, soft,georgia11,caligraphy2, useAsciiText } from "react-ascii-text";
+import {
+  deltaCorpsPriest1,
+  soft,
+  georgia11,
+  caligraphy2,
+  useAsciiText,
+} from "react-ascii-text";
 
 export default function Testing() {
   const texts = ["Designer", "Developer"];
@@ -27,9 +32,9 @@ export default function Testing() {
     animationLoop: true,
     animationSpeed: 100,
 
-    font:georgia11,
+    font: georgia11,
     text: texts,
-    isPaused
+    isPaused,
   });
 
   return (

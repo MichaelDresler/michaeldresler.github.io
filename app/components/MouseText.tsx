@@ -1,6 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-
 type MouseTextProps = {
   text: string;
   el?: keyof JSX.IntrinsicElements;
@@ -15,14 +14,19 @@ export const MouseText = ({
   return (
     <Wrapper className={className}>
       <span className="sr-only">{text}</span>
-      <motion.span initial="hidden" animate="visible" transition={{ staggerChildren: 0.2 }} aria-hidden>
+      <motion.span
+        initial="hidden"
+        animate="visible"
+        transition={{ staggerChildren: 0.2 }}
+        aria-hidden
+      >
         {text.split("").map((char, index) => (
           <BlurredChar key={index} char={char} />
         ))}
       </motion.span>
 
-       {/* SVG Filter Definition */}
-       <svg width="0" height="0">
+      {/* SVG Filter Definition */}
+      <svg width="0" height="0">
         <filter id="svgThreshold">
           {/* Tint the text (e.g., blue hue) */}
           <feColorMatrix
@@ -31,7 +35,6 @@ export const MouseText = ({
             0 0.4 0 0 0.4
             0 0 0.4 0 0.4
             0 0 0 1 0"
-
           />
           {/* Apply Threshold Effect */}
           <feComponentTransfer>
@@ -43,11 +46,9 @@ export const MouseText = ({
         </filter>
       </svg>
 
-      
-
       <style jsx>{`
         .blur-threshold-effect {
-          filter:  url(#svgThreshold);
+          filter: url(#svgThreshold);
         }
       `}</style>
     </Wrapper>
@@ -57,20 +58,20 @@ export const MouseText = ({
 const BlurredChar = ({ char }: { char: string }) => {
   const blurValue = useMotionValue(0);
   const blurSpring = useSpring(blurValue, { damping: 100, stiffness: 120 });
-  const blurFilter = useTransform(blurSpring, [0, 1], ["blur(0px)", "blur(20px)"]);
+  const blurFilter = useTransform(
+    blurSpring,
+    [0, 1],
+    ["blur(0px)", "blur(20px)"],
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const width = rect.width
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
 
-    
-    const mouseX = e.clientX -rect.left
+    const mouseX = e.clientX - rect.left;
 
-
-    const xPct = mouseX/(width/2)
-    blurValue.set(xPct)
-    
-
+    const xPct = mouseX / (width / 2);
+    blurValue.set(xPct);
   };
   const handleMouseLeave = () => blurValue.set(0); // Animate blur back smoothly
 
@@ -79,13 +80,8 @@ const BlurredChar = ({ char }: { char: string }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ filter: blurFilter }}
-      
     >
       {char}
     </motion.span>
   );
 };
-
-
-
-

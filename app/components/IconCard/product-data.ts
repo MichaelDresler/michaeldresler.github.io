@@ -5,7 +5,7 @@ export const cardData = [
       "High-performance reinforcement learning framework. Teach K-Bot new movements based on your own use cases.",
     linkText: "View on GitHub",
     linkHref: "https://github.com/",
-    icon: "icon", 
+    icon: "icon",
   },
   {
     title: "K-OS",
@@ -29,7 +29,7 @@ export const cardData = [
       "High-performance reinforcement learning framework. Teach K-Bot new movements based on your own use cases.",
     linkText: "View on GitHub",
     linkHref: "https://github.com/",
-    icon: "icon", 
+    icon: "icon",
   },
   {
     title: "K-OS",
@@ -47,4 +47,4 @@ export const cardData = [
     linkHref: "https://github.com/",
     icon: "icon",
   },
-]
+];

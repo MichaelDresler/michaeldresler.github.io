@@ -8,10 +8,9 @@ export default function About() {
   const icons = Object.entries(svgIcons);
 
   return (
-
     <div className="px-4 pb-6 flex justify-center  ">
-            <div className="fixed top-0 w-screen h-screen bg-radial-[at_50%_10%] from-[#ffffff] to-70% to-[#131313] opacity-8 -z-10 "></div>
-       <div className="absolute w-full h-full top-0   -z-20">
+      <div className="fixed top-0 w-screen h-screen bg-radial-[at_50%_10%] from-[#ffffff] to-70% to-[#131313] opacity-8 -z-10 "></div>
+      <div className="absolute w-full h-full top-0   -z-20">
         <svg
           viewBox="0 0 1804 1500"
           transform="translate(0, -1000)"
@@ -60,22 +59,18 @@ export default function About() {
               work.
             </h2>
             <ul className="mt-8 mb-4">
-            {svgIconsInfo.map((item, index) => {
-              return (
-                <li
-                  key={index}
-                  className="flex flex-row text-secondary max-w-[25ch] \"
-                >
-                  <div className="mr-2 mb-4">{item.icon}</div>
-                  {item.label}
-                </li>
-              );
-            })}
-          </ul>
-
-
-
-            
+              {svgIconsInfo.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="flex flex-row text-secondary max-w-[25ch] \"
+                  >
+                    <div className="mr-2 mb-4">{item.icon}</div>
+                    {item.label}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
 
@@ -86,21 +81,31 @@ export default function About() {
             About
           </h3>
           <p className="text-secondary text-base text-pretty">
-          Hi, I'm Michael! I started university as a computer science student because I gravitated toward the certainty that comes with logical, step-by-step problem-solving. That structure felt comfortable to me, but over time, I realized I had more of an urge to create — to take an idea, design it thoughtfully, and give it purpose.
+            Hi, I'm Michael! I started university as a computer science student
+            because I gravitated toward the certainty that comes with logical,
+            step-by-step problem-solving. That structure felt comfortable to me,
+            but over time, I realized I had more of an urge to create — to take
+            an idea, design it thoughtfully, and give it purpose.
             <br />
             <br />
-           My experiences in computer science gave me the tools to build and taught me how to break problems down, but design showed me how to use those tools more effectively and shape better solutions.
+            My experiences in computer science gave me the tools to build and
+            taught me how to break problems down, but design showed me how to
+            use those tools more effectively and shape better solutions.
             <br />
             <br />
-            Growing up, whenever I wanted to build something I always went to my dad for help. His meticulous planning and approach to problem-solving taught me that thoughtful planning and decision-making all contribute to high level execution.
-
-
+            Growing up, whenever I wanted to build something I always went to my
+            dad for help. His meticulous planning and approach to
+            problem-solving taught me that thoughtful planning and
+            decision-making all contribute to high level execution.
             <br />
             <br />
-            When I’m not designing or coding, you’ll find me hiking, snowboarding, camping, or playing video games.
+            When I’m not designing or coding, you’ll find me hiking,
+            snowboarding, camping, or playing video games.
             <br />
             <br />
-            I'm always eager to learn and collaborate on projects. If my work resonates with you or you're working on something exciting, I'd love to connect!
+            I'm always eager to learn and collaborate on projects. If my work
+            resonates with you or you're working on something exciting, I'd love
+            to connect!
           </p>
 
           <h3
@@ -110,21 +115,18 @@ export default function About() {
           </h3>
 
           <ul className="flex gap-3 text-secondary">
-              {icons.map(([key, value]) => {
-                return (
-                  <a
-                    href="/"
-                    key={key}
-                    className="text-secondary hover:text-primary duration-150"
-                  >
-                    {value}
-                  </a>
-                );
-              })}
-            </ul>
-          
-
-         
+            {icons.map(([key, value]) => {
+              return (
+                <a
+                  href="/"
+                  key={key}
+                  className="text-secondary hover:text-primary duration-150"
+                >
+                  {value}
+                </a>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </div>
