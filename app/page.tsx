@@ -9,6 +9,8 @@ import BytebotSVG from "./components/bytebot";
 import GuardianSVG from "./components/gaurdian";
 import { Thumbnail1 } from "./components/Thumbnail1";
 
+const preventBuild = "preventbuild"
+
 //  Michael Dresler — <br /> Designer & Developer Based in Vancouver
 const containerVariants = {
   hidden: {},
