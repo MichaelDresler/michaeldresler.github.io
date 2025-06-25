@@ -4,6 +4,7 @@ import { ImageContainer } from "@/app/components/ImageContainer";
 
 import homenew from "/public/webpage.png";
 import { TextBlock } from "@/app/components/TextBlock";
+import { InteractiveCardList } from "@/app/components/IconCard/InteractiveCard";
 
 
 export default function Surge() {
@@ -39,6 +40,7 @@ export default function Surge() {
             {/* <ImageContainer img={homenew} tag="New Site" caption="this is a caption"/> */}
 
           </div>
+          <InteractiveCardList/>
 
       </main>
     </div>

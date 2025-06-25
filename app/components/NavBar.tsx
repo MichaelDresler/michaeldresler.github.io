@@ -99,9 +99,7 @@ export default function NavBar() {
           height: isOpen ? `${56 * navlinks.length + 56}px` : "2.75rem",
         }}
         className={` ${
-          isOpen
-            ? `rounded-[12px] `
-            : " rounded-[32px]"
+          isOpen ? `rounded-[12px] ` : " rounded-[32px]"
         }   mx-auto   ${
           scrollingDown && "opacity-0 blur-[10px]"
         }   bg-[rgba(60,60,60,0.85)] transition-all duration-400 will-change-auto   mt-4 backdrop-blur-md  overflow-hidden flex flex-col sm:flex-row px-4 sm:px-1  sm:w-fit z-1000 outline-1 outline-[rgb(70,70,70)]`}
@@ -161,16 +159,18 @@ export default function NavBar() {
               >
                 <Link
                   className={`  link font-medium  sm:py-0 sm:px-5 px-0 py-[14px] ${
-                    (pathname === link.url || (link.url === '/#projects' && pathname.startsWith('/projects')))
-    ? 'text-primary'
-    : 'text-primary/60'
+                    pathname === link.url ||
+                    (link.url === "/#projects" &&
+                      pathname.startsWith("/projects"))
+                      ? "text-primary"
+                      : "text-primary/60"
                   }`}
                   href={link.url}
                 >
                   {link.name}
                 </Link>
                 <span
-                  className={`  text-sm absolute pointer-events-none inset-x-[-48px] inset-y-[0px] sm:inset-y-[-8px] sm:inset-x-[0px] ${
+                  className={`   absolute pointer-events-none inset-x-[-48px] inset-y-[0px] sm:inset-y-[-8px] sm:inset-x-[0px] ${
                     pathname === activeHover && "-z-10"
                   }`}
                 >
@@ -183,8 +183,7 @@ export default function NavBar() {
                         duration: 0.5,
                       }}
                       className={` shadow-[0px_0px_2px_2px_rgba(0,0,0,0.09)] bg-white/15 overflow-hidden w-full h-full rounded-full  `}
-                    >
-                    </motion.div>
+                    ></motion.div>
                   )}
                 </span>
               </li>
