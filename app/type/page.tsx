@@ -1,8 +1,6 @@
 "use client";
 
-import { MouseText } from "@/app/components/MouseText";
 import { useEffect, useState } from "react";
-import { RandomText } from "../components/RandomText";
 import { AnimatedText } from "../components/AnimatedText";
 import { Instrument_Serif } from "next/font/google";
 

@@ -1,5 +1,4 @@
 import Image, { StaticImageData } from "next/image";
-import { geistMono } from "../fonts";
 
 type ImageContainerProps = {
   img: StaticImageData;
@@ -21,7 +20,7 @@ export const ImageContainer = ({ img, tag, caption }: ImageContainerProps) => {
 
         <div className="flex flex-row mt-4 gap-4 ">
           <span
-            className={`uppercase w-fit h-fit text-[12px] text-text-secondary leading-[100%] bg-foreground/10 whitespace-nowrap p-2 border-foreground/10 border rounded-sm  ${geistMono.className}`}
+            className={`uppercase w-fit h-fit text-[12px] text-text-secondary leading-[100%] bg-foreground/10 whitespace-nowrap p-2 border-foreground/10 border rounded-sm `}
           >
             {tag}
           </span>

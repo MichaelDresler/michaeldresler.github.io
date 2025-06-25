@@ -1,5 +1,4 @@
-import localFont from "next/font/local";
-import { Inter, Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 
 // export const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",

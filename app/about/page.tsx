@@ -2,7 +2,7 @@ import Image from "next/image";
 import portait from "@/public/aboutme.png";
 import { svgIcons } from "@/app/fonts";
 import { svgIconsInfo } from "@/app/fonts";
-import { Concentrations } from "@/app/fonts";
+// import { Concentrations } from "@/app/fonts";
 
 export default function About() {
   const icons = Object.entries(svgIcons);

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 type AnimatedTextProps = {
   text: string;
@@ -7,13 +7,8 @@ type AnimatedTextProps = {
   textSize: number;
 };
 
-const transition = {
-  duration: 4,
-  ease: [0.37, 0, 0.17, 1],
-};
-
 export const AnimatedText = ({
-  text,
+
   el: Wrapper = "p",
   className,
   textSize,
@@ -21,17 +16,7 @@ export const AnimatedText = ({
   const newBlur = Math.min(textSize / 35, 100);
   console.log(newBlur);
 
-  const defaultAnimations = {
-    hidden: {
-      filter: "blur(200px)",
-      // opacity:0
-    },
 
-    visible: {
-      filter: `blur(100px)`,
-      // opacity:1
-    },
-  };
   console.log(textSize);
 
   return (

@@ -51,18 +51,6 @@ export default function NavBar() {
     }
   };
 
-  const handleScroll = () => {
-    const scrollTop = document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-      // scrolling down
-      setScrollingDown(true);
-    } else {
-      // scrolling up
-      setScrollingDown(false);
-    }
-    setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); // Ensure scroll position is non-negative
-  };
-
   useEffect(() => {
     // Add event listener to handle window resize
     window.addEventListener("resize", handleResize);
@@ -79,6 +67,19 @@ export default function NavBar() {
 
   useEffect(() => {
     setIsOpen(false);
+
+    const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        // scrolling down
+        setScrollingDown(true);
+      } else {
+        // scrolling up
+        setScrollingDown(false);
+      }
+      setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); // Ensure scroll position is non-negative
+    };
+
     // Add event listener to handle window resize
     window.addEventListener("scroll", handleScroll);
 

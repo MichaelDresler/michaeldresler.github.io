@@ -1,4 +1,3 @@
-import { geistMono } from "../fonts";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 

@@ -1,7 +1,5 @@
 import { ProjectHero } from "../../components/ProjectHero";
 import * as surge from "@/content/surgeContent";
-import { ImageContainer } from "@/app/components/ImageContainer";
-
 import homenew from "/public/webpage.png";
 import { TextBlock } from "@/app/components/TextBlock";
 import { InteractiveCardList } from "@/app/components/IconCard/InteractiveCard";

@@ -1,14 +1,9 @@
 import { ProjectHero } from "../../components/ProjectHero";
 import * as bytebot from "@/content/bytebotContent";
 import Image from "next/image";
-import { ImageContainer } from "@/app/components/ImageContainer";
-import img1 from "@/public/bytebot0.png";
-import img2 from "@/public/bytebot1.png";
-
 import homenew from "/public/bytebot.png";
 import { TextBlock } from "@/app/components/TextBlock";
 import { FigureCaption } from "@/app/components/FigureCaption";
-import { div } from "framer-motion/client";
 import { TextSquare } from "@/app/components/TextSquare";
 import Table from "@/app/components/Table";
 import CarTable from "@/app/components/CarTable";

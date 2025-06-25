@@ -1,15 +1,12 @@
 "use client";
 import Image from "next/image";
-import { animate, motion } from "framer-motion";
-import { Thumbnail } from "./components/Thumbnail";
-import surge from "@/public/surge.png";
-import test from "@/public/webpage.png";
-import bytebot from "@/public/bytebot.png";
+import { motion } from "framer-motion";
+
+
 import portait from "@/public/aboutme.png";
 import { useEffect } from "react";
 import BytebotSVG from "./components/bytebot";
 import GuardianSVG from "./components/gaurdian";
-import { image } from "d3";
 import { Thumbnail1 } from "./components/Thumbnail1";
 
 //  Michael Dresler — <br /> Designer & Developer Based in Vancouver
