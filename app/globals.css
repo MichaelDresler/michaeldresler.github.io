@@ -117,6 +117,13 @@
     max-inline-size: 100% 
 
   }
+  .breakout {
+    --breakout-max-width: 1920px;
+    max-inline-size: none;
+    padding-inline:  clamp(1rem, 4vw, 4rem);
+    width: min(100vw, var(--breakout-max-width));
+    margin-inline: calc(50% - min(50vw, calc(var(--breakout-max-width) / 2)));
+  }
 
   .fade-in {
     --fade-amount: 10%;
