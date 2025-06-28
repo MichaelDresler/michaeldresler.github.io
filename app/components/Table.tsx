@@ -1,6 +1,6 @@
 export default function Table() {
   return (
-    <div className="md:col-start-2 lg:col-start-2 lg:col-span-2 bg-black/5  col-span-full border border-primary  rounded-lg overflow-hidden text-base w-full ">
+    <div className="md:col-start-2 lg:col-start-2 lg:col-span-2 bg-[#0E0E0E]  col-span-full border border-primary  rounded-lg overflow-hidden text-base w-full ">
       <table className=" w-full border-collapse">
         <tbody>
           <tr className="border-b border-primary bg-white/10 text-primary ">

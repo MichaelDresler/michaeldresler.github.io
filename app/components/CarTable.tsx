@@ -1,6 +1,6 @@
 export default function CarTable() {
   return (
-    <div className=" border border-primary  bg-black/5  rounded-lg overflow-hidden text-base w-full">
+    <div className=" border border-primary  bg-[#0E0E0E]  rounded-lg overflow-hidden text-base w-full">
       <table className=" w-full border-collapse  ">
         <tbody>
           <tr className="border-b border-primary bg-white/10 text-primary ">

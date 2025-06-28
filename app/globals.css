@@ -107,7 +107,7 @@
     max-inline-size: min(calc(100% - 48px), 68rem);
   }
   .constrain > .medium-content {
-    max-inline-size: 80%;
+   max-inline-size: min(calc(100% - 48px),100rem);
   }
 
   .constrain > .full-content {
@@ -118,11 +118,12 @@
 
   }
   .breakout {
-    --breakout-max-width: 1920px;
+    --breakout-max-width: 99vw;
     max-inline-size: none;
-    padding-inline:  clamp(1rem, 4vw, 4rem);
-    width: min(100vw, var(--breakout-max-width));
+    /* padding-inline:  clamp(1rem, 4vw, 4rem); */
+    width: min(99.4vw, var(--breakout-max-width));
     margin-inline: calc(50% - min(50vw, calc(var(--breakout-max-width) / 2)));
+    /* margin-inline: 50%; */
   }
 
   .fade-in {

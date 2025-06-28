@@ -1,14 +1,14 @@
 import { ProjectHero } from "../../components/ProjectHero";
 import * as bytebot from "@/content/bytebotContent";
-import Image from "next/image";
 import homenew from "/public/bytebot.png";
 import { TextBlock } from "@/app/components/TextBlock";
 import { FigureCaption } from "@/app/components/FigureCaption";
 import { TextSquare } from "@/app/components/TextSquare";
 import Table from "@/app/components/Table";
 import CarTable from "@/app/components/CarTable";
-import gradient from "@/public/gradient.png";
 import Flow from "@/public/flow.svg";
+import WiringDiagram from "@/public/wiring-diagram.svg";
+import CarAnimation from "@/app/components/caranimation";
 
 export default function Bytebot() {
   return (
@@ -24,17 +24,21 @@ export default function Bytebot() {
         about={bytebot.heroContent.about}
       />
 
-      <section className="full-content rounded-2xl aspect-[1.4519/1] h-screen flex gap-2 w-auto py-6 overflow-hidden">
-        <div className="bg-white/5 border border-white/10 p-20 aspect-[9/16] w-auto h-full rounded-2xl   ">
-          {/* <Image src={img1} alt="" className="rounded-2xl h-full" /> */}
-        </div>
-
-        <div className=" h-full w-full rounded-2xl flex flex-col gap-2">
-          <div className="bg-white/5 border border-white/10 p-20  w-full h-full rounded-2xl overflow-hidden">
-            {/* <Image src={img2} alt="" className="rounded-2xl w-full h-full object-cover" /> */}
+      <section className="medium-content w-full flex flex-col lg:flex-row gap-2 ">
+        <div className="h-full w-full flex flex-col lg:flex-row gap-2">
+          {/* Vertical video - left side on desktop, top on mobile - 50% width on desktop */}
+          <div className="bg-[#0E0E0E] border border-white/10 p-8 rounded-2xl h-[80%] aspect-[9/16] lg:h-full lg:w-2/5">
+            <CarAnimation />
           </div>
-          <div className="bg-white/5 border border-white/10 p-20  w-full h-full  rounded-2xl overflow-hidden">
-            {/* <Image src={img2} alt="" className="rounded-2xl w-full h-full object-cover" /> */}
+
+          {/* Horizontal videos container - right side on desktop, bottom on mobile - 50% width on desktop */}
+          <div className="lg:w-3/5 flex flex-col gap-2">
+            <div className="bg-[#0E0E0E] border border-white/10 p-20 rounded-2xl flex-1 min-h-64 overflow-hidden">
+              <WiringDiagram />
+            </div>
+            <div className="bg-[#0E0E0E] border border-white/10 p-20 rounded-2xl flex-1 min-h-64 overflow-hidden">
+              <WiringDiagram />
+            </div>
           </div>
         </div>
       </section>
@@ -47,63 +51,14 @@ export default function Bytebot() {
           text="I took on multiple roles throughout the project, from early design sketches to hands-on assembly. Here's how my contributions broke down across each phase:"
         />
         <div className="flex flex-col md:flex-row w-full md:justify-between gap-8">
-          <TextSquare
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                className="size-9 stroke-white/60"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                />
-              </svg>
-            }
-            heading="Design & Planning"
-            text="Sketched the prototype, selected sensors, and defined dimensions and form. Planned how components would fit and function together."
-          />
-          <TextSquare
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                className="size-9 stroke-white/60"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
-                />
-              </svg>
-            }
-            heading="Arduino Development"
-            text="Wrote Arduino code to handle sensor input and wireless communication. Created wiring diagrams to map out the circuit logic"
-          />
-          <TextSquare
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                className="size-9 stroke-white/60"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
-                />
-              </svg>
-            }
-            heading="Hardware Assembly"
-            text="Assembled the physical prototype, integrating components and troubleshooting hardware to match the planned design."
-          />
+          {bytebot.steps.map((step, index) => (
+            <TextSquare
+              key={index}
+              icon={step.icon}
+              heading={step.heading}
+              text={step.text}
+            />
+          ))}
         </div>
       </section>
 
@@ -147,6 +102,7 @@ export default function Bytebot() {
           />
         </div>
       </section>
+
       <section className="pb-10">
         <TextBlock
           className="mb-14 pt-10 border-t border-primary"
@@ -156,8 +112,8 @@ export default function Bytebot() {
         />
         <div className="flex flex-col gap-25 ">
           <FigureCaption
-          breakout={true}
-            media={<Flow className="w-full"/>}
+            breakout={true}
+            media={<Flow className="2xl:max-w-[70%] mx-auto" />}
             heading="Mapping Interaction Flow"
             text="To better understand the technical requirements, I created an interaction flow. This helped define how the system would respond to user inputs and guided the selection of necessary components."
           />
@@ -180,6 +136,75 @@ export default function Bytebot() {
         </div>
       </section>
 
+      <section className="pb-10">
+        <TextBlock
+          className="mb-14 pt-10 border-t border-primary"
+          heading="Limited pins to work with"
+          subheading="Challenge"
+          text="After breaking down the requirements, I was left with only 8 pins for the block logic. I was going to have to figure out how I could allow each slot to send one of three commands: forwards, left, or right while not interfering with the inputs from other slots"
+        />
+        <div className="flex flex-col gap-25 ">
+          <FigureCaption
+            media={<WiringDiagram className="w-full" />}
+            heading="Debugging signal interference"
+            text="I started by imagining a system where each direction was mapped to a single Arduino pin. The challenge with this approach was figuring out how to check each slot individually without interference. Since each slot shared the same output, I needed a way to detect each slots individual output without signals from the others affecting the reading."
+          />
+
+          <FigureCaption
+            media={
+              <video
+                src="/flow.mp4"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+              />
+            }
+            frame={false}
+            heading="Isolating input readings"
+            text="To reliably detect which slot was active without signal interference from others, I implemented a sequential scanning approach in the Arduino code. Initially, all slots are set to an inactive state. Then, I cycle through each slot one at a time, temporarily activating a slot, reading and storing its input state, and then deactivating it before moving to the next."
+          />
+        </div>
+      </section>
+      <section>
+        <TextBlock
+          className="mb-14 pt-10 border-t border-primary"
+          heading="Sketching and dimensioning"
+          subheading="Challenge"
+          text="Before I began building, I made it a priority to establish clear measurements and plan everything out on paper. In the past, I’ve jumped into physical builds too quickly and ended up running into avoidable issues. This time, I wanted assembly to feel less like problem-solving and more like following a well-thought-out set of instructions."
+        />
+        {/* <FigureCaption
+            media={
+              <div className="px-64 ">
+            <CarAnimation />
+              </div>
+
+            }
+            breakout={true}
+            heading="Isolating input readings"
+            text="To reliably detect which slot was active without signal interference from others, I implemented a sequential scanning approach in the Arduino code. Initially, all slots are set to an inactive state. Then, I cycle through each slot one at a time, temporarily activating a slot, reading and storing its input state, and then deactivating it before moving to the next."
+          /> */}
+      </section>
+      <section className="medium-content w-full flex flex-col lg:flex-row gap-2 ">
+        <div className="h-full w-full flex flex-col lg:flex-row gap-2">
+          {/* Vertical video - left side on desktop, top on mobile - 50% width on desktop */}
+          <div className="bg-[#0E0E0E] border border-white/10 p-8 rounded-2xl h-[80%] aspect-[9/16] lg:h-full lg:w-2/5">
+            <CarAnimation />
+          </div>
+
+          {/* Horizontal videos container - right side on desktop, bottom on mobile - 50% width on desktop */}
+          <div className="lg:w-3/5 flex flex-col gap-2">
+            <div className="bg-[#0E0E0E] border border-white/10 rounded-2xl flex-1 min-h-64 overflow-hidden">
+              <WiringDiagram className="h-full mx-auto" />
+            </div>
+            <div className="bg-[#0E0E0E] border border-white/10 p-20 rounded-2xl flex-1 min-h-64 overflow-hidden">
+              <WiringDiagram />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

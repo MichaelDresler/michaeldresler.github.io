@@ -14,9 +14,9 @@ export const FigureCaption = ({
   breakout = false, // default to false
 }: FigureCaptionProps) => {
   return (
-    <figure className={ ` flex flex-col gap-4 ${breakout ? 'breakout' : ''}`} >
+    <figure className={ ` flex flex-col gap-4 `} >
       {frame ? (
-        <div className={` overflow-hidden rounded-2xl border border-[#252525]`}>
+        <div className={` overflow-hidden  ${breakout ? 'breakout bg-[radial-gradient(70.22%_74.19%_at_50%_41.79%,#1F1F1F_0%,#141414_52.02%,#0D0D0D_88.46%)] ' : 'border rounded-2xl '} border-[#252525] bg-[hsl(0,0%,5%)]`}>
           {media}
         </div>
       ) : (
@@ -24,7 +24,7 @@ export const FigureCaption = ({
           {media}
         </div>
       )}
-      <figcaption className="max-w-[68rem] mx-auto">
+      <figcaption className=" mx-auto">
         <h3 className="font-medium text-[1.75rem] leading-[200%] text-primary tracking-[-0.03em]">
           {heading}
         </h3>
