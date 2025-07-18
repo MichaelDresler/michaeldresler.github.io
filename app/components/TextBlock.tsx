@@ -18,7 +18,7 @@ export const TextBlock = ({
             {subheading}
           </span>
         )}
-        <h3 className="font-medium text-[2.25rem] leading-[110%] text-primary tracking-[-0.01em]">
+        <h3 className="font-medium text-2xl leading-[110%] text-primary tracking-[-0.01em]">
           {heading}
         </h3>
         <p className="text-secondary font-normal text-base">{text}</p>

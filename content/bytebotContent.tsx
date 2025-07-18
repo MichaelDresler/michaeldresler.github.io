@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image";
 // import images here, also makes it easier for the next Image component
 
 export const heroContent = {
-  title: "ByteBot",
+  title: "Bytebot",
   subtitle: "Arduino Interaction project",
   deliverable: "Arduino prototype",
   year: "2023",

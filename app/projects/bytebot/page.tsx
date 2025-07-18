@@ -7,6 +7,8 @@ import { TextSquare } from "@/app/components/TextSquare";
 import Table from "@/app/components/Table";
 import CarTable from "@/app/components/CarTable";
 import Flow from "@/public/flow.svg";
+import Blockdimensions from "@/public/block-dimensions.svg";
+import Consoledimensions from "@/public/console-dimensions.svg";
 import WiringDiagram from "@/public/wiring-diagram.svg";
 import CarAnimation from "@/app/components/caranimation";
 
@@ -196,11 +198,11 @@ export default function Bytebot() {
 
           {/* Horizontal videos container - right side on desktop, bottom on mobile - 50% width on desktop */}
           <div className="lg:w-3/5 flex flex-col gap-2">
-            <div className="bg-[#0E0E0E] border border-white/10 rounded-2xl flex-1 min-h-64 overflow-hidden">
-              <WiringDiagram className="h-full mx-auto" />
+            <div className="bg-[#0E0E0E] border border-white/10 rounded-2xl flex-1 overflow-hidden">
+              <Blockdimensions className="h-full" />
             </div>
-            <div className="bg-[#0E0E0E] border border-white/10 p-20 rounded-2xl flex-1 min-h-64 overflow-hidden">
-              <WiringDiagram />
+            <div className="bg-[#0E0E0E] border border-white/10 rounded-2xl flex-1 overflow-hidden">
+              <Consoledimensions  />
             </div>
           </div>
         </div>
