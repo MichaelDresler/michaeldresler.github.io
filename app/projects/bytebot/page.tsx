@@ -64,9 +64,9 @@ export default function Bytebot() {
         </div>
       </section>
 
-      <section className="py-20 border-t border-primary">
+      <section >
         <TextBlock
-          className="mb-14"
+          className="py-56 border-t border-primary"
           heading="Exploring Modularity options"
           subheading="Exploration & Iteration"
           text="During the research phase, our team got excited about the idea of using physical blocks as modular inputs and began exploring ways to detect different placements. We were particularly interested in how tangible interactions could enhance engagement, and brainstormed various low-cost methods to distinguish between block types such as weight, shape, or embedded patterns"

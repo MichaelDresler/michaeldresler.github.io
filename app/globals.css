@@ -11,40 +11,49 @@
 
   --border-color-primary: var(--border-primary);
 
-  --text-xs: 0.75rem;
-  --text-xs--line-height: 100%;
-  --text-xs--letter-spacing: ;
-  --text-s: 1rem;
-  --text-s: 1rem;
-  --text-s--line-height: 100%;
-  --text-s--letter-spacing: ;
-  --text-base: 1rem;
-  /* --text-base: 1.125rem; */
+   /* Base font size: 1rem (16px) */
+  --text-base: 16px;
   --text-base--line-height: 150%;
   --text-base--letter-spacing: ;
-  --text-lg: 1.5rem;
+
+  /* Other sizes relative to base (in ems) */
+  --text-xs: 0.75em;
+  --text-xs--line-height: 100%;
+  --text-xs--letter-spacing: ;
+
+  --text-s: 1em; /* same as base initially */
+  --text-s--line-height: 100%;
+  --text-s--letter-spacing: ;
+
+  --text-lg: 1.5em;
   --text-lg--line-height: 150%;
   --text-lg--letter-spacing: ;
-  --text-xl: 1.75rem;
+
+  --text-xl: 1.75em;
   --text-xl--line-height: 125%;
   --text-xl--letter-spacing: ;
-  --text-2xl: 2rem;
+
+  --text-2xl: 2em;
   --text-2xl--line-height: 125%;
   --text-2xl--letter-spacing: ;
-  --text-3xl: 2.5rem;
+
+  --text-3xl: 2.5em;
   --text-3xl--line-height: 125%;
   --text-3xl--letter-spacing: ;
-  --text-4xl: 3.25rem;
+
+  --text-4xl: 3.25em;
   --text-4xl--line-height: 112.5%;
   --text-4xl--letter-spacing: ;
-  --text-5xl: 4rem;
+
+  --text-5xl: 4em;
   --text-5xl--line-height: 112.5%;
   --text-5xl--letter-spacing: ;
-  --text-6xl: 4.5rem;
+
+  --text-6xl: 4.5em;
   --text-6xl--line-height: 112.5%;
   --text-6xl--letter-spacing: ;
-  --text-7xl: 5rem;
-  --text-7xl: 5rem;
+
+  --text-7xl: 5em;
   --text-7xl--line-height: 112.5%;
   --text-7xl--letter-spacing: ;
 }
@@ -64,6 +73,12 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@media (min-width: 1920px) {
+  @theme {
+    --text-base: 18px; /* 18px */
   }
 }
 
@@ -162,6 +177,9 @@
     --foreground: #ededed;
   }
 } */
+ html {
+  font-size: var(--text-base);
+}
 
   body {
     background: rgb(var(--surface));

@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
 import OpenIcon from "@/public/icons/open-stack.svg";
 import ClosedIcon from "@/public/icons/closed-stack.svg";
+import anime from "@/public/BOT_colour.json";
 
 const Lottie = dynamic(() => import("lottie-react"), {
   ssr: false,
@@ -10,7 +11,7 @@ const Lottie = dynamic(() => import("lottie-react"), {
 
 import { LottieRefCurrentProps } from "lottie-react";
 
-import anime from "@/public/caranimation.json";
+
 
 export default function CarAnimation() {
   const phoneRef = useRef<LottieRefCurrentProps>(null);
@@ -76,7 +77,7 @@ export default function CarAnimation() {
 
       
       <Lottie
-        className={` mx-auto h-full contrast-90 invert pt-12   `}
+        className={` mx-auto h-full  pt-12   `}
         lottieRef={phoneRef}
         loop={false}
         autoplay={false}

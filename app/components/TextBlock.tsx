@@ -12,7 +12,7 @@ export const TextBlock = ({
 }: TextBlockProps) => {
   return (
     <>
-      <div className={` ${className} flex flex-col gap-4  `}>
+      <div className={` ${className} flex flex-col gap-4   `}>
         {subheading && (
           <span className="text-sm uppercase tracking-[2px] leading-[100%] text-secondary/70 font-normal">
             {subheading}
